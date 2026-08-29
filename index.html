@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="theme-color"
+    content="#0b0d10"
+>
+
+<title>RC Red de Servicios | Todo lo que necesitás en un solo lugar</title>
+
+<meta
+    name="description"
+    content="Conocé nuestras soluciones de entretenimiento, seguridad y servicios para tu hogar y familia."
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+    /* ==================================================
+       RESET
+    ================================================== */
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    :root {
+
+        --background: #080a0d;
+
+        --surface: #101318;
+
+        --surface-light: #171b22;
+
+        --border: rgba(255,255,255,.09);
+
+        --text: #ffffff;
+
+        --muted: #9ba3af;
+
+        --green: #19c463;
+
+        --green-dark: #0f9b4b;
+
+        --blue: #287cff;
+
+        --red: #e31b23;
+
+        --radius: 24px;
+
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+
+        font-family:
+            "Inter",
+            Arial,
+            sans-serif;
+
+        background:
+            var(--background);
+
+        color:
+            var(--text);
+
+        min-height:
+            100vh;
+
+        overflow-x:
+            hidden;
+
+    }
+
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+
+    button {
+        font-family: inherit;
+    }
+
+
+    /* ==================================================
+       HEADER
+    ================================================== */
+
+    header {
+
+        position:
+            fixed;
+
+        top:
+            0;
+
+        left:
+            0;
+
+        right:
+            0;
+
+        z-index:
+            1000;
+
+        background:
+            rgba(8,10,13,.78);
+
+        backdrop-filter:
+            blur(18px);
+
+        -webkit-backdrop-filter:
+            blur(18px);
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.06);
+
+    }
+
+
+    .header-inner {
+
+        max-width:
+            1250px;
+
+        margin:
+            auto;
+
+        height:
+            76px;
+
+        padding:
+            0 24px;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            space-between;
+
+    }
+
+
+    .logo {
+
+        font-size:
+            17px;
+
+        font-weight:
+            800;
+
+        letter-spacing:
+            -.4px;
+
+    }
+
+
+    .logo span {
+
+        color:
+            var(--green);
+
+    }
+
+
+    nav {
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        gap:
+            30px;
+
+    }
+
+
+    nav a {
+
+        color:
+            #b9c0ca;
+
+        font-size:
+            13px;
+
+        font-weight:
+            600;
+
+        transition:
+            .2s ease;
+
+    }
+
+
+    nav a:hover {
+
+        color:
+            white;
+
+    }
+
+
+    .header-whatsapp {
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        gap:
+            8px;
+
+        background:
+            var(--green);
+
+        color:
+            white;
+
+        padding:
+            11px 16px;
+
+        border-radius:
+            10px;
+
+        font-size:
+            12px;
+
+        font-weight:
+            800;
+
+        transition:
+            .2s ease;
+
+    }
+
+
+    .header-whatsapp:hover {
+
+        background:
+            var(--green-dark);
+
+        transform:
+            translateY(-1px);
+
+    }
+
+
+    /* ==================================================
+       HERO
+    ================================================== */
+
+    .hero {
+
+        min-height:
+            100vh;
+
+        position:
+            relative;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        overflow:
+            hidden;
+
+        padding:
+            130px 24px 80px;
+
+        background:
+
+            radial-gradient(
+                circle at 50% 35%,
+                rgba(25,196,99,.13),
+                transparent 32%
+            ),
+
+            radial-gradient(
+                circle at 80% 80%,
+                rgba(40,124,255,.08),
+                transparent 30%
+            );
+
+    }
+
+
+    .hero::before {
+
+        content:
+            "";
+
+        position:
+            absolute;
+
+        width:
+            650px;
+
+        height:
+            650px;
+
+        border-radius:
+            50%;
+
+        background:
+            rgba(25,196,99,.04);
+
+        filter:
+            blur(80px);
+
+        pointer-events:
+            none;
+
+    }
+
+
+    .hero-content {
+
+        position:
+            relative;
+
+        z-index:
+            2;
+
+        max-width:
+            900px;
+
+        text-align:
+            center;
+
+    }
+
+
+    .hero-badge {
+
+        display:
+            inline-flex;
+
+        align-items:
+            center;
+
+        gap:
+            8px;
+
+        padding:
+            8px 13px;
+
+        border:
+            1px solid
+            rgba(25,196,99,.25);
+
+        background:
+            rgba(25,196,99,.07);
+
+        border-radius:
+            999px;
+
+        color:
+            #66e39a;
+
+        font-size:
+            11px;
+
+        font-weight:
+            700;
+
+        letter-spacing:
+            .5px;
+
+        margin-bottom:
+            24px;
+
+    }
+
+
+    .hero-badge-dot {
+
+        width:
+            7px;
+
+        height:
+            7px;
+
+        background:
+            var(--green);
+
+        border-radius:
+            50%;
+
+        box-shadow:
+            0 0 12px
+            var(--green);
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            clamp(
+                42px,
+                7vw,
+                82px
+            );
+
+        line-height:
+            1.02;
+
+        letter-spacing:
+            -4px;
+
+        font-weight:
+            800;
+
+    }
+
+
+    .hero h1 span {
+
+        color:
+            var(--green);
+
+    }
+
+
+    .hero-description {
+
+        max-width:
+            650px;
+
+        margin:
+            25px auto 0;
+
+        color:
+            var(--muted);
+
+        font-size:
+            17px;
+
+        line-height:
+            1.7;
+
+    }
+
+
+    .hero-actions {
+
+        display:
+            flex;
+
+        justify-content:
+            center;
+
+        gap:
+            12px;
+
+        margin-top:
+            35px;
+
+        flex-wrap:
+            wrap;
+
+    }
+
+
+    .primary-button,
+    .secondary-button {
+
+        display:
+            inline-flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        padding:
+            15px 22px;
+
+        border-radius:
+            12px;
+
+        font-size:
+            13px;
+
+        font-weight:
+            800;
+
+        transition:
+            .2s ease;
+
+    }
+
+
+    .primary-button {
+
+        background:
+            var(--green);
+
+        color:
+            white;
+
+    }
+
+
+    .primary-button:hover {
+
+        background:
+            var(--green-dark);
+
+        transform:
+            translateY(-2px);
+
+    }
+
+
+    .secondary-button {
+
+        border:
+            1px solid
+            var(--border);
+
+        background:
+            rgba(255,255,255,.03);
+
+        color:
+            white;
+
+    }
+
+
+    .secondary-button:hover {
+
+        background:
+            rgba(255,255,255,.07);
+
+        transform:
+            translateY(-2px);
+
+    }
+
+
+    /* ==================================================
+       SERVICIOS
+    ================================================== */
+
+    .services {
+
+        max-width:
+            1250px;
+
+        margin:
+            auto;
+
+        padding:
+            100px 24px;
+
+    }
+
+
+    .section-header {
+
+        text-align:
+            center;
+
+        max-width:
+            700px;
+
+        margin:
+            0 auto 55px;
+
+    }
+
+
+    .section-label {
+
+        color:
+            var(--green);
+
+        font-size:
+            11px;
+
+        font-weight:
+            800;
+
+        letter-spacing:
+            1.5px;
+
+        margin-bottom:
+            13px;
+
+    }
+
+
+    .section-header h2 {
+
+        font-size:
+            clamp(
+                32px,
+                5vw,
+                52px
+            );
+
+        letter-spacing:
+            -2px;
+
+        line-height:
+            1.05;
+
+    }
+
+
+    .section-header p {
+
+        color:
+            var(--muted);
+
+        margin-top:
+            15px;
+
+        line-height:
+            1.7;
+
+        font-size:
+            15px;
+
+    }
+
+
+    .services-grid {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+
+        gap:
+            20px;
+
+    }
+
+
+    .service-card {
+
+        position:
+            relative;
+
+        min-height:
+            430px;
+
+        padding:
+            30px;
+
+        border:
+            1px solid
+            var(--border);
+
+        border-radius:
+            var(--radius);
+
+        overflow:
+            hidden;
+
+        background:
+            linear-gradient(
+                145deg,
+                #12161c,
+                #0d1014
+            );
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        justify-content:
+            flex-end;
+
+        transition:
+            .3s ease;
+
+    }
+
+
+    .service-card:hover {
+
+        transform:
+            translateY(-7px);
+
+        border-color:
+            rgba(255,255,255,.17);
+
+    }
+
+
+    .service-card::before {
+
+        content:
+            "";
+
+        position:
+            absolute;
+
+        width:
+            260px;
+
+        height:
+            260px;
+
+        border-radius:
+            50%;
+
+        top:
+            -80px;
+
+        right:
+            -70px;
+
+        background:
+            rgba(25,196,99,.08);
+
+        filter:
+            blur(30px);
+
+    }
+
+
+    .service-icon {
+
+        position:
+            absolute;
+
+        top:
+            30px;
+
+        left:
+            30px;
+
+        width:
+            56px;
+
+        height:
+            56px;
+
+        border-radius:
+            17px;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        font-size:
+            27px;
+
+        background:
+            rgba(255,255,255,.06);
+
+        border:
+            1px solid
+            rgba(255,255,255,.08);
+
+    }
+
+
+    .service-content {
+
+        position:
+            relative;
+
+        z-index:
+            2;
+
+    }
+
+
+    .service-tag {
+
+        display:
+            inline-block;
+
+        font-size:
+            10px;
+
+        font-weight:
+            800;
+
+        letter-spacing:
+            1px;
+
+        color:
+            var(--green);
+
+        margin-bottom:
+            10px;
+
+    }
+
+
+    .service-card h3 {
+
+        font-size:
+            29px;
+
+        letter-spacing:
+            -1px;
+
+        margin-bottom:
+            10px;
+
+    }
+
+
+    .service-card p {
+
+        color:
+            var(--muted);
+
+        font-size:
+            14px;
+
+        line-height:
+            1.6;
+
+        max-width:
+            330px;
+
+    }
+
+
+    .service-link {
+
+        display:
+            inline-flex;
+
+        align-items:
+            center;
+
+        gap:
+            8px;
+
+        margin-top:
+            22px;
+
+        font-size:
+            13px;
+
+        font-weight:
+            800;
+
+    }
+
+
+    .service-link span {
+
+        transition:
+            .2s ease;
+
+    }
+
+
+    .service-card:hover
+    .service-link span {
+
+        transform:
+            translateX(5px);
+
+    }
+
+
+    /* ==================================================
+       ADT FEATURE
+    ================================================== */
+
+    .adt-section {
+
+        max-width:
+            1250px;
+
+        margin:
+            auto;
+
+        padding:
+            20px 24px 110px;
+
+    }
+
+
+    .adt-banner {
+
+        position:
+            relative;
+
+        overflow:
+            hidden;
+
+        border:
+            1px solid
+            var(--border);
+
+        border-radius:
+            30px;
+
+        padding:
+            55px;
+
+        background:
+            linear-gradient(
+                120deg,
+                #11161c,
+                #0b1014
+            );
+
+    }
+
+
+    .adt-banner::after {
+
+        content:
+            "";
+
+        position:
+            absolute;
+
+        width:
+            400px;
+
+        height:
+            400px;
+
+        border-radius:
+            50%;
+
+        right:
+            -130px;
+
+        top:
+            -150px;
+
+        background:
+            rgba(25,196,99,.09);
+
+        filter:
+            blur(40px);
+
+    }
+
+
+    .adt-banner-content {
+
+        position:
+            relative;
+
+        z-index:
+            2;
+
+        max-width:
+            650px;
+
+    }
+
+
+    .adt-banner .section-label {
+
+        margin-bottom:
+            12px;
+
+    }
+
+
+    .adt-banner h2 {
+
+        font-size:
+            clamp(
+                32px,
+                5vw,
+                58px
+            );
+
+        letter-spacing:
+            -2.5px;
+
+        line-height:
+            1.05;
+
+    }
+
+
+    .adt-banner p {
+
+        color:
+            var(--muted);
+
+        line-height:
+            1.7;
+
+        margin-top:
+            18px;
+
+        max-width:
+            580px;
+
+    }
+
+
+    .adt-banner-button {
+
+        display:
+            inline-flex;
+
+        margin-top:
+            28px;
+
+        padding:
+            14px 20px;
+
+        background:
+            white;
+
+        color:
+            #080a0d;
+
+        border-radius:
+            11px;
+
+        font-size:
+            13px;
+
+        font-weight:
+            800;
+
+        transition:
+            .2s ease;
+
+    }
+
+
+    .adt-banner-button:hover {
+
+        transform:
+            translateY(-2px);
+
+    }
+
+
+    /* ==================================================
+       CONFIANZA
+    ================================================== */
+
+    .trust {
+
+        border-top:
+            1px solid
+            var(--border);
+
+        border-bottom:
+            1px solid
+            var(--border);
+
+        background:
+            #0b0e12;
+
+    }
+
+
+    .trust-inner {
+
+        max-width:
+            900px;
+
+        margin:
+            auto;
+
+        padding:
+            65px 24px;
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+
+        gap:
+            25px;
+
+        text-align:
+            center;
+
+    }
+
+
+    .trust-item strong {
+
+        display:
+            block;
+
+        font-size:
+            27px;
+
+        margin-bottom:
+            7px;
+
+    }
+
+
+    .trust-item span {
+
+        color:
+            var(--muted);
+
+        font-size:
+            12px;
+
+    }
+
+
+    /* ==================================================
+       CTA
+    ================================================== */
+
+    .cta {
+
+        max-width:
+            900px;
+
+        margin:
+            auto;
+
+        padding:
+            120px 24px;
+
+        text-align:
+            center;
+
+    }
+
+
+    .cta h2 {
+
+        font-size:
+            clamp(
+                35px,
+                6vw,
+                58px
+            );
+
+        line-height:
+            1.05;
+
+        letter-spacing:
+            -2.5px;
+
+    }
+
+
+    .cta p {
+
+        color:
+            var(--muted);
+
+        margin:
+            18px auto 0;
+
+        max-width:
+            550px;
+
+        line-height:
+            1.7;
+
+    }
+
+
+    .cta-button {
+
+        display:
+            inline-flex;
+
+        margin-top:
+            30px;
+
+        align-items:
+            center;
+
+        gap:
+            9px;
+
+        padding:
+            16px 25px;
+
+        background:
+            var(--green);
+
+        border-radius:
+            12px;
+
+        font-size:
+            13px;
+
+        font-weight:
+            800;
+
+        transition:
+            .2s ease;
+
+    }
+
+
+    .cta-button:hover {
+
+        background:
+            var(--green-dark);
+
+        transform:
+            translateY(-2px);
+
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    footer {
+
+        border-top:
+            1px solid
+            var(--border);
+
+        background:
+            #07090b;
+
+    }
+
+
+    .footer-inner {
+
+        max-width:
+            1250px;
+
+        margin:
+            auto;
+
+        padding:
+            35px 24px;
+
+        display:
+            flex;
+
+        justify-content:
+            space-between;
+
+        align-items:
+            center;
+
+        gap:
+            20px;
+
+    }
+
+
+    .footer-brand {
+
+        font-size:
+            14px;
+
+        font-weight:
+            800;
+
+    }
+
+
+    .footer-brand span {
+
+        color:
+            var(--green);
+
+    }
+
+
+    .footer-copy {
+
+        color:
+            #69717d;
+
+        font-size:
+            11px;
+
+    }
+
+
+    .footer-links {
+
+        display:
+            flex;
+
+        gap:
+            18px;
+
+    }
+
+
+    .footer-links a {
+
+        color:
+            #8a929e;
+
+        font-size:
+            11px;
+
+    }
+
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media (
+        max-width: 850px
+    ) {
+
+        nav {
+            display:
+                none;
+        }
+
+
+        .services-grid {
+
+            grid-template-columns:
+                1fr;
+
+        }
+
+
+        .service-card {
+
+            min-height:
+                350px;
+
+        }
+
+
+        .adt-banner {
+
+            padding:
+                35px 25px;
+
+        }
+
+    }
+
+
+    @media (
+        max-width: 600px
+    ) {
+
+        .header-inner {
+
+            height:
+                68px;
+
+            padding:
+                0 18px;
+
+        }
+
+
+        .header-whatsapp {
+
+            padding:
+                10px 12px;
+
+        }
+
+
+        .hero {
+
+            padding:
+                120px 18px 70px;
+
+        }
+
+
+        .hero h1 {
+
+            letter-spacing:
+                -2.5px;
+
+        }
+
+
+        .hero-description {
+
+            font-size:
+                15px;
+
+        }
+
+
+        .services {
+
+            padding:
+                75px 18px;
+
+        }
+
+
+        .adt-section {
+
+            padding:
+                0 18px 75px;
+
+        }
+
+
+        .adt-banner {
+
+            border-radius:
+                23px;
+
+        }
+
+
+        .trust-inner {
+
+            grid-template-columns:
+                1fr;
+
+            padding:
+                50px 24px;
+
+        }
+
+
+        .cta {
+
+            padding:
+                85px 20px;
+
+        }
+
+
+        .footer-inner {
+
+            flex-direction:
+                column;
+
+            text-align:
+                center;
+
+        }
+
+
+        .footer-links {
+
+            justify-content:
+                center;
+
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+<!-- ======================================================
+     HEADER
+======================================================= -->
+
+<header>
+
+```
+<div class="header-inner">
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+        RC <span>RED DE SERVICIOS</span>
+    </a>
+
+
+    <nav>
+
+        <a href="#inicio">
+            Inicio
+        </a>
+
+        <a href="#servicios">
+            Servicios
+        </a>
+
+        <a href="#contacto">
+            Contacto
+        </a>
+
+    </nav>
+
+
+    <a
+        href="https://wa.me/5493585042057?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="header-whatsapp"
+    >
+        💬 WhatsApp
+    </a>
+
+</div>
+```
+
+</header>
+
+<!-- ======================================================
+     HERO
+======================================================= -->
+
+<section
+    id="inicio"
+    class="hero"
+>
+
+```
+<div class="hero-content">
+
+    <div class="hero-badge">
+
+        <span class="hero-badge-dot"></span>
+
+        SOLUCIONES PARA VOS Y TU FAMILIA
+
+    </div>
+
+
+    <h1>
+
+        Todo lo que necesitás,
+        <span>
+            en un solo lugar.
+        </span>
+
+    </h1>
+
+
+    <p class="hero-description">
+
+        Entretenimiento, seguridad y servicios
+        pensados para tu hogar. Elegí lo que
+        necesitás y conocé nuestras opciones.
+
+    </p>
+
+
+    <div class="hero-actions">
+
+        <a
+            href="#servicios"
+            class="primary-button"
+        >
+            Ver servicios →
+        </a>
+
+
+        <a
+            href="https://wa.me/5493585042057?text=Hola%2C%20quiero%20consultar%20por%20los%20servicios."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="secondary-button"
+        >
+            Hablar con un asesor
+        </a>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ======================================================
+     SERVICIOS
+======================================================= -->
+
+<section
+    id="servicios"
+    class="services"
+>
+
+```
+<div class="section-header">
+
+    <div class="section-label">
+        NUESTROS SERVICIOS
+    </div>
+
+
+    <h2>
+        Elegí lo que estás buscando.
+    </h2>
+
+
+    <p>
+        Conocé nuestras principales soluciones
+        y encontrá la opción que mejor se adapte
+        a tus necesidades.
+    </p>
+
+</div>
+
+
+
+<div class="services-grid">
+
+
+    <!-- ==============================================
+         DIRECTV
+    =============================================== -->
+
+    <article class="service-card">
+
+        <div class="service-icon">
+            📺
+        </div>
+
+
+        <div class="service-content">
+
+            <div class="service-tag">
+                ENTRETENIMIENTO
+            </div>
+
+
+            <h3>
+                DIRECTV
+            </h3>
+
+
+            <p>
+                Televisión y entretenimiento para
+                disfrutar tus contenidos favoritos
+                en tu hogar.
+            </p>
+
+
+            <a
+                href="#"
+                class="service-link"
+                onclick="comingSoon(event, 'DIRECTV')"
+            >
+                Conocer opciones
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- ==============================================
+         ADT
+    =============================================== -->
+
+    <article class="service-card">
+
+        <div class="service-icon">
+            🛡️
+        </div>
+
+
+        <div class="service-content">
+
+            <div class="service-tag">
+                SEGURIDAD
+            </div>
+
+
+            <h3>
+                ADT
+            </h3>
+
+
+            <p>
+                Protegé tu hogar, negocio o espacio
+                con soluciones de seguridad y
+                monitoreo.
+            </p>
+
+
+            <a
+                href="adt.html"
+                class="service-link"
+            >
+                Conocer kits ADT
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- ==============================================
+         PREPAGAS
+    =============================================== -->
+
+    <article class="service-card">
+
+        <div class="service-icon">
+            ❤️
+        </div>
+
+
+        <div class="service-content">
+
+            <div class="service-tag">
+                SALUD
+            </div>
+
+
+            <h3>
+                Prepagas
+            </h3>
+
+
+            <p>
+                Encontrá alternativas de cobertura
+                para vos y tu familia.
+            </p>
+
+
+            <a
+                href="#"
+                class="service-link"
+                onclick="comingSoon(event, 'PREPAGAS')"
+            >
+                Conocer opciones
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </article>
+
+
+</div>
+```
+
+</section>
+
+<!-- ======================================================
+     ADT FEATURE
+======================================================= -->
+
+<section class="adt-section">
+
+```
+<div class="adt-banner">
+
+    <div class="adt-banner-content">
+
+        <div class="section-label">
+            ADT ALARMAS
+        </div>
+
+
+        <h2>
+            Tu seguridad,
+            nuestra prioridad.
+        </h2>
+
+
+        <p>
+            Elegí el kit que mejor se adapte a tu
+            hogar, comercio, depósito o espacio de
+            trabajo. Consultá qué incluye cada
+            solución antes de contratar.
+        </p>
+
+
+        <a
+            href="adt.html"
+            class="adt-banner-button"
+        >
+            Ver kits ADT →
+        </a>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ======================================================
+     CONFIANZA
+======================================================= -->
+
+<section class="trust">
+
+```
+<div class="trust-inner">
+
+    <div class="trust-item">
+
+        <strong>
+            3
+        </strong>
+
+        <span>
+            Categorías de servicios
+        </span>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <strong>
+            100%
+        </strong>
+
+        <span>
+            Atención personalizada
+        </span>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <strong>
+            💬
+        </strong>
+
+        <span>
+            Atención directa por WhatsApp
+        </span>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ======================================================
+     CTA
+======================================================= -->
+
+<section
+    id="contacto"
+    class="cta"
+>
+
+```
+<h2>
+    ¿No sabés cuál elegir?
+</h2>
+
+
+<p>
+    Hablá con nosotros y te ayudamos a encontrar
+    la opción adecuada para vos.
+</p>
+
+
+<a
+    href="https://wa.me/5493585042057?text=Hola%2C%20quiero%20asesoramiento%20sobre%20los%20servicios."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="cta-button"
+>
+
+    💬
+
+    Hablar con un asesor
+
+</a>
+```
+
+</section>
+
+<!-- ======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+```
+<div class="footer-inner">
+
+    <div class="footer-brand">
+
+        RC <span>RED DE SERVICIOS</span>
+
+    </div>
+
+
+    <div class="footer-copy">
+
+        © <span id="year"></span>
+        RC Red de Servicios.
+        Todos los derechos reservados.
+
+    </div>
+
+
+    <div class="footer-links">
+
+        <a href="#inicio">
+            Inicio
+        </a>
+
+        <a href="adt.html">
+            ADT
+        </a>
+
+        <a
+            href="https://wa.me/5493585042057"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            WhatsApp
+        </a>
+
+    </div>
+
+</div>
+```
+
+</footer>
+
+<script>
+
+    /* ======================================================
+       AÑO AUTOMÁTICO
+    ====================================================== */
+
+    document
+        .getElementById("year")
+        .textContent =
+            new Date().getFullYear();
+
+
+
+    /* ======================================================
+       SERVICIOS EN CONSTRUCCIÓN
+    ====================================================== */
+
+    function comingSoon(
+        event,
+        service
+    ) {
+
+        event.preventDefault();
+
+
+        alert(
+            `${service} estará disponible próximamente.`
+        );
+
+    }
+
+</script>
+
+</body>
+</html>
