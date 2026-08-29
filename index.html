@@ -2,1523 +2,643 @@
 
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ```
-<meta charset="UTF-8">
+<title>RC Red de Servicios</title>
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="logo%20rc.png">
+<link rel="shortcut icon" type="image/png" href="logo%20rc.png">
 
-<meta
-    name="theme-color"
-    content="#0b0d10"
->
-
-<title>RC Red de Servicios | Todo lo que necesitás en un solo lugar</title>
-
-<meta
-    name="description"
-    content="Conocé nuestras soluciones de entretenimiento, seguridad y servicios para tu hogar y familia."
->
-
-<link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
->
-
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
->
-
-<link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
->
+<!-- FUENTES -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-    /* ==================================================
-       RESET
-    ================================================== */
-
     * {
-        box-sizing: border-box;
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
     }
-
-
-    :root {
-
-        --background: #080a0d;
-
-        --surface: #101318;
-
-        --surface-light: #171b22;
-
-        --border: rgba(255,255,255,.09);
-
-        --text: #ffffff;
-
-        --muted: #9ba3af;
-
-        --green: #19c463;
-
-        --green-dark: #0f9b4b;
-
-        --blue: #287cff;
-
-        --red: #e31b23;
-
-        --radius: 24px;
-
-    }
-
 
     html {
         scroll-behavior: smooth;
     }
 
-
     body {
-
-        font-family:
-            "Inter",
-            Arial,
-            sans-serif;
-
-        background:
-            var(--background);
-
-        color:
-            var(--text);
-
-        min-height:
-            100vh;
-
-        overflow-x:
-            hidden;
-
+        font-family: 'Inter', sans-serif;
+        background: #f7f8fa;
+        color: #171717;
+        line-height: 1.5;
     }
-
 
     a {
         text-decoration: none;
         color: inherit;
     }
 
-
-    button {
-        font-family: inherit;
+    img {
+        max-width: 100%;
+        display: block;
     }
 
-
-    /* ==================================================
+    /* =========================
        HEADER
-    ================================================== */
+    ========================= */
 
     header {
-
-        position:
-            fixed;
-
-        top:
-            0;
-
-        left:
-            0;
-
-        right:
-            0;
-
-        z-index:
-            1000;
-
-        background:
-            rgba(8,10,13,.78);
-
-        backdrop-filter:
-            blur(18px);
-
-        -webkit-backdrop-filter:
-            blur(18px);
-
-        border-bottom:
-            1px solid
-            rgba(255,255,255,.06);
-
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255,255,255,0.96);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #e8e8e8;
     }
 
-
-    .header-inner {
-
-        max-width:
-            1250px;
-
-        margin:
-            auto;
-
-        height:
-            76px;
-
-        padding:
-            0 24px;
-
-        display:
-            flex;
-
-        align-items:
-            center;
-
-        justify-content:
-            space-between;
-
+    .navbar {
+        max-width: 1250px;
+        margin: auto;
+        height: 82px;
+        padding: 0 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
-
-    .logo {
-
-        font-size:
-            17px;
-
-        font-weight:
-            800;
-
-        letter-spacing:
-            -.4px;
-
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
     }
 
-
-    .logo span {
-
-        color:
-            var(--green);
-
+    .brand img {
+        width: 62px;
+        height: 62px;
+        object-fit: contain;
     }
 
-
-    nav {
-
-        display:
-            flex;
-
-        align-items:
-            center;
-
-        gap:
-            30px;
-
+    .brand-name {
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
     }
 
-
-    nav a {
-
-        color:
-            #b9c0ca;
-
-        font-size:
-            13px;
-
-        font-weight:
-            600;
-
-        transition:
-            .2s ease;
-
+    .brand-name span {
+        display: block;
+        color: #777;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
     }
 
-
-    nav a:hover {
-
-        color:
-            white;
-
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 30px;
     }
 
-
-    .header-whatsapp {
-
-        display:
-            flex;
-
-        align-items:
-            center;
-
-        gap:
-            8px;
-
-        background:
-            var(--green);
-
-        color:
-            white;
-
-        padding:
-            11px 16px;
-
-        border-radius:
-            10px;
-
-        font-size:
-            12px;
-
-        font-weight:
-            800;
-
-        transition:
-            .2s ease;
-
+    .nav-links a {
+        font-size: 14px;
+        font-weight: 600;
+        color: #444;
+        transition: 0.2s;
     }
 
-
-    .header-whatsapp:hover {
-
-        background:
-            var(--green-dark);
-
-        transform:
-            translateY(-1px);
-
+    .nav-links a:hover {
+        color: #111;
     }
 
+    .nav-button {
+        background: #111;
+        color: white !important;
+        padding: 11px 18px;
+        border-radius: 10px;
+    }
 
-    /* ==================================================
+    /* =========================
        HERO
-    ================================================== */
+    ========================= */
 
     .hero {
-
-        min-height:
-            100vh;
-
-        position:
-            relative;
-
-        display:
-            flex;
-
-        align-items:
-            center;
-
-        justify-content:
-            center;
-
-        overflow:
-            hidden;
-
-        padding:
-            130px 24px 80px;
-
-        background:
-
-            radial-gradient(
-                circle at 50% 35%,
-                rgba(25,196,99,.13),
-                transparent 32%
-            ),
-
-            radial-gradient(
-                circle at 80% 80%,
-                rgba(40,124,255,.08),
-                transparent 30%
-            );
-
+        max-width: 1250px;
+        margin: auto;
+        padding: 90px 25px 80px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 60px;
+        align-items: center;
     }
 
-
-    .hero::before {
-
-        content:
-            "";
-
-        position:
-            absolute;
-
-        width:
-            650px;
-
-        height:
-            650px;
-
-        border-radius:
-            50%;
-
-        background:
-            rgba(25,196,99,.04);
-
-        filter:
-            blur(80px);
-
-        pointer-events:
-            none;
-
+    .hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #fff;
+        border: 1px solid #e6e6e6;
+        padding: 8px 13px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 22px;
     }
 
-
-    .hero-content {
-
-        position:
-            relative;
-
-        z-index:
-            2;
-
-        max-width:
-            900px;
-
-        text-align:
-            center;
-
+    .hero-label::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        background: #22c55e;
+        border-radius: 50%;
     }
-
-
-    .hero-badge {
-
-        display:
-            inline-flex;
-
-        align-items:
-            center;
-
-        gap:
-            8px;
-
-        padding:
-            8px 13px;
-
-        border:
-            1px solid
-            rgba(25,196,99,.25);
-
-        background:
-            rgba(25,196,99,.07);
-
-        border-radius:
-            999px;
-
-        color:
-            #66e39a;
-
-        font-size:
-            11px;
-
-        font-weight:
-            700;
-
-        letter-spacing:
-            .5px;
-
-        margin-bottom:
-            24px;
-
-    }
-
-
-    .hero-badge-dot {
-
-        width:
-            7px;
-
-        height:
-            7px;
-
-        background:
-            var(--green);
-
-        border-radius:
-            50%;
-
-        box-shadow:
-            0 0 12px
-            var(--green);
-
-    }
-
 
     .hero h1 {
-
-        font-size:
-            clamp(
-                42px,
-                7vw,
-                82px
-            );
-
-        line-height:
-            1.02;
-
-        letter-spacing:
-            -4px;
-
-        font-weight:
-            800;
-
+        font-size: clamp(42px, 5vw, 68px);
+        line-height: 1.03;
+        letter-spacing: -3px;
+        margin-bottom: 24px;
     }
-
 
     .hero h1 span {
-
-        color:
-            var(--green);
-
+        color: #666;
     }
 
-
-    .hero-description {
-
-        max-width:
-            650px;
-
-        margin:
-            25px auto 0;
-
-        color:
-            var(--muted);
-
-        font-size:
-            17px;
-
-        line-height:
-            1.7;
-
+    .hero p {
+        max-width: 590px;
+        color: #666;
+        font-size: 18px;
+        margin-bottom: 32px;
     }
 
-
-    .hero-actions {
-
-        display:
-            flex;
-
-        justify-content:
-            center;
-
-        gap:
-            12px;
-
-        margin-top:
-            35px;
-
-        flex-wrap:
-            wrap;
-
+    .hero-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
     }
-
-
-    .primary-button,
-    .secondary-button {
-
-        display:
-            inline-flex;
-
-        align-items:
-            center;
-
-        justify-content:
-            center;
-
-        padding:
-            15px 22px;
-
-        border-radius:
-            12px;
-
-        font-size:
-            13px;
-
-        font-weight:
-            800;
-
-        transition:
-            .2s ease;
-
-    }
-
 
     .primary-button {
-
-        background:
-            var(--green);
-
-        color:
-            white;
-
+        background: #111;
+        color: white;
+        padding: 15px 23px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 700;
+        transition: 0.2s;
     }
-
 
     .primary-button:hover {
-
-        background:
-            var(--green-dark);
-
-        transform:
-            translateY(-2px);
-
+        transform: translateY(-2px);
+        background: #222;
     }
-
 
     .secondary-button {
-
-        border:
-            1px solid
-            var(--border);
-
-        background:
-            rgba(255,255,255,.03);
-
-        color:
-            white;
-
+        background: white;
+        border: 1px solid #ddd;
+        padding: 15px 23px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 700;
     }
 
-
-    .secondary-button:hover {
-
-        background:
-            rgba(255,255,255,.07);
-
-        transform:
-            translateY(-2px);
-
+    .hero-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
+    .hero-logo img {
+        width: min(100%, 430px);
+        max-height: 330px;
+        object-fit: contain;
+    }
 
-    /* ==================================================
-       SERVICIOS
-    ================================================== */
+    /* =========================
+       SERVICES
+    ========================= */
 
     .services {
-
-        max-width:
-            1250px;
-
-        margin:
-            auto;
-
-        padding:
-            100px 24px;
-
+        background: white;
+        padding: 90px 25px;
     }
 
-
-    .section-header {
-
-        text-align:
-            center;
-
-        max-width:
-            700px;
-
-        margin:
-            0 auto 55px;
-
+    .section {
+        max-width: 1250px;
+        margin: auto;
     }
 
-
-    .section-label {
-
-        color:
-            var(--green);
-
-        font-size:
-            11px;
-
-        font-weight:
-            800;
-
-        letter-spacing:
-            1.5px;
-
-        margin-bottom:
-            13px;
-
+    .section-heading {
+        margin-bottom: 45px;
     }
 
-
-    .section-header h2 {
-
-        font-size:
-            clamp(
-                32px,
-                5vw,
-                52px
-            );
-
-        letter-spacing:
-            -2px;
-
-        line-height:
-            1.05;
-
+    .section-heading small {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 11px;
+        font-weight: 800;
+        color: #888;
     }
 
-
-    .section-header p {
-
-        color:
-            var(--muted);
-
-        margin-top:
-            15px;
-
-        line-height:
-            1.7;
-
-        font-size:
-            15px;
-
+    .section-heading h2 {
+        font-size: clamp(32px, 4vw, 48px);
+        letter-spacing: -2px;
+        margin-top: 8px;
     }
 
-
-    .services-grid {
-
-        display:
-            grid;
-
-        grid-template-columns:
-            repeat(
-                3,
-                1fr
-            );
-
-        gap:
-            20px;
-
+    .section-heading p {
+        margin-top: 12px;
+        color: #777;
+        max-width: 650px;
     }
 
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
 
     .service-card {
-
-        position:
-            relative;
-
-        min-height:
-            430px;
-
-        padding:
-            30px;
-
-        border:
-            1px solid
-            var(--border);
-
-        border-radius:
-            var(--radius);
-
-        overflow:
-            hidden;
-
-        background:
-            linear-gradient(
-                145deg,
-                #12161c,
-                #0d1014
-            );
-
-        display:
-            flex;
-
-        flex-direction:
-            column;
-
-        justify-content:
-            flex-end;
-
-        transition:
-            .3s ease;
-
+        background: #f7f8fa;
+        border: 1px solid #e9e9e9;
+        border-radius: 22px;
+        padding: 28px;
+        min-height: 230px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: 0.25s;
     }
-
 
     .service-card:hover {
-
-        transform:
-            translateY(-7px);
-
-        border-color:
-            rgba(255,255,255,.17);
-
+        transform: translateY(-5px);
+        border-color: #ccc;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.07);
     }
 
-
-    .service-card::before {
-
-        content:
-            "";
-
-        position:
-            absolute;
-
-        width:
-            260px;
-
-        height:
-            260px;
-
-        border-radius:
-            50%;
-
-        top:
-            -80px;
-
-        right:
-            -70px;
-
-        background:
-            rgba(25,196,99,.08);
-
-        filter:
-            blur(30px);
-
+    .service-logo {
+        height: 70px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
     }
 
-
-    .service-icon {
-
-        position:
-            absolute;
-
-        top:
-            30px;
-
-        left:
-            30px;
-
-        width:
-            56px;
-
-        height:
-            56px;
-
-        border-radius:
-            17px;
-
-        display:
-            flex;
-
-        align-items:
-            center;
-
-        justify-content:
-            center;
-
-        font-size:
-            27px;
-
-        background:
-            rgba(255,255,255,.06);
-
-        border:
-            1px solid
-            rgba(255,255,255,.08);
-
+    .service-logo img {
+        max-height: 60px;
+        max-width: 190px;
+        object-fit: contain;
     }
-
-
-    .service-content {
-
-        position:
-            relative;
-
-        z-index:
-            2;
-
-    }
-
-
-    .service-tag {
-
-        display:
-            inline-block;
-
-        font-size:
-            10px;
-
-        font-weight:
-            800;
-
-        letter-spacing:
-            1px;
-
-        color:
-            var(--green);
-
-        margin-bottom:
-            10px;
-
-    }
-
 
     .service-card h3 {
-
-        font-size:
-            29px;
-
-        letter-spacing:
-            -1px;
-
-        margin-bottom:
-            10px;
-
+        font-size: 23px;
+        margin-bottom: 8px;
     }
-
 
     .service-card p {
-
-        color:
-            var(--muted);
-
-        font-size:
-            14px;
-
-        line-height:
-            1.6;
-
-        max-width:
-            330px;
-
+        color: #777;
+        font-size: 14px;
     }
-
 
     .service-link {
-
-        display:
-            inline-flex;
-
-        align-items:
-            center;
-
-        gap:
-            8px;
-
-        margin-top:
-            22px;
-
-        font-size:
-            13px;
-
-        font-weight:
-            800;
-
+        margin-top: 22px;
+        font-weight: 700;
+        font-size: 13px;
     }
 
-
-    .service-link span {
-
-        transition:
-            .2s ease;
-
-    }
-
-
-    .service-card:hover
-    .service-link span {
-
-        transform:
-            translateX(5px);
-
-    }
-
-
-    /* ==================================================
-       ADT FEATURE
-    ================================================== */
+    /* =========================
+       ADT
+    ========================= */
 
     .adt-section {
-
-        max-width:
-            1250px;
-
-        margin:
-            auto;
-
-        padding:
-            20px 24px 110px;
-
+        background: #101010;
+        color: white;
+        padding: 100px 25px;
     }
 
-
-    .adt-banner {
-
-        position:
-            relative;
-
-        overflow:
-            hidden;
-
-        border:
-            1px solid
-            var(--border);
-
-        border-radius:
-            30px;
-
-        padding:
-            55px;
-
-        background:
-            linear-gradient(
-                120deg,
-                #11161c,
-                #0b1014
-            );
-
+    .adt-section .section-heading small {
+        color: #aaa;
     }
 
-
-    .adt-banner::after {
-
-        content:
-            "";
-
-        position:
-            absolute;
-
-        width:
-            400px;
-
-        height:
-            400px;
-
-        border-radius:
-            50%;
-
-        right:
-            -130px;
-
-        top:
-            -150px;
-
-        background:
-            rgba(25,196,99,.09);
-
-        filter:
-            blur(40px);
-
+    .adt-section .section-heading p {
+        color: #aaa;
     }
 
-
-    .adt-banner-content {
-
-        position:
-            relative;
-
-        z-index:
-            2;
-
-        max-width:
-            650px;
-
+    .adt-products {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
     }
 
-
-    .adt-banner .section-label {
-
-        margin-bottom:
-            12px;
-
+    .adt-card {
+        background: #181818;
+        border: 1px solid #292929;
+        border-radius: 22px;
+        overflow: hidden;
+        transition: 0.25s;
     }
 
-
-    .adt-banner h2 {
-
-        font-size:
-            clamp(
-                32px,
-                5vw,
-                58px
-            );
-
-        letter-spacing:
-            -2.5px;
-
-        line-height:
-            1.05;
-
+    .adt-card:hover {
+        transform: translateY(-5px);
+        border-color: #444;
     }
 
-
-    .adt-banner p {
-
-        color:
-            var(--muted);
-
-        line-height:
-            1.7;
-
-        margin-top:
-            18px;
-
-        max-width:
-            580px;
-
+    .adt-image {
+        height: 260px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
     }
 
-
-    .adt-banner-button {
-
-        display:
-            inline-flex;
-
-        margin-top:
-            28px;
-
-        padding:
-            14px 20px;
-
-        background:
-            white;
-
-        color:
-            #080a0d;
-
-        border-radius:
-            11px;
-
-        font-size:
-            13px;
-
-        font-weight:
-            800;
-
-        transition:
-            .2s ease;
-
+    .adt-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
-
-    .adt-banner-button:hover {
-
-        transform:
-            translateY(-2px);
-
+    .adt-content {
+        padding: 24px;
     }
 
-
-    /* ==================================================
-       CONFIANZA
-    ================================================== */
-
-    .trust {
-
-        border-top:
-            1px solid
-            var(--border);
-
-        border-bottom:
-            1px solid
-            var(--border);
-
-        background:
-            #0b0e12;
-
+    .adt-content h3 {
+        font-size: 20px;
+        margin-bottom: 9px;
     }
 
-
-    .trust-inner {
-
-        max-width:
-            900px;
-
-        margin:
-            auto;
-
-        padding:
-            65px 24px;
-
-        display:
-            grid;
-
-        grid-template-columns:
-            repeat(
-                3,
-                1fr
-            );
-
-        gap:
-            25px;
-
-        text-align:
-            center;
-
+    .adt-content p {
+        color: #aaa;
+        font-size: 13px;
+        min-height: 60px;
     }
 
-
-    .trust-item strong {
-
-        display:
-            block;
-
-        font-size:
-            27px;
-
-        margin-bottom:
-            7px;
-
+    .adt-button {
+        display: inline-block;
+        margin-top: 18px;
+        background: white;
+        color: #111;
+        padding: 11px 17px;
+        border-radius: 9px;
+        font-size: 13px;
+        font-weight: 700;
     }
 
+    /* =========================
+       DIRECTV
+    ========================= */
 
-    .trust-item span {
-
-        color:
-            var(--muted);
-
-        font-size:
-            12px;
-
+    .directv-section {
+        padding: 100px 25px;
+        background: #f5f6f8;
     }
 
-
-    /* ==================================================
-       CTA
-    ================================================== */
-
-    .cta {
-
-        max-width:
-            900px;
-
-        margin:
-            auto;
-
-        padding:
-            120px 24px;
-
-        text-align:
-            center;
-
+    .directv-box {
+        background: white;
+        border: 1px solid #e6e6e6;
+        border-radius: 28px;
+        padding: 45px;
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 50px;
+        align-items: center;
     }
 
-
-    .cta h2 {
-
-        font-size:
-            clamp(
-                35px,
-                6vw,
-                58px
-            );
-
-        line-height:
-            1.05;
-
-        letter-spacing:
-            -2.5px;
-
+    .directv-logo img {
+        max-width: 260px;
+        max-height: 150px;
+        object-fit: contain;
     }
 
-
-    .cta p {
-
-        color:
-            var(--muted);
-
-        margin:
-            18px auto 0;
-
-        max-width:
-            550px;
-
-        line-height:
-            1.7;
-
+    .directv-content h2 {
+        font-size: 38px;
+        letter-spacing: -1.5px;
+        margin-bottom: 15px;
     }
 
-
-    .cta-button {
-
-        display:
-            inline-flex;
-
-        margin-top:
-            30px;
-
-        align-items:
-            center;
-
-        gap:
-            9px;
-
-        padding:
-            16px 25px;
-
-        background:
-            var(--green);
-
-        border-radius:
-            12px;
-
-        font-size:
-            13px;
-
-        font-weight:
-            800;
-
-        transition:
-            .2s ease;
-
+    .directv-content p {
+        color: #666;
+        margin-bottom: 25px;
     }
 
-
-    .cta-button:hover {
-
-        background:
-            var(--green-dark);
-
-        transform:
-            translateY(-2px);
-
+    .features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 25px;
     }
 
+    .feature {
+        padding: 13px;
+        background: #f6f6f6;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+    }
 
-    /* ==================================================
+    /* =========================
+       AVALIAN
+    ========================= */
+
+    .avalian-section {
+        padding: 100px 25px;
+        background: white;
+    }
+
+    .avalian-box {
+        max-width: 1000px;
+        margin: auto;
+        text-align: center;
+        border: 1px solid #e6e6e6;
+        border-radius: 28px;
+        padding: 55px 30px;
+    }
+
+    .avalian-logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+
+    .avalian-logo img {
+        max-width: 280px;
+        max-height: 130px;
+        object-fit: contain;
+    }
+
+    .avalian-box h2 {
+        font-size: 38px;
+        letter-spacing: -1.5px;
+        margin-bottom: 12px;
+    }
+
+    .avalian-box p {
+        color: #666;
+        max-width: 650px;
+        margin: auto auto 25px;
+    }
+
+    /* =========================
+       CONTACTO
+    ========================= */
+
+    .contact {
+        background: #111;
+        color: white;
+        padding: 90px 25px;
+        text-align: center;
+    }
+
+    .contact h2 {
+        font-size: clamp(35px, 5vw, 55px);
+        letter-spacing: -2px;
+        margin-bottom: 15px;
+    }
+
+    .contact p {
+        color: #aaa;
+        max-width: 600px;
+        margin: auto auto 30px;
+    }
+
+    /* =========================
        FOOTER
-    ================================================== */
+    ========================= */
 
     footer {
-
-        border-top:
-            1px solid
-            var(--border);
-
-        background:
-            #07090b;
-
+        background: #080808;
+        color: #888;
+        padding: 35px 25px;
     }
-
 
     .footer-inner {
-
-        max-width:
-            1250px;
-
-        margin:
-            auto;
-
-        padding:
-            35px 24px;
-
-        display:
-            flex;
-
-        justify-content:
-            space-between;
-
-        align-items:
-            center;
-
-        gap:
-            20px;
-
+        max-width: 1250px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
     }
-
 
     .footer-brand {
-
-        font-size:
-            14px;
-
-        font-weight:
-            800;
-
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        font-weight: 700;
     }
 
-
-    .footer-brand span {
-
-        color:
-            var(--green);
-
+    .footer-brand img {
+        width: 35px;
+        height: 35px;
+        object-fit: contain;
     }
 
-
-    .footer-copy {
-
-        color:
-            #69717d;
-
-        font-size:
-            11px;
-
+    .footer-text {
+        font-size: 12px;
     }
 
-
-    .footer-links {
-
-        display:
-            flex;
-
-        gap:
-            18px;
-
-    }
-
-
-    .footer-links a {
-
-        color:
-            #8a929e;
-
-        font-size:
-            11px;
-
-    }
-
-
-    /* ==================================================
+    /* =========================
        MOBILE
-    ================================================== */
+    ========================= */
 
-    @media (
-        max-width: 850px
-    ) {
+    @media (max-width: 900px) {
 
-        nav {
-            display:
-                none;
+        .nav-links {
+            display: none;
         }
-
-
-        .services-grid {
-
-            grid-template-columns:
-                1fr;
-
-        }
-
-
-        .service-card {
-
-            min-height:
-                350px;
-
-        }
-
-
-        .adt-banner {
-
-            padding:
-                35px 25px;
-
-        }
-
-    }
-
-
-    @media (
-        max-width: 600px
-    ) {
-
-        .header-inner {
-
-            height:
-                68px;
-
-            padding:
-                0 18px;
-
-        }
-
-
-        .header-whatsapp {
-
-            padding:
-                10px 12px;
-
-        }
-
 
         .hero {
-
-            padding:
-                120px 18px 70px;
-
+            grid-template-columns: 1fr;
+            padding-top: 60px;
+            text-align: center;
         }
 
-
-        .hero h1 {
-
-            letter-spacing:
-                -2.5px;
-
+        .hero p {
+            margin-left: auto;
+            margin-right: auto;
         }
 
-
-        .hero-description {
-
-            font-size:
-                15px;
-
+        .hero-buttons {
+            justify-content: center;
         }
 
-
-        .services {
-
-            padding:
-                75px 18px;
-
+        .hero-logo {
+            order: -1;
         }
 
-
-        .adt-section {
-
-            padding:
-                0 18px 75px;
-
+        .service-grid,
+        .adt-products {
+            grid-template-columns: 1fr 1fr;
         }
 
-
-        .adt-banner {
-
-            border-radius:
-                23px;
-
+        .directv-box {
+            grid-template-columns: 1fr;
+            text-align: center;
         }
 
-
-        .trust-inner {
-
-            grid-template-columns:
-                1fr;
-
-            padding:
-                50px 24px;
-
+        .directv-logo {
+            display: flex;
+            justify-content: center;
         }
-
-
-        .cta {
-
-            padding:
-                85px 20px;
-
-        }
-
-
-        .footer-inner {
-
-            flex-direction:
-                column;
-
-            text-align:
-                center;
-
-        }
-
-
-        .footer-links {
-
-            justify-content:
-                center;
-
-        }
-
     }
 
+    @media (max-width: 600px) {
+
+        .navbar {
+            height: 72px;
+        }
+
+        .brand img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .brand-name {
+            font-size: 16px;
+        }
+
+        .hero {
+            padding: 55px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 16px;
+        }
+
+        .services,
+        .adt-section,
+        .directv-section,
+        .avalian-section {
+            padding: 70px 20px;
+        }
+
+        .service-grid,
+        .adt-products {
+            grid-template-columns: 1fr;
+        }
+
+        .directv-box {
+            padding: 30px 20px;
+        }
+
+        .features {
+            grid-template-columns: 1fr;
+        }
+
+        .adt-image {
+            height: 230px;
+        }
+
+        .footer-inner {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
 </style>
 ```
 
@@ -1526,507 +646,687 @@
 
 <body>
 
-<!-- ======================================================
+```
+<!-- =========================
      HEADER
-======================================================= -->
+========================= -->
 
 <header>
+    <nav class="navbar">
 
-```
-<div class="header-inner">
+        <a href="#" class="brand">
 
-    <a
-        href="index.html"
-        class="logo"
-    >
-        RC <span>RED DE SERVICIOS</span>
-    </a>
+            <img src="logo%20rc.png" alt="RC Red de Servicios">
 
+            <div class="brand-name">
+                RC Red de Servicios
+                <span>Soluciones para tu hogar</span>
+            </div>
 
-    <nav>
-
-        <a href="#inicio">
-            Inicio
         </a>
 
-        <a href="#servicios">
-            Servicios
-        </a>
+        <div class="nav-links">
 
-        <a href="#contacto">
-            Contacto
-        </a>
+            <a href="#servicios">Servicios</a>
+            <a href="#adt">ADT</a>
+            <a href="#directv">DirecTV</a>
+            <a href="#avalian">Avalian</a>
+
+            <a href="#contacto" class="nav-button">
+                Contactanos
+            </a>
+
+        </div>
 
     </nav>
-
-
-    <a
-        href="https://wa.me/5493585042057?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios."
-        target="_blank"
-        rel="noopener noreferrer"
-        class="header-whatsapp"
-    >
-        💬 WhatsApp
-    </a>
-
-</div>
-```
-
 </header>
 
-<!-- ======================================================
+
+<!-- =========================
      HERO
-======================================================= -->
+========================= -->
 
-<section
-    id="inicio"
-    class="hero"
->
+<main>
 
-```
-<div class="hero-content">
+    <section class="hero">
 
-    <div class="hero-badge">
+        <div>
 
-        <span class="hero-badge-dot"></span>
+            <div class="hero-label">
+                Atención personalizada
+            </div>
 
-        SOLUCIONES PARA VOS Y TU FAMILIA
+            <h1>
+                Todo lo que necesitás,
+                <span>en un solo lugar.</span>
+            </h1>
 
-    </div>
+            <p>
+                Somos RC Red de Servicios. Te ayudamos a encontrar
+                las mejores soluciones en seguridad, televisión,
+                entretenimiento y cobertura médica.
+            </p>
 
+            <div class="hero-buttons">
 
-    <h1>
+                <a href="#servicios" class="primary-button">
+                    Ver servicios
+                </a>
 
-        Todo lo que necesitás,
-        <span>
-            en un solo lugar.
-        </span>
+                <a href="#contacto" class="secondary-button">
+                    Hablar con un asesor
+                </a>
 
-    </h1>
+            </div>
 
-
-    <p class="hero-description">
-
-        Entretenimiento, seguridad y servicios
-        pensados para tu hogar. Elegí lo que
-        necesitás y conocé nuestras opciones.
-
-    </p>
-
-
-    <div class="hero-actions">
-
-        <a
-            href="#servicios"
-            class="primary-button"
-        >
-            Ver servicios →
-        </a>
-
-
-        <a
-            href="https://wa.me/5493585042057?text=Hola%2C%20quiero%20consultar%20por%20los%20servicios."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="secondary-button"
-        >
-            Hablar con un asesor
-        </a>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ======================================================
-     SERVICIOS
-======================================================= -->
-
-<section
-    id="servicios"
-    class="services"
->
-
-```
-<div class="section-header">
-
-    <div class="section-label">
-        NUESTROS SERVICIOS
-    </div>
-
-
-    <h2>
-        Elegí lo que estás buscando.
-    </h2>
-
-
-    <p>
-        Conocé nuestras principales soluciones
-        y encontrá la opción que mejor se adapte
-        a tus necesidades.
-    </p>
-
-</div>
-
-
-
-<div class="services-grid">
-
-
-    <!-- ==============================================
-         DIRECTV
-    =============================================== -->
-
-    <article class="service-card">
-
-        <div class="service-icon">
-            📺
         </div>
 
+        <div class="hero-logo">
 
-        <div class="service-content">
+            <img
+                src="logo%20rc.png"
+                alt="Logo RC Red de Servicios"
+            >
 
-            <div class="service-tag">
-                ENTRETENIMIENTO
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICIOS
+    ========================= -->
+
+    <section class="services" id="servicios">
+
+        <div class="section">
+
+            <div class="section-heading">
+
+                <small>Nuestros servicios</small>
+
+                <h2>
+                    Soluciones pensadas para vos.
+                </h2>
+
+                <p>
+                    Elegí el servicio que necesitás y recibí
+                    asesoramiento personalizado.
+                </p>
+
             </div>
 
 
-            <h3>
-                DIRECTV
-            </h3>
+            <div class="service-grid">
+
+                <!-- ADT -->
+
+                <a href="#adt" class="service-card">
+
+                    <div>
+
+                        <div class="service-logo">
+
+                            <img
+                                src="logo%20adt.png"
+                                alt="ADT"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Seguridad
+                        </h3>
+
+                        <p>
+                            Protegé tu hogar o negocio con sistemas
+                            de seguridad ADT y monitoreo profesional.
+                        </p>
+
+                    </div>
+
+                    <div class="service-link">
+                        Ver soluciones →
+                    </div>
+
+                </a>
 
 
-            <p>
-                Televisión y entretenimiento para
-                disfrutar tus contenidos favoritos
-                en tu hogar.
-            </p>
+                <!-- DIRECTV -->
+
+                <a href="#directv" class="service-card">
+
+                    <div>
+
+                        <div class="service-logo">
+
+                            <img
+                                src="logo%20directv.png"
+                                alt="DirecTV"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Televisión
+                        </h3>
+
+                        <p>
+                            Disfrutá televisión, entretenimiento y
+                            contenido para toda la familia.
+                        </p>
+
+                    </div>
+
+                    <div class="service-link">
+                        Ver planes →
+                    </div>
+
+                </a>
 
 
-            <a
-                href="#"
-                class="service-link"
-                onclick="comingSoon(event, 'DIRECTV')"
-            >
-                Conocer opciones
-                <span>→</span>
-            </a>
+                <!-- AVALIAN -->
+
+                <a href="#avalian" class="service-card">
+
+                    <div>
+
+                        <div class="service-logo">
+
+                            <img
+                                src="logo%20avalian.png"
+                                alt="Avalian"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Salud
+                        </h3>
+
+                        <p>
+                            Encontrá alternativas de cobertura médica
+                            para vos y tu familia.
+                        </p>
+
+                    </div>
+
+                    <div class="service-link">
+                        Conocer más →
+                    </div>
+
+                </a>
+
+            </div>
 
         </div>
 
-    </article>
+    </section>
 
 
-
-    <!-- ==============================================
+    <!-- =========================
          ADT
-    =============================================== -->
+    ========================= -->
 
-    <article class="service-card">
+    <section class="adt-section" id="adt">
 
-        <div class="service-icon">
-            🛡️
-        </div>
+        <div class="section">
 
+            <div class="section-heading">
 
-        <div class="service-content">
+                <small>ADT Alarmas</small>
 
-            <div class="service-tag">
-                SEGURIDAD
+                <h2>
+                    Seguridad para tu hogar.
+                </h2>
+
+                <p>
+                    Conocé nuestras soluciones de seguridad ADT.
+                    Elegí el sistema que mejor se adapte a tus necesidades.
+                </p>
+
             </div>
 
 
-            <h3>
-                ADT
-            </h3>
+            <div class="adt-products">
 
+
+                <!-- CX 1.1 -->
+
+                <article class="adt-card">
+
+                    <div class="adt-image">
+
+                        <img
+                            src="assets/adt/cx%201.1.png"
+                            alt="ADT CX 1.1"
+                        >
+
+                    </div>
+
+                    <div class="adt-content">
+
+                        <h3>
+                            ADT CX 1.1
+                        </h3>
+
+                        <p>
+                            Sistema de seguridad diseñado para
+                            proteger tu hogar y mantenerte conectado.
+                        </p>
+
+                        <a
+                            href="#contacto"
+                            class="adt-button"
+                        >
+                            Consultar
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CX 2.2 -->
+
+                <article class="adt-card">
+
+                    <div class="adt-image">
+
+                        <img
+                            src="assets/adt/cx%202.2.png"
+                            alt="ADT CX 2.2"
+                        >
+
+                    </div>
+
+                    <div class="adt-content">
+
+                        <h3>
+                            ADT CX 2.2
+                        </h3>
+
+                        <p>
+                            Solución de seguridad con mayor cobertura
+                            para proteger diferentes ambientes.
+                        </p>
+
+                        <a
+                            href="#contacto"
+                            class="adt-button"
+                        >
+                            Consultar
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- GALPÓN -->
+
+                <article class="adt-card">
+
+                    <div class="adt-image">
+
+                        <img
+                            src="assets/adt/GALP%C3%93N%20CX%202.2.png"
+                            alt="ADT Galpón CX 2.2"
+                        >
+
+                    </div>
+
+                    <div class="adt-content">
+
+                        <h3>
+                            Galpón CX 2.2
+                        </h3>
+
+                        <p>
+                            Una alternativa pensada para espacios
+                            amplios, comercios y galpones.
+                        </p>
+
+                        <a
+                            href="#contacto"
+                            class="adt-button"
+                        >
+                            Consultar
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- QOLSYS 1.1 -->
+
+                <article class="adt-card">
+
+                    <div class="adt-image">
+
+                        <img
+                            src="assets/adt/Qolsys%201.1.png"
+                            alt="Qolsys 1.1"
+                        >
+
+                    </div>
+
+                    <div class="adt-content">
+
+                        <h3>
+                            Qolsys 1.1
+                        </h3>
+
+                        <p>
+                            Sistema de seguridad inteligente
+                            para tu propiedad.
+                        </p>
+
+                        <a
+                            href="#contacto"
+                            class="adt-button"
+                        >
+                            Consultar
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- QOLSYS 2.2 -->
+
+                <article class="adt-card">
+
+                    <div class="adt-image">
+
+                        <img
+                            src="assets/adt/Qolsys%202.2.png"
+                            alt="Qolsys 2.2"
+                        >
+
+                    </div>
+
+                    <div class="adt-content">
+
+                        <h3>
+                            Qolsys 2.2
+                        </h3>
+
+                        <p>
+                            Solución avanzada para aumentar la
+                            protección y seguridad.
+                        </p>
+
+                        <a
+                            href="#contacto"
+                            class="adt-button"
+                        >
+                            Consultar
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- QOLSYS EXTERIOR -->
+
+                <article class="adt-card">
+
+                    <div class="adt-image">
+
+                        <img
+                            src="assets/adt/Qolsys%202.2%20view%20exterior.png"
+                            alt="Qolsys 2.2 vista exterior"
+                        >
+
+                    </div>
+
+                    <div class="adt-content">
+
+                        <h3>
+                            Qolsys 2.2 · Exterior
+                        </h3>
+
+                        <p>
+                            Vista exterior del sistema Qolsys 2.2,
+                            pensado para una protección integral.
+                        </p>
+
+                        <a
+                            href="#contacto"
+                            class="adt-button"
+                        >
+                            Consultar
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- QOLSYS INTERIOR -->
+
+                <article class="adt-card">
+
+                    <div class="adt-image">
+
+                        <img
+                            src="assets/adt/Qolsys%202.2%20view%20interior.png"
+                            alt="Qolsys 2.2 vista interior"
+                        >
+
+                    </div>
+
+                    <div class="adt-content">
+
+                        <h3>
+                            Qolsys 2.2 · Interior
+                        </h3>
+
+                        <p>
+                            Vista interior del sistema Qolsys 2.2
+                            y sus componentes.
+                        </p>
+
+                        <a
+                            href="#contacto"
+                            class="adt-button"
+                        >
+                            Consultar
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DIRECTV
+    ========================= -->
+
+    <section class="directv-section" id="directv">
+
+        <div class="section">
+
+            <div class="directv-box">
+
+                <div class="directv-logo">
+
+                    <img
+                        src="logo%20directv.png"
+                        alt="DirecTV"
+                    >
+
+                </div>
+
+
+                <div class="directv-content">
+
+                    <h2>
+                        Entretenimiento para todos.
+                    </h2>
+
+                    <p>
+                        Accedé a las propuestas de DirecTV y disfrutá
+                        tus contenidos favoritos desde la comodidad de tu hogar.
+                    </p>
+
+
+                    <div class="features">
+
+                        <div class="feature">
+                            ✓ Canales HD
+                        </div>
+
+                        <div class="feature">
+                            ✓ Contenido premium
+                        </div>
+
+                        <div class="feature">
+                            ✓ Entretenimiento
+                        </div>
+
+                        <div class="feature">
+                            ✓ Opciones para toda la familia
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="#contacto"
+                        class="primary-button"
+                    >
+                        Consultar planes
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         AVALIAN
+    ========================= -->
+
+    <section class="avalian-section" id="avalian">
+
+        <div class="section">
+
+            <div class="avalian-box">
+
+                <div class="avalian-logo">
+
+                    <img
+                        src="logo%20avalian.png"
+                        alt="Avalian"
+                    >
+
+                </div>
+
+                <h2>
+                    Tu salud, acompañada.
+                </h2>
+
+                <p>
+                    Conocé las opciones de cobertura médica de Avalian
+                    y encontrá una alternativa que se adapte a tus necesidades.
+                </p>
+
+                <a
+                    href="#contacto"
+                    class="primary-button"
+                >
+                    Consultar cobertura
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACTO
+    ========================= -->
+
+    <section class="contact" id="contacto">
+
+        <div class="section">
+
+            <h2>
+                ¿Qué servicio necesitás?
+            </h2>
 
             <p>
-                Protegé tu hogar, negocio o espacio
-                con soluciones de seguridad y
-                monitoreo.
+                Escribinos y uno de nuestros asesores te ayudará
+                a encontrar la opción que mejor se adapte a vos.
             </p>
 
+            <!--
+                IMPORTANTE:
+                Reemplazá el número de abajo por tu WhatsApp.
+                Formato: 549XXXXXXXXXX
+            -->
 
             <a
-                href="adt.html"
-                class="service-link"
+                href="https://wa.me/5493585042057"
+                target="_blank"
+                class="primary-button"
             >
-                Conocer kits ADT
-                <span>→</span>
+                Hablar por WhatsApp
             </a>
 
         </div>
 
-    </article>
+    </section>
 
+</main>
 
 
-    <!-- ==============================================
-         PREPAGAS
-    =============================================== -->
-
-    <article class="service-card">
-
-        <div class="service-icon">
-            ❤️
-        </div>
-
-
-        <div class="service-content">
-
-            <div class="service-tag">
-                SALUD
-            </div>
-
-
-            <h3>
-                Prepagas
-            </h3>
-
-
-            <p>
-                Encontrá alternativas de cobertura
-                para vos y tu familia.
-            </p>
-
-
-            <a
-                href="#"
-                class="service-link"
-                onclick="comingSoon(event, 'PREPAGAS')"
-            >
-                Conocer opciones
-                <span>→</span>
-            </a>
-
-        </div>
-
-    </article>
-
-
-</div>
-```
-
-</section>
-
-<!-- ======================================================
-     ADT FEATURE
-======================================================= -->
-
-<section class="adt-section">
-
-```
-<div class="adt-banner">
-
-    <div class="adt-banner-content">
-
-        <div class="section-label">
-            ADT ALARMAS
-        </div>
-
-
-        <h2>
-            Tu seguridad,
-            nuestra prioridad.
-        </h2>
-
-
-        <p>
-            Elegí el kit que mejor se adapte a tu
-            hogar, comercio, depósito o espacio de
-            trabajo. Consultá qué incluye cada
-            solución antes de contratar.
-        </p>
-
-
-        <a
-            href="adt.html"
-            class="adt-banner-button"
-        >
-            Ver kits ADT →
-        </a>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ======================================================
-     CONFIANZA
-======================================================= -->
-
-<section class="trust">
-
-```
-<div class="trust-inner">
-
-    <div class="trust-item">
-
-        <strong>
-            3
-        </strong>
-
-        <span>
-            Categorías de servicios
-        </span>
-
-    </div>
-
-
-    <div class="trust-item">
-
-        <strong>
-            100%
-        </strong>
-
-        <span>
-            Atención personalizada
-        </span>
-
-    </div>
-
-
-    <div class="trust-item">
-
-        <strong>
-            💬
-        </strong>
-
-        <span>
-            Atención directa por WhatsApp
-        </span>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ======================================================
-     CTA
-======================================================= -->
-
-<section
-    id="contacto"
-    class="cta"
->
-
-```
-<h2>
-    ¿No sabés cuál elegir?
-</h2>
-
-
-<p>
-    Hablá con nosotros y te ayudamos a encontrar
-    la opción adecuada para vos.
-</p>
-
-
-<a
-    href="https://wa.me/5493585042057?text=Hola%2C%20quiero%20asesoramiento%20sobre%20los%20servicios."
-    target="_blank"
-    rel="noopener noreferrer"
-    class="cta-button"
->
-
-    💬
-
-    Hablar con un asesor
-
-</a>
-```
-
-</section>
-
-<!-- ======================================================
+<!-- =========================
      FOOTER
-======================================================= -->
+========================= -->
 
 <footer>
 
-```
-<div class="footer-inner">
+    <div class="footer-inner">
 
-    <div class="footer-brand">
+        <div class="footer-brand">
 
-        RC <span>RED DE SERVICIOS</span>
+            <img
+                src="logo%20rc.png"
+                alt="RC"
+            >
 
-    </div>
+            RC Red de Servicios
 
+        </div>
 
-    <div class="footer-copy">
+        <div class="footer-text">
 
-        © <span id="year"></span>
-        RC Red de Servicios.
-        Todos los derechos reservados.
+            © 2026 RC Red de Servicios · Todos los derechos reservados.
 
-    </div>
-
-
-    <div class="footer-links">
-
-        <a href="#inicio">
-            Inicio
-        </a>
-
-        <a href="adt.html">
-            ADT
-        </a>
-
-        <a
-            href="https://wa.me/5493585042057"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            WhatsApp
-        </a>
+        </div>
 
     </div>
-
-</div>
-```
 
 </footer>
-
-<script>
-
-    /* ======================================================
-       AÑO AUTOMÁTICO
-    ====================================================== */
-
-    document
-        .getElementById("year")
-        .textContent =
-            new Date().getFullYear();
-
-
-
-    /* ======================================================
-       SERVICIOS EN CONSTRUCCIÓN
-    ====================================================== */
-
-    function comingSoon(
-        event,
-        service
-    ) {
-
-        event.preventDefault();
-
-
-        alert(
-            `${service} estará disponible próximamente.`
-        );
-
-    }
-
-</script>
+```
 
 </body>
 </html>
