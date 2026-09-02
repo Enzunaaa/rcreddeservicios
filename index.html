@@ -1,4037 +1,3443 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RC Red de Servicios</title>
+
+  <link rel="icon" href="logo%20rc.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #071526;
+      --bg-dark: #04101f;
+      --bg-card: #0a2038;
+      --bg-card-light: #0d2945;
+
+      --text: #f3f4f6;
+      --text-soft: rgba(255,255,255,0.72);
+
+      --accent: #f6b83f;
+      --accent-light: #ffd57b;
+
+      --border: rgba(246,184,63,0.22);
+      --border-hover: rgba(246,184,63,0.65);
+
+      --whatsapp: #25D366;
+
+      --header-height: 78px;
+
+      --shadow: 0 20px 50px rgba(0,0,0,0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      height: var(--header-height);
+      background: rgba(4,16,31,0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 1000;
+    }
+
+    .header-container {
+      width: min(1180px, calc(100% - 40px));
+      height: 100%;
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 145px;
+      max-height: 54px;
+      object-fit: contain;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
 
-    <title>RC Red de Servicios</title>
+    nav a {
+      color: var(--text-soft);
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
 
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="logo%20rc.png">
+    nav a:hover {
+      color: var(--accent);
+    }
 
-    <!-- FUENTE -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    /* =========================
+       HERO
+    ========================= */
 
-    <style>
+    .hero {
+      min-height: 760px;
+      padding: 145px 20px 80px;
 
-        /* =====================================================
-           VARIABLES
-        ===================================================== */
+      position: relative;
 
-        :root {
-            --bg: #071526;
-            --bg-dark: #04101f;
-            --bg-card: #0a2038;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(4,16,31,0.96) 0%,
+          rgba(4,16,31,0.82) 48%,
+          rgba(4,16,31,0.48) 100%
+        ),
+        url("hero-fondo.png");
 
-            --text: #f3f4f6;
-            --text-soft: rgba(255,255,255,0.72);
+      background-size: cover;
+      background-position: center;
+    }
 
-            --accent: #f6b83f;
-            --accent-light: #ffd57b;
+    .hero-container {
+      width: min(1180px, 100%);
+      margin: auto;
+    }
 
-            --border: rgba(246,184,63,0.22);
-            --border-hover: rgba(246,184,63,0.65);
+    .hero-content {
+      max-width: 760px;
+    }
 
-            --whatsapp: #25D366;
-        }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
 
+      padding: 9px 15px;
 
-        /* =====================================================
-           RESET
-        ===================================================== */
+      border: 1px solid var(--border);
+      border-radius: 999px;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      background: rgba(246,184,63,0.08);
 
-        html {
-            scroll-behavior: smooth;
-        }
+      color: var(--accent-light);
 
-        body {
-            font-family: "Inter", sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-        }
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
 
-        body.modal-open {
-            overflow: hidden;
-        }
+    .hero h1 {
+      margin-top: 22px;
 
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+      font-weight: 900;
+    }
 
-        /* =====================================================
-           SCROLLBAR
-        ===================================================== */
+    .hero h1 span {
+      color: var(--accent);
+    }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
+    .hero-description {
+      margin-top: 25px;
 
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
+      max-width: 650px;
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 20px;
-        }
+      color: var(--text-soft);
 
+      font-size: 18px;
+      line-height: 1.7;
+    }
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
+      margin-top: 35px;
 
-            width: 100%;
-            height: 78px;
+      padding: 15px 24px;
 
-            z-index: 1000;
+      border-radius: 9px;
 
-            background: rgba(4,16,31,0.84);
+      background: var(--accent);
+      color: #081424;
 
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+      font-size: 13px;
+      font-weight: 900;
 
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
+      transition: 0.25s ease;
+    }
 
-        .nav {
-            max-width: 1450px;
-            height: 100%;
+    .hero-button:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
 
-            margin: auto;
-            padding: 0 35px;
+    .hero-features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+      gap: 15px;
 
-        .brand {
-            display: flex;
-            align-items: center;
+      margin-top: 70px;
+    }
 
-            cursor: pointer;
-        }
+    .hero-feature {
+      padding: 20px;
 
-        .brand img {
-            width: 62px;
-            height: 62px;
+      background: rgba(7,21,38,0.7);
 
-            object-fit: contain;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
 
-            filter:
-                drop-shadow(
-                    0 0 15px
-                    rgba(246,184,63,0.18)
-                );
-        }
+      backdrop-filter: blur(8px);
+    }
 
-        nav {
-            display: flex;
-            gap: 28px;
-        }
+    .hero-feature strong {
+      display: block;
 
-        nav a {
-            color: rgba(255,255,255,0.8);
+      margin-bottom: 7px;
 
-            text-decoration: none;
+      font-size: 14px;
+    }
 
-            font-size: 13px;
-            font-weight: 700;
+    .hero-feature span {
+      color: var(--text-soft);
 
-            transition: 0.25s;
-        }
+      font-size: 12px;
+      line-height: 1.5;
+    }
 
-        nav a:hover {
-            color: var(--accent);
-        }
+    /* =========================
+       GENERAL
+    ========================= */
 
+    section {
+      padding: 95px 20px;
+    }
 
-        /* =====================================================
-           HERO
-        ===================================================== */
+    .section-container {
+      width: min(1180px, 100%);
+      margin: auto;
+    }
 
-        .hero {
-            min-height: 100vh;
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
 
-            position: relative;
+    .section-title .eyebrow {
+      color: var(--accent);
 
-            display: flex;
-            align-items: center;
+      font-size: 11px;
+      font-weight: 900;
 
-            padding:
-                120px
-                50px
-                60px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
-            overflow: hidden;
+    .section-title h2 {
+      margin-top: 10px;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(3,14,28,0.96) 0%,
-                    rgba(3,14,28,0.90) 30%,
-                    rgba(3,14,28,0.55) 55%,
-                    rgba(3,14,28,0.12) 100%
-                ),
-                url("hero-fondo.png");
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.1;
+      font-weight: 900;
+    }
 
-            background-size: cover;
-            background-position: center;
-        }
+    .section-title p {
+      max-width: 700px;
 
+      margin: 16px auto 0;
 
-        .hero::before {
+      color: var(--text-soft);
 
-            content: "";
+      font-size: 15px;
+    }
 
-            position: absolute;
+    /* =========================
+       SERVICES
+    ========================= */
 
-            inset: 0;
+    #servicios {
+      background: var(--bg-dark);
+    }
 
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(3,14,28,0.18),
-                    rgba(3,14,28,0.08)
-                );
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
 
-            pointer-events: none;
-        }
+    .service-card {
+      position: relative;
 
+      padding: 34px;
 
-        .hero-content {
+      background: var(--bg-card);
 
-            width: 100%;
-            max-width: 1450px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
 
-            margin: auto;
+      overflow: hidden;
 
-            position: relative;
+      transition: 0.3s ease;
+    }
 
-            z-index: 2;
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow);
+    }
 
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-        }
+    .service-logo {
+      height: 70px;
 
+      display: flex;
+      align-items: center;
+    }
 
-        .hero-left {
+    .service-logo img {
+      max-width: 180px;
+      max-height: 60px;
+      object-fit: contain;
+    }
 
-            max-width: 680px;
-        }
+    .service-card h3 {
+      margin-top: 28px;
 
+      font-size: 24px;
+      font-weight: 900;
+    }
 
-        .hero-badge {
+    .service-card p {
+      margin-top: 10px;
 
-            display: inline-flex;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
 
-            align-items: center;
-            gap: 12px;
+    .service-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
 
-            padding: 12px 18px;
+      width: 100%;
 
-            margin-bottom: 35px;
+      margin-top: 28px;
+      padding: 13px 18px;
 
-            border:
-                1px solid
-                rgba(246,184,63,0.42);
+      border-radius: 8px;
 
-            border-radius: 12px;
+      background: rgba(246,184,63,0.1);
+      border: 1px solid var(--border);
 
-            background:
-                rgba(3,14,28,0.55);
+      color: var(--accent-light);
 
-            backdrop-filter: blur(10px);
-        }
+      font-size: 12px;
+      font-weight: 800;
 
+      cursor: pointer;
 
-        .hero-badge-icon {
+      transition: 0.25s ease;
+    }
 
-            color: var(--accent);
+    .service-button:hover {
+      background: var(--accent);
+      color: #081424;
+    }
 
-            font-size: 25px;
-        }
+    /* =========================
+       PROPOSAL
+    ========================= */
 
+    .proposal-section {
+      background: var(--bg);
+    }
 
-        .hero-badge-text {
+    .proposal-box {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 45px;
 
-            display: flex;
-            flex-direction: column;
+      padding: 45px;
 
-            gap: 3px;
-        }
+      background:
+        linear-gradient(
+          135deg,
+          rgba(246,184,63,0.07),
+          rgba(255,255,255,0.015)
+        );
 
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
 
-        .hero-badge-text strong {
+    .proposal-text h2 {
+      font-size: 34px;
+      line-height: 1.1;
+      font-weight: 900;
+    }
 
-            font-size: 12px;
+    .proposal-text p {
+      margin-top: 16px;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
 
-            letter-spacing: 1px;
-        }
+    .proposal-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
 
+    .proposal-form input,
+    .proposal-form select {
+      width: 100%;
 
-        .hero-badge-text span {
+      padding: 14px 15px;
 
-            font-size: 10px;
+      border-radius: 8px;
 
-            color:
-                rgba(255,255,255,0.65);
+      background: rgba(255,255,255,0.045);
 
-            letter-spacing: 1px;
-        }
+      border: 1px solid rgba(255,255,255,0.1);
 
+      color: white;
 
-        .hero h1 {
+      outline: none;
+    }
 
-            font-size:
-                clamp(48px, 6vw, 88px);
+    .proposal-form input::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
 
-            line-height: 0.98;
+    .proposal-form select option {
+      color: #111;
+    }
 
-            font-weight: 900;
+    .proposal-form input:focus,
+    .proposal-form select:focus {
+      border-color: var(--accent);
+    }
 
-            letter-spacing: -4px;
+    .proposal-submit {
+      grid-column: 1 / -1;
 
-            text-transform: uppercase;
+      padding: 14px;
 
-            margin-bottom: 28px;
-        }
+      border: none;
+      border-radius: 8px;
 
+      background: var(--accent);
+      color: #081424;
 
-        .hero h1 span {
+      font-size: 12px;
+      font-weight: 900;
 
-            color: var(--accent);
-        }
+      cursor: pointer;
 
+      transition: 0.25s ease;
+    }
 
-        .hero-line {
+    .proposal-submit:hover {
+      background: var(--accent-light);
+    }
 
-            width: 300px;
-            height: 2px;
+    /* =========================
+       WHY US
+    ========================= */
 
-            margin-bottom: 30px;
+    #por-que-elegirnos {
+      background: var(--bg-dark);
+    }
 
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--accent),
-                    rgba(246,184,63,0)
-                );
+    .why-box {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
 
-            box-shadow:
-                0 0 15px
-                rgba(246,184,63,0.7);
-        }
+    .why-box h2 {
+      font-size: clamp(30px, 4vw, 45px);
+      font-weight: 900;
+    }
 
+    .why-box h2 span {
+      color: var(--accent);
+    }
 
-        .hero-subtitle {
+    .why-box p {
+      margin-top: 22px;
 
-            max-width: 580px;
+      color: var(--text-soft);
 
-            font-size: 17px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
 
-            line-height: 1.7;
+    /* =========================
+       ADT
+    ========================= */
 
-            color:
-                rgba(255,255,255,0.72);
+    #adt {
+      display: none;
+      background: var(--bg);
+    }
 
-            margin-bottom: 34px;
-        }
+    .adt-location-title {
+      text-align: center;
+      margin-bottom: 25px;
+    }
 
+    .adt-location-title h3 {
+      font-size: 20px;
+      font-weight: 800;
+    }
 
-        .hero-button {
+    .adt-location-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
 
-            display: inline-flex;
+      margin-bottom: 45px;
+    }
 
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
+    .adt-location-button {
+      padding: 12px 22px;
 
-            padding:
-                17px
-                28px;
+      background: rgba(246,184,63,0.06);
 
-            border-radius: 13px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #e4a52d,
-                    #ffc452
-                );
+      color: var(--accent-light);
 
-            color: #111b29;
+      font-size: 12px;
+      font-weight: 800;
 
-            text-decoration: none;
+      cursor: pointer;
 
-            font-size: 15px;
-            font-weight: 900;
+      transition: 0.25s ease;
+    }
 
-            text-transform: uppercase;
+    .adt-location-button:hover {
+      background: var(--accent);
+      color: #081424;
+    }
 
-            letter-spacing: 0.3px;
+    #adt-products {
+      min-height: 10px;
+    }
 
-            box-shadow:
-                0 15px 35px
-                rgba(246,184,63,0.25);
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
 
-            transition: 0.3s;
-        }
+    .product-card {
+      background: var(--bg-card);
 
+      border: 1px solid var(--border);
+      border-radius: 16px;
 
-        .hero-button:hover {
+      overflow: hidden;
 
-            transform:
-                translateY(-4px);
+      transition: 0.3s ease;
+    }
 
-            box-shadow:
-                0 20px 45px
-                rgba(246,184,63,0.38);
-        }
+    .product-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
 
+    .product-image {
+      height: 280px;
 
-        .hero-features {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-            position: absolute;
+      padding: 25px;
 
-            bottom: 35px;
-            left: 50%;
+      background: rgba(0,0,0,0.15);
 
-            transform:
-                translateX(-50%);
+      cursor: zoom-in;
+    }
 
-            width:
-                calc(100% - 100px);
+    .product-image img {
+      width: 100%;
+      height: 100%;
 
-            max-width: 1450px;
+      object-fit: contain;
+    }
 
-            z-index: 3;
+    .product-content {
+      padding: 28px;
+    }
 
-            display: grid;
+    .product-content h3 {
+      font-size: 21px;
+      line-height: 1.25;
+      font-weight: 900;
+    }
 
-            grid-template-columns:
-                repeat(4, 1fr);
+    .product-content p {
+      margin-top: 10px;
 
-            background:
-                rgba(4,16,31,0.78);
+      color: var(--text-soft);
 
-            border:
-                1px solid
-                rgba(255,255,255,0.12);
+      font-size: 13px;
+      line-height: 1.6;
+    }
 
-            border-radius: 18px;
+    .product-includes {
+      margin-top: 20px;
+      padding-left: 18px;
+    }
 
-            backdrop-filter: blur(15px);
+    .product-includes li {
+      margin-bottom: 6px;
 
-            overflow: hidden;
-        }
+      color: rgba(255,255,255,0.75);
 
+      font-size: 12px;
+    }
 
-        .hero-feature {
+    .product-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
 
-            padding:
-                18px
-                22px;
+      margin-top: 22px;
+    }
 
-            display: flex;
-            align-items: center;
-            gap: 14px;
+    .product-action {
+      padding: 12px;
 
-            border-right:
-                1px solid
-                rgba(255,255,255,0.08);
-        }
+      border-radius: 8px;
 
+      font-size: 11px;
+      font-weight: 900;
 
-        .hero-feature:last-child {
+      text-align: center;
 
-            border-right: none;
-        }
+      cursor: pointer;
 
+      transition: 0.25s ease;
+    }
 
-        .feature-icon {
+    .product-action.primary {
+      background: var(--accent);
+      color: #081424;
+    }
 
-            width: 42px;
-            height: 42px;
+    .product-action.primary:hover {
+      background: var(--accent-light);
+    }
 
-            border-radius: 12px;
+    .product-action.secondary {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: white;
+    }
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    .product-action.secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
-            color: var(--accent);
+    /* =========================
+       ADT FAQ
+    ========================= */
 
-            font-size: 24px;
+    .adt-faq {
+      margin-top: 85px;
+      padding-top: 75px;
 
-            border:
-                1px solid
-                rgba(246,184,63,0.28);
+      border-top: 1px solid rgba(246,184,63,0.16);
+    }
 
-            background:
-                rgba(246,184,63,0.06);
-        }
+    .adt-faq-header {
+      max-width: 850px;
+      margin: 0 auto 38px;
 
+      text-align: center;
+    }
 
-        .feature-text {
+    .adt-faq-label {
+      display: inline-flex;
 
-            display: flex;
-            flex-direction: column;
+      padding: 7px 13px;
 
-            gap: 4px;
-        }
+      border-radius: 999px;
 
+      background: rgba(246,184,63,0.08);
+      border: 1px solid var(--border);
 
-        .feature-text strong {
+      color: var(--accent);
 
-            font-size: 12px;
+      font-size: 10px;
+      font-weight: 900;
 
-            text-transform: uppercase;
-        }
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
 
+    .adt-faq-header h2 {
+      margin-top: 15px;
 
-        .feature-text span {
+      font-size: clamp(29px, 4vw, 43px);
+      line-height: 1.1;
 
-            font-size: 11px;
+      font-weight: 900;
+    }
 
-            color:
-                rgba(255,255,255,0.58);
-        }
+    .adt-faq-header p {
+      margin-top: 15px;
 
+      color: var(--text-soft);
 
-        /* =====================================================
-           SECCIONES
-        ===================================================== */
+      font-size: 14px;
+      line-height: 1.7;
+    }
 
-        section {
-            padding:
-                110px
-                25px;
-        }
+    .faq-list {
+      max-width: 900px;
+      margin: auto;
 
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-        .section-container {
+    .faq-item {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.035),
+          rgba(255,255,255,0.015)
+        );
 
-            max-width: 1250px;
+      border: 1px solid rgba(246,184,63,0.15);
 
-            margin: auto;
-        }
+      border-radius: 11px;
 
+      overflow: hidden;
 
-        .section-title {
+      transition: 0.25s ease;
+    }
 
-            text-align: center;
+    .faq-item:hover {
+      border-color: rgba(246,184,63,0.35);
+    }
 
-            margin-bottom: 55px;
-        }
+    .faq-question {
+      width: 100%;
 
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
 
-        .section-title small {
+      padding: 20px 22px;
 
-            color: var(--accent);
+      border: none;
 
-            font-size: 12px;
+      background: transparent;
 
-            font-weight: 900;
+      color: white;
 
-            letter-spacing: 2px;
+      text-align: left;
 
-            text-transform: uppercase;
-        }
+      font-size: 14px;
+      font-weight: 800;
 
+      cursor: pointer;
+    }
 
-        .section-title h2 {
+    .faq-question span:first-child {
+      flex: 1;
+    }
 
-            margin-top: 10px;
+    .faq-icon {
+      flex: 0 0 28px;
 
-            font-size:
-                clamp(34px,5vw,52px);
+      width: 28px;
+      height: 28px;
 
-            letter-spacing: -2px;
-        }
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
+      border-radius: 50%;
 
-        .section-title p {
+      background: rgba(246,184,63,0.09);
 
-            max-width: 650px;
+      color: var(--accent);
 
-            margin:
-                15px auto 0;
+      font-size: 19px;
+      font-weight: 500;
 
-            color:
-                rgba(255,255,255,0.62);
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
 
-            font-size: 15px;
+    .faq-item.active {
+      border-color: rgba(246,184,63,0.45);
+      background: rgba(246,184,63,0.035);
+    }
 
-            line-height: 1.7;
-        }
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
 
+      background: var(--accent);
+      color: #081424;
+    }
 
-        /* =====================================================
-           SERVICIOS
-        ===================================================== */
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
 
-        #servicios {
+      transition: grid-template-rows 0.3s ease;
+    }
 
-            background:
-                linear-gradient(
-                    180deg,
-                    #071526,
-                    #08192b
-                );
-        }
+    .faq-answer-inner {
+      overflow: hidden;
+    }
 
+    .faq-answer p {
+      padding: 0 22px 21px;
 
-        .services-grid {
+      color: var(--text-soft);
 
-            display: grid;
+      font-size: 13px;
+      line-height: 1.75;
+    }
 
-            grid-template-columns:
-                repeat(3, 1fr);
+    .faq-item.active .faq-answer {
+      grid-template-rows: 1fr;
+    }
 
-            gap: 25px;
-        }
+    /* =========================
+       NUEVOS EQUIPOS
+    ========================= */
 
+    .new-equipment {
+      max-width: 900px;
 
-        .service-card {
+      margin: 55px auto 0;
 
-            min-height: 470px;
+      padding: 35px;
 
-            padding: 0 28px 25px;
+      position: relative;
 
-            background:
-                rgba(10,32,56,0.88);
+      overflow: hidden;
 
-            border:
-                1px solid
-                rgba(255,255,255,0.08);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(246,184,63,0.12),
+          rgba(10,32,56,0.85)
+        );
 
-            border-radius: 22px;
+      border: 1px solid rgba(246,184,63,0.3);
 
-            overflow: hidden;
+      border-radius: 17px;
 
-            position: relative;
+      text-align: center;
+    }
 
-            display: flex;
+    .new-equipment::before {
+      content: "";
 
-            flex-direction: column;
+      position: absolute;
 
-            transition: 0.35s;
-        }
+      width: 180px;
+      height: 180px;
 
+      top: -100px;
+      right: -70px;
 
-        .service-card:hover {
+      border-radius: 50%;
 
-            transform:
-                translateY(-8px);
+      background: rgba(246,184,63,0.08);
+    }
 
-            border-color:
-                var(--border-hover);
+    .new-equipment-label {
+      color: var(--accent);
 
-            box-shadow:
-                0 30px 60px
-                rgba(0,0,0,0.25);
-        }
+      font-size: 10px;
+      font-weight: 900;
 
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
-        .service-image {
+    .new-equipment h3 {
+      margin-top: 9px;
 
-            height: 220px;
+      font-size: clamp(25px, 3vw, 34px);
+      font-weight: 900;
+    }
 
-            margin:
-                0 -28px 20px;
+    .new-equipment-highlight {
+      margin-top: 12px;
 
-            display: flex;
+      color: var(--accent-light);
 
-            align-items: center;
-            justify-content: center;
+      font-size: 17px;
+      font-weight: 800;
+    }
 
-            position: relative;
+    .new-equipment p {
+      max-width: 700px;
 
-            overflow: hidden;
+      margin: 12px auto 0;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.05),
-                    rgba(0,0,0,0.12)
-                );
-        }
+      color: var(--text-soft);
 
+      font-size: 14px;
+      line-height: 1.7;
+    }
 
-        .service-image::after {
+    .equipment-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
 
-            content: "";
+      gap: 8px;
 
-            position: absolute;
+      margin-top: 22px;
+    }
 
-            inset: 0;
+    .equipment-tag {
+      padding: 8px 12px;
 
-            background:
-                linear-gradient(
-                    180deg,
-                    transparent,
-                    rgba(8,25,43,0.55)
-                );
-        }
+      border: 1px solid rgba(246,184,63,0.2);
+      border-radius: 999px;
 
+      background: rgba(0,0,0,0.12);
 
-        .service-image img {
+      color: rgba(255,255,255,0.8);
 
-            max-width: 100%;
-            max-height: 150px;
+      font-size: 11px;
+      font-weight: 700;
+    }
 
-            object-fit: contain;
+    /* =========================
+       DIRECTV
+    ========================= */
 
-            position: relative;
+    #directv {
+      background: var(--bg-dark);
+    }
 
-            z-index: 2;
-        }
+    .directv-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
 
+    /* =========================
+       FOOTER
+    ========================= */
 
-        .service-card h3 {
+    footer {
+      padding: 45px 20px;
 
-            font-size: 28px;
+      background: #020b16;
 
-            margin-bottom: 12px;
-        }
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
 
+    .footer-container {
+      width: min(1180px, 100%);
+      margin: auto;
 
-        .service-card p {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
 
-            font-size: 14px;
+    .footer-logo img {
+      width: 120px;
+    }
 
-            line-height: 1.7;
+    .footer-copy {
+      color: rgba(255,255,255,0.45);
 
-            color:
-                rgba(255,255,255,0.68);
+      font-size: 11px;
 
-            flex-grow: 1;
-        }
+      text-align: right;
+    }
 
+    /* =========================
+       FLOATING SOCIAL
+    ========================= */
 
-        .service-button {
+    .floating-socials {
+      position: fixed;
 
-            width: 100%;
+      right: 20px;
+      bottom: 20px;
 
-            margin-top: 24px;
+      z-index: 900;
 
-            padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-            border: none;
+    .social-button {
+      width: 50px;
+      height: 50px;
 
-            border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #e4a52d,
-                    #ffc452
-                );
+      border-radius: 50%;
 
-            color: #111b29;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 
-            font-weight: 900;
+      transition: 0.25s ease;
+    }
 
-            cursor: pointer;
+    .social-button:hover {
+      transform: translateY(-3px) scale(1.04);
+    }
 
-            transition: 0.25s;
-        }
+    .social-button.whatsapp {
+      background: var(--whatsapp);
+    }
 
+    .social-button.instagram {
+      background: linear-gradient(
+        135deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+      );
+    }
 
-        .service-button:hover {
+    .social-button svg {
+      width: 23px;
+      height: 23px;
 
-            transform:
-                translateY(-2px);
+      fill: white;
+    }
 
-            filter: brightness(1.06);
-        }
+    /* =========================
+       MODAL
+    ========================= */
 
+    .modal-overlay {
+      position: fixed;
 
-        .service-link {
+      inset: 0;
 
-            margin-top: 16px;
+      z-index: 2000;
 
-            text-align: center;
+      display: none;
+      align-items: center;
+      justify-content: center;
 
-            color: var(--accent);
+      padding: 20px;
 
-            font-size: 12px;
+      background: rgba(0,0,0,0.82);
 
-            font-weight: 700;
+      backdrop-filter: blur(8px);
+    }
 
-            cursor: pointer;
-        }
+    .modal-overlay.active {
+      display: flex;
+    }
 
+    .modal {
+      width: min(900px, 100%);
+      max-height: 90vh;
 
-        /* =====================================================
-           FORMULARIO
-        ===================================================== */
+      overflow-y: auto;
 
-        .proposal-section {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
 
-            padding-top: 0;
-        }
+      background: var(--bg-card);
 
+      border: 1px solid var(--border);
 
-        .proposal-box {
+      border-radius: 18px;
 
-            max-width: 1100px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
 
-            margin: auto;
+      position: relative;
+    }
 
-            padding: 35px;
+    .modal-image {
+      min-height: 420px;
 
-            border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #f1f1f1,
-                    #dfe3e8
-                );
+      padding: 30px;
 
-            color: #172230;
+      background: rgba(0,0,0,0.15);
+    }
 
-            display: grid;
+    .modal-image img {
+      max-height: 370px;
+      object-fit: contain;
+      cursor: zoom-in;
+    }
 
-            grid-template-columns:
-                1fr 1.8fr;
+    .modal-content {
+      padding: 38px;
+    }
 
-            gap: 40px;
+    .modal-category {
+      color: var(--accent);
 
-            box-shadow:
-                0 25px 60px
-                rgba(0,0,0,0.18);
-        }
+      font-size: 10px;
+      font-weight: 900;
 
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
 
-        .proposal-info h2 {
+    .modal-content h2 {
+      margin-top: 10px;
 
-            font-size: 27px;
+      font-size: 30px;
+      line-height: 1.15;
 
-            margin-bottom: 15px;
-        }
+      font-weight: 900;
+    }
 
+    .modal-description {
+      margin-top: 15px;
 
-        .proposal-info p {
+      color: var(--text-soft);
 
-            font-size: 14px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
 
-            line-height: 1.7;
+    .modal-includes {
+      margin-top: 22px;
+      padding-left: 18px;
+    }
 
-            color:
-                rgba(23,34,48,0.78);
+    .modal-includes li {
+      margin-bottom: 7px;
 
-            margin-bottom: 28px;
-        }
+      color: rgba(255,255,255,0.75);
 
+      font-size: 12px;
+    }
 
-        .proposal-security {
+    .modal-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
 
-            display: flex;
+      margin-top: 25px;
+    }
 
-            align-items: center;
+    .modal-buy,
+    .modal-info {
+      padding: 13px;
 
-            gap: 9px;
+      border-radius: 8px;
 
-            font-size: 11px;
+      text-align: center;
 
-            color:
-                rgba(23,34,48,0.58);
-        }
+      font-size: 11px;
+      font-weight: 900;
 
+      cursor: pointer;
+    }
 
-        .proposal-security span {
+    .modal-buy {
+      background: var(--accent);
+      color: #081424;
+    }
 
-            font-size: 16px;
-        }
+    .modal-info {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+    }
 
+    .modal-close {
+      position: absolute;
 
-        .proposal-form {
+      top: 15px;
+      right: 15px;
 
-            display: grid;
+      width: 35px;
+      height: 35px;
 
-            grid-template-columns:
-                1fr 1fr;
+      border-radius: 50%;
 
-            gap: 12px;
-        }
+      border: 1px solid rgba(255,255,255,0.12);
 
+      background: rgba(0,0,0,0.35);
 
-        .proposal-form input,
-        .proposal-form select {
+      color: white;
 
-            width: 100%;
+      font-size: 20px;
 
-            padding: 15px 16px;
+      cursor: pointer;
 
-            border:
-                1px solid
-                rgba(23,34,48,0.12);
+      z-index: 5;
+    }
 
-            border-radius: 10px;
+    /* =========================
+       LIGHTBOX
+    ========================= */
 
-            background:
-                rgba(255,255,255,0.65);
+    .lightbox {
+      position: fixed;
 
-            color: #172230;
+      inset: 0;
 
-            font-family: inherit;
+      z-index: 3000;
 
-            outline: none;
+      display: none;
+      align-items: center;
+      justify-content: center;
 
-            transition: 0.25s;
-        }
+      padding: 30px;
 
+      background: rgba(0,0,0,0.94);
 
-        .proposal-form input:focus,
-        .proposal-form select:focus {
+      cursor: zoom-out;
+    }
 
-            border-color:
-                var(--accent);
+    .lightbox.active {
+      display: flex;
+    }
 
-            box-shadow:
-                0 0 0 3px
-                rgba(246,184,63,0.16);
-        }
+    .lightbox img {
+      max-width: 95%;
+      max-height: 90vh;
 
+      object-fit: contain;
+    }
 
-        .proposal-form select {
+    .lightbox-close {
+      position: absolute;
 
-            cursor: pointer;
-        }
+      top: 20px;
+      right: 25px;
 
+      color: white;
 
-        .proposal-form button {
+      font-size: 35px;
 
-            grid-column:
-                span 2;
+      cursor: pointer;
+    }
 
-            padding: 16px;
+    /* =========================
+       RESPONSIVE
+    ========================= */
 
-            border: none;
+    @media (max-width: 950px) {
 
-            border-radius: 10px;
+      nav {
+        gap: 16px;
+      }
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #e4a52d,
-                    #ffc452
-                );
+      nav a {
+        font-size: 12px;
+      }
 
-            color: #172230;
+      .hero-features {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-            font-family: inherit;
+      .services-grid,
+      .directv-grid {
+        grid-template-columns: 1fr;
+      }
 
-            font-weight: 900;
+      .proposal-box {
+        grid-template-columns: 1fr;
+      }
+    }
 
-            cursor: pointer;
+    @media (max-width: 700px) {
 
-            transition: 0.25s;
-        }
+      :root {
+        --header-height: 68px;
+      }
 
+      .header-container {
+        width: min(100% - 25px, 1180px);
+      }
 
-        .proposal-form button:hover {
+      .logo img {
+        width: 110px;
+      }
 
-            transform:
-                translateY(-2px);
+      nav {
+        gap: 12px;
+      }
 
-            filter: brightness(1.05);
-        }
+      nav a {
+        font-size: 10px;
+      }
 
+      .hero {
+        min-height: auto;
 
-        /* =====================================================
-           POR QUÉ ELEGIRNOS
-        ===================================================== */
+        padding-top: 120px;
+        padding-bottom: 60px;
 
-        #por-que-elegirnos {
+        background-position: 65% center;
+      }
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #061321,
-                    #0a2038
-                );
-        }
+      .hero h1 {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+      }
 
+      .hero-description {
+        font-size: 15px;
+      }
 
-        .why-box {
+      .hero-features {
+        grid-template-columns: 1fr;
+        margin-top: 45px;
+      }
 
-            max-width: 950px;
+      section {
+        padding: 70px 16px;
+      }
 
-            margin: auto;
+      .proposal-box {
+        padding: 25px 18px;
+      }
 
-            text-align: center;
+      .proposal-form {
+        grid-template-columns: 1fr;
+      }
 
-            padding: 55px 45px;
+      .proposal-submit {
+        grid-column: auto;
+      }
 
-            border-radius: 25px;
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
 
-            border:
-                1px solid
-                rgba(246,184,63,0.25);
+      .product-image {
+        height: 240px;
+      }
 
-            background:
-                rgba(255,255,255,0.035);
+      .product-actions,
+      .modal-actions {
+        grid-template-columns: 1fr;
+      }
 
-            box-shadow:
-                0 25px 70px
-                rgba(0,0,0,0.18);
-        }
+      .adt-faq {
+        margin-top: 60px;
+        padding-top: 55px;
+      }
 
+      .faq-question {
+        padding: 17px 16px;
+        font-size: 13px;
+      }
 
-        .why-box h2 {
+      .faq-answer p {
+        padding: 0 16px 18px;
+        font-size: 12px;
+      }
 
-            color: var(--accent);
+      .new-equipment {
+        padding: 28px 20px;
+      }
 
-            font-size:
-                clamp(30px,4vw,46px);
+      .modal {
+        grid-template-columns: 1fr;
+      }
 
-            margin-bottom: 25px;
+      .modal-image {
+        min-height: 250px;
+      }
 
-            font-weight: 900;
+      .modal-content {
+        padding: 25px 20px;
+      }
 
-            text-transform: uppercase;
-        }
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
 
+      .footer-copy {
+        text-align: center;
+      }
 
-        .why-box p {
+      .floating-socials {
+        right: 13px;
+        bottom: 13px;
+      }
 
-            max-width: 800px;
-
-            margin: auto;
-
-            font-size: 17px;
-
-            line-height: 1.85;
-
-            color:
-                rgba(255,255,255,0.78);
-        }
-
-
-        /* =====================================================
-           ADT
-        ===================================================== */
-
-        #adt {
-
-            display: none;
-
-            background:
-                #071526;
-        }
-
-
-        .location-box {
-
-            max-width: 760px;
-
-            margin:
-                0 auto 55px;
-        }
-
-
-        .location-buttons {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2,1fr);
-
-            gap: 20px;
-        }
-
-
-        .location-button {
-
-            padding: 28px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 18px;
-
-            background:
-                rgba(255,255,255,0.04);
-
-            color: var(--text);
-
-            cursor: pointer;
-
-            font-family: inherit;
-
-            font-size: 18px;
-
-            font-weight: 900;
-
-            transition: 0.3s;
-        }
-
-
-        .location-button:hover {
-
-            border-color:
-                var(--accent);
-
-            transform:
-                translateY(-4px);
-        }
-
-
-        .location-button span {
-
-            display: block;
-
-            margin-top: 8px;
-
-            color: var(--accent);
-
-            font-size: 12px;
-
-            font-weight: 600;
-        }
-
-
-        /* =====================================================
-           PRODUCTOS
-        ===================================================== */
-
-        .products-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2,1fr);
-
-            gap: 28px;
-        }
-
-
-        .product-card {
-
-            background:
-                rgba(255,255,255,0.04);
-
-            border:
-                1px solid
-                rgba(246,184,63,0.16);
-
-            border-radius: 22px;
-
-            overflow: hidden;
-
-            transition: 0.35s;
-        }
-
-
-        .product-card:hover {
-
-            transform:
-                translateY(-7px);
-
-            border-color:
-                rgba(246,184,63,0.55);
-
-            box-shadow:
-                0 25px 60px
-                rgba(0,0,0,0.22);
-        }
-
-
-        .product-image {
-
-            height: 360px;
-
-            padding: 30px;
-
-            background:
-                rgba(0,0,0,0.12);
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            cursor: zoom-in;
-
-            position: relative;
-        }
-
-
-        .product-image::after {
-
-            content: "VER EN GRANDE";
-
-            position: absolute;
-
-            bottom: 15px;
-            right: 15px;
-
-            padding:
-                7px 10px;
-
-            border-radius: 8px;
-
-            background:
-                rgba(4,16,31,0.88);
-
-            border:
-                1px solid
-                rgba(246,184,63,0.3);
-
-            color: var(--accent);
-
-            font-size: 9px;
-
-            font-weight: 900;
-        }
-
-
-        .product-image img {
-
-            width: 100%;
-            height: 100%;
-
-            object-fit: contain;
-
-            transition: 0.3s;
-        }
-
-
-        .product-image:hover img {
-
-            transform:
-                scale(1.035);
-        }
-
-
-        .product-info {
-
-            padding: 28px;
-        }
-
-
-        .product-title {
-
-            color: var(--accent);
-
-            font-size: 22px;
-
-            line-height: 1.3;
-
-            margin-bottom: 15px;
-
-            cursor: pointer;
-        }
-
-
-        .product-info > p {
-
-            color:
-                rgba(255,255,255,0.68);
-
-            font-size: 14px;
-
-            line-height: 1.65;
-        }
-
-
-        .product-actions {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 12px;
-
-            margin-top: 25px;
-        }
-
-
-        .btn {
-
-            padding: 13px 10px;
-
-            border-radius: 10px;
-
-            text-align: center;
-
-            text-decoration: none;
-
-            font-size: 12px;
-
-            font-weight: 900;
-
-            transition: 0.25s;
-        }
-
-
-        .btn-primary {
-
-            background:
-                var(--accent);
-
-            color:
-                #101a28;
-        }
-
-
-        .btn-secondary {
-
-            border:
-                1px solid
-                rgba(246,184,63,0.45);
-
-            color:
-                var(--text);
-        }
-
-
-        .btn:hover {
-
-            transform:
-                translateY(-2px);
-        }
-
-
-        /* =====================================================
-           MODAL
-        ===================================================== */
-
-        .modal {
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 5000;
-
-            display: none;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 25px;
-
-            background:
-                rgba(2,8,18,0.9);
-
-            backdrop-filter:
-                blur(14px);
-        }
-
-
-        .modal.active {
-
-            display: flex;
-        }
-
-
-        .modal-content {
-
-            width: 100%;
-
-            max-width: 1000px;
-
-            max-height: 92vh;
-
-            overflow-y: auto;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #0b2139,
-                    #071526
-                );
-
-            border:
-                1px solid
-                rgba(246,184,63,0.28);
-
-            border-radius: 25px;
-
-            position: relative;
-        }
-
-
-        .modal-close {
-
-            position: absolute;
-
-            top: 18px;
-            right: 18px;
-
-            width: 42px;
-            height: 42px;
-
-            border-radius: 50%;
-
-            border:
-                1px solid
-                rgba(246,184,63,0.3);
-
-            background:
-                rgba(4,16,31,0.9);
-
-            color: white;
-
-            font-size: 22px;
-
-            cursor: pointer;
-
-            z-index: 10;
-        }
-
-
-        .modal-body {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-        }
-
-
-        .modal-image-container {
-
-            min-height: 520px;
-
-            padding: 45px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            background:
-                rgba(0,0,0,0.12);
-
-            cursor: zoom-in;
-        }
-
-
-        .modal-image-container img {
-
-            width: 100%;
-
-            max-height: 500px;
-
-            object-fit: contain;
-        }
-
-
-        .modal-info {
-
-            padding: 55px 40px;
-        }
-
-
-        .modal-category {
-
-            color: var(--accent);
-
-            font-size: 11px;
-
-            font-weight: 900;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 12px;
-        }
-
-
-        .modal-info h2 {
-
-            font-size:
-                clamp(26px,4vw,38px);
-
-            line-height: 1.15;
-
-            margin-bottom: 22px;
-        }
-
-
-        .modal-description {
-
-            color:
-                rgba(255,255,255,0.72);
-
-            font-size: 14px;
-
-            line-height: 1.65;
-
-            margin-bottom: 25px;
-        }
-
-
-        .includes-title {
-
-            color: var(--accent);
-
-            font-size: 14px;
-
-            font-weight: 900;
-
-            margin-bottom: 14px;
-        }
-
-
-        .includes-list {
-
-            list-style: none;
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 10px;
-
-            margin-bottom: 30px;
-        }
-
-
-        .includes-list li {
-
-            display: flex;
-
-            gap: 10px;
-
-            color:
-                rgba(255,255,255,0.82);
-
-            font-size: 14px;
-        }
-
-
-        .includes-list li::before {
-
-            content: "✓";
-
-            color: var(--accent);
-
-            font-weight: 900;
-        }
-
-
-        .modal-actions {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 12px;
-        }
-
-
-        .modal-actions a {
-
-            padding: 15px;
-
-            border-radius: 10px;
-
-            text-align: center;
-
-            text-decoration: none;
-
-            font-size: 12px;
-
-            font-weight: 900;
-        }
-
-
-        .modal-buy {
-
-            background:
-                var(--accent);
-
-            color:
-                #101a28;
-        }
-
-
-        .modal-info-btn {
-
-            border:
-                1px solid
-                rgba(246,184,63,0.5);
-
-            color:
-                white;
-        }
-
-
-        /* =====================================================
-           LIGHTBOX
-        ===================================================== */
-
-        .lightbox {
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 7000;
-
-            display: none;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 30px;
-
-            background:
-                rgba(0,0,0,0.95);
-        }
-
-
-        .lightbox.active {
-
-            display: flex;
-        }
-
-
-        .lightbox img {
-
-            max-width: 95vw;
-            max-height: 90vh;
-
-            object-fit: contain;
-        }
-
-
-        .lightbox-close {
-
-            position: absolute;
-
-            top: 25px;
-            right: 30px;
-
-            width: 48px;
-            height: 48px;
-
-            border-radius: 50%;
-
-            background:
-                #0a2038;
-
-            border:
-                1px solid
-                rgba(246,184,63,0.35);
-
-            color: white;
-
-            font-size: 25px;
-
-            cursor: pointer;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-
-            padding:
-                55px 25px;
-
-            text-align: center;
-
-            background:
-                #04101f;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,0.08);
-        }
-
-
-        footer img {
-
-            width: 80px;
-
-            margin-bottom: 15px;
-        }
-
-
-        footer p {
-
-            color:
-                rgba(255,255,255,0.45);
-
-            font-size: 12px;
-        }
-
-
-        /* =====================================================
-           BOTONES FLOTANTES
-        ===================================================== */
-
-        .floating-socials {
-
-            position: fixed;
-
-            right: 22px;
-            bottom: 22px;
-
-            z-index: 3000;
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 12px;
-        }
-
-
-        .floating-social {
-
-            width: 56px;
-            height: 56px;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            box-shadow:
-                0 10px 35px
-                rgba(0,0,0,0.3);
-
-            transition: 0.3s;
-        }
-
-
-        .floating-social:hover {
-
-            transform:
-                scale(1.08);
-        }
-
-
-        .floating-social svg {
-
-            width: 28px;
-            height: 28px;
-
-            fill: white;
-        }
-
-
-        .whatsapp-float {
-
-            background:
-                #25D366;
-        }
-
-
-        .instagram-float {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #833AB4,
-                    #E1306C,
-                    #F77737
-                );
-        }
-
-
-        /* =====================================================
-           RESPONSIVE
-        ===================================================== */
-
-        @media(max-width: 950px) {
-
-            .hero {
-
-                padding:
-                    130px
-                    30px
-                    240px;
-
-                background-position: 65% center;
-            }
-
-            .hero-features {
-
-                grid-template-columns:
-                    1fr 1fr;
-
-                bottom: 25px;
-
-                width:
-                    calc(100% - 40px);
-            }
-
-            .hero-feature {
-
-                border-bottom:
-                    1px solid
-                    rgba(255,255,255,0.08);
-            }
-
-            .services-grid {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-            .proposal-box {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-            .products-grid {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-            .modal-body {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-            nav {
-
-                display: none;
-            }
-        }
-
-
-        @media(max-width: 600px) {
-
-            header {
-
-                height: 68px;
-            }
-
-            .nav {
-
-                padding:
-                    0 18px;
-            }
-
-            .brand img {
-
-                width: 52px;
-                height: 52px;
-            }
-
-            .hero {
-
-                min-height: 850px;
-
-                padding:
-                    105px
-                    22px
-                    280px;
-
-                background-position: 68% center;
-            }
-
-            .hero h1 {
-
-                font-size: 48px;
-
-                letter-spacing: -2.5px;
-            }
-
-            .hero-subtitle {
-
-                font-size: 14px;
-            }
-
-            .hero-badge {
-
-                padding: 10px 13px;
-
-                margin-bottom: 25px;
-            }
-
-            .hero-features {
-
-                grid-template-columns:
-                    1fr;
-
-                border-radius: 15px;
-
-                bottom: 18px;
-            }
-
-            .hero-feature {
-
-                padding:
-                    12px 15px;
-
-                border-right: none;
-            }
-
-            .feature-icon {
-
-                width: 36px;
-                height: 36px;
-
-                font-size: 19px;
-            }
-
-            .proposal-box {
-
-                padding: 25px 20px;
-            }
-
-            .proposal-form {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-            .proposal-form button {
-
-                grid-column:
-                    span 1;
-            }
-
-            .location-buttons {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-            .product-image {
-
-                height: 300px;
-            }
-
-            .product-actions,
-            .modal-actions {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-            .why-box {
-
-                padding:
-                    40px 22px;
-            }
-
-            section {
-
-                padding:
-                    80px 18px;
-            }
-
-            .modal {
-
-                padding:
-                    10px;
-            }
-
-            .modal-image-container {
-
-                min-height: 280px;
-
-                padding:
-                    25px;
-            }
-
-            .modal-info {
-
-                padding:
-                    35px 22px;
-            }
-
-            .floating-socials {
-
-                right: 15px;
-                bottom: 15px;
-            }
-
-            .floating-social {
-
-                width: 52px;
-                height: 52px;
-            }
-        }
-
-    </style>
+      .social-button {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+  <header>
+    <div class="header-container">
 
-<header>
+      <div class="logo" onclick="goHome()">
+        <img src="logo%20rc.png" alt="RC Red de Servicios">
+      </div>
 
-    <div class="nav">
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#por-que-elegirnos">¿Por qué elegirnos?</a>
+      </nav>
 
-        <div
-            class="brand"
-            onclick="goHome()"
-        >
+    </div>
+  </header>
 
-            <img
-                src="logo%20rc.png"
-                alt="RC Red de Servicios"
-            >
 
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero" id="inicio">
+
+    <div class="hero-container">
+
+      <div class="hero-content">
+
+        <div class="hero-badge">
+          AGENTES OFICIALES / DE MARCAS LÍDERES
         </div>
 
+        <h1>
+          CONECTAMOS TUS NECESIDADES CON LAS <span>MARCAS LÍDERES.</span>
+        </h1>
 
-        <nav>
+        <p class="hero-description">
+          Servicios de seguridad, entretenimiento y salud con atención personalizada
+          para que encuentres la mejor opción para vos y tu familia.
+        </p>
 
-            <a href="#inicio">
-                INICIO
-            </a>
+        <a href="#servicios" class="hero-button">
+          QUIERO MÁS INFORMACIÓN →
+        </a>
 
-            <a href="#servicios">
-                SERVICIOS
-            </a>
+      </div>
 
-            <a href="#por-que-elegirnos">
-                ¿POR QUÉ ELEGIRNOS?
-            </a>
 
-        </nav>
+      <div class="hero-features">
+
+        <div class="hero-feature">
+          <strong>Atención personalizada</strong>
+          <span>Asesores expertos a tu disposición.</span>
+        </div>
+
+        <div class="hero-feature">
+          <strong>Gestión simple y rápida</strong>
+          <span>Nos encargamos de todo el proceso.</span>
+        </div>
+
+        <div class="hero-feature">
+          <strong>Acompañamiento real</strong>
+          <span>Antes, durante y después de tu contratación.</span>
+        </div>
+
+        <div class="hero-feature">
+          <strong>Respaldo y confianza</strong>
+          <span>Trabajamos con marcas líderes.</span>
+        </div>
+
+      </div>
 
     </div>
 
-</header>
+  </section>
 
 
+  <!-- =========================
+       SERVICIOS
+  ========================= -->
 
-<!-- =====================================================
-     PORTADA / HERO
-===================================================== -->
-
-<section
-    class="hero"
-    id="inicio"
->
-
-    <div class="hero-content">
-
-        <div class="hero-left">
-
-
-            <div class="hero-badge">
-
-                <div class="hero-badge-icon">
-                    ♢
-                </div>
-
-                <div class="hero-badge-text">
-
-                    <strong>
-                        AGENTES OFICIALES
-                    </strong>
-
-                    <span>
-                        DE MARCAS LÍDERES
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <h1>
-
-                CONECTAMOS
-                <br>
-
-                TUS NECESIDADES
-
-                <br>
-
-                <span>
-                    CON LAS MARCAS LÍDERES.
-                </span>
-
-            </h1>
-
-
-            <div class="hero-line"></div>
-
-
-            <p class="hero-subtitle">
-
-                Servicios de seguridad, entretenimiento y salud
-                con atención personalizada para que encuentres
-                la mejor opción para vos y tu familia.
-
-            </p>
-
-
-            <a
-                href="#servicios"
-                class="hero-button"
-            >
-
-                QUIERO MÁS INFORMACIÓN
-                →
-
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- BENEFICIOS -->
-
-    <div class="hero-features">
-
-
-        <div class="hero-feature">
-
-            <div class="feature-icon">
-                ♙
-            </div>
-
-            <div class="feature-text">
-
-                <strong>
-                    Atención personalizada
-                </strong>
-
-                <span>
-                    Asesores expertos a tu disposición.
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-feature">
-
-            <div class="feature-icon">
-                ♢
-            </div>
-
-            <div class="feature-text">
-
-                <strong>
-                    Gestión simple y rápida
-                </strong>
-
-                <span>
-                    Nos encargamos de todo el proceso.
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-feature">
-
-            <div class="feature-icon">
-                ♧
-            </div>
-
-            <div class="feature-text">
-
-                <strong>
-                    Acompañamiento real
-                </strong>
-
-                <span>
-                    Antes, durante y después.
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-feature">
-
-            <div class="feature-icon">
-                ☆
-            </div>
-
-            <div class="feature-text">
-
-                <strong>
-                    Respaldo y confianza
-                </strong>
-
-                <span>
-                    Trabajamos con marcas líderes.
-                </span>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SERVICIOS
-===================================================== -->
-
-<section id="servicios">
+  <section id="servicios">
 
     <div class="section-container">
 
+      <div class="section-title">
 
-        <div class="section-title">
+        <div class="eyebrow">
+          NUESTROS SERVICIOS
+        </div>
 
-            <h2>
-                ¿Qué servicio necesitás?
-            </h2>
+        <h2>
+          Elegí lo que necesitás
+        </h2>
 
-            <p>
+        <p>
+          Te ayudamos a encontrar la solución adecuada para tu hogar,
+          comercio o familia.
+        </p>
 
-                Elegí una opción y recibí asesoramiento
-                personalizado para contratar.
+      </div>
 
-            </p>
+
+      <div class="services-grid">
+
+        <!-- ADT -->
+
+        <div class="service-card">
+
+          <div class="service-logo">
+            <img src="logo%20adt.png" alt="ADT Alarmas">
+          </div>
+
+          <h3>
+            ADT Alarmas
+          </h3>
+
+          <p>
+            Sistemas de seguridad monitoreados, alarmas, cámaras y
+            soluciones para hogares y comercios.
+          </p>
+
+          <button
+            class="service-button"
+            onclick="showADT()">
+            VER SOLUCIONES ADT →
+          </button>
 
         </div>
 
 
-        <div class="services-grid">
-
-
-            <!-- ADT -->
-
-            <div class="service-card">
-
-                <div class="service-image">
-
-                    <img
-                        src="logo%20adt.png"
-                        alt="ADT Alarmas"
-                    >
-
-                </div>
-
-
-                <h3>
-                    ADT
-                </h3>
-
-
-                <p>
-
-                    Protección y monitoreo profesional
-                    para tu hogar o negocio.
-
-                </p>
-
-
-                <button
-                    class="service-button"
-                    onclick="showADT()"
-                >
-
-                    QUIERO PROTEGER MI HOGAR
-                    →
-
-                </button>
-
-
-                <div
-                    class="service-link"
-                    onclick="showADT()"
-                >
-
-                    Ver equipos y opciones →
-
-                </div>
-
-            </div>
-
-
-
-            <!-- DIRECTV -->
-
-            <div class="service-card">
-
-                <div class="service-image">
-
-                    <img
-                        src="logo%20directv.png"
-                        alt="DirecTV"
-                    >
-
-                </div>
-
-
-                <h3>
-                    DIRECTV
-                </h3>
-
-
-                <p>
-
-                    Televisión, fútbol, entretenimiento
-                    y plataformas para disfrutar
-                    en casa.
-
-                </p>
-
-
-                <button
-                    class="service-button"
-                    onclick="showSection('directv')"
-                >
-
-                    QUIERO CONTRATAR DIRECTV
-                    →
-
-                </button>
-
-
-                <div
-                    class="service-link"
-                    onclick="showSection('directv')"
-                >
-
-                    Ver planes y promociones →
-
-                </div>
-
-            </div>
-
-
-
-            <!-- AVALIAN -->
-
-            <div class="service-card">
-
-                <div class="service-image">
-
-                    <img
-                        src="logo%20avalian.png"
-                        alt="Avalian"
-                    >
-
-                </div>
-
-
-                <h3>
-                    AVALIAN
-                </h3>
-
-
-                <p>
-
-                    Cobertura médica con diferentes
-                    alternativas según tus necesidades.
-
-                </p>
-
-
-                <button
-                    class="service-button"
-                    onclick="contactAvalian()"
-                >
-
-                    QUIERO CONOCER MI PLAN
-                    →
-
-                </button>
-
-
-                <div
-                    class="service-link"
-                    onclick="contactAvalian()"
-                >
-
-                    Ver planes disponibles →
-
-                </div>
-
-            </div>
-
+        <!-- DIRECTV -->
+
+        <div class="service-card">
+
+          <div class="service-logo">
+            <img src="logo%20directv.png" alt="DirecTV">
+          </div>
+
+          <h3>
+            DIRECTV
+          </h3>
+
+          <p>
+            Entretenimiento para toda la familia con televisión,
+            DGO y promociones especiales.
+          </p>
+
+          <button
+            class="service-button"
+            onclick="showSection('directv')">
+            VER PROMOCIONES →
+          </button>
 
         </div>
+
+
+        <!-- AVALIAN -->
+
+        <div class="service-card">
+
+          <div class="service-logo">
+            <img src="logo%20avalian.png" alt="Avalian">
+          </div>
+
+          <h3>
+            AVALIAN
+          </h3>
+
+          <p>
+            Medicina prepaga y alternativas de cobertura para vos
+            y tu familia.
+          </p>
+
+          <button
+            class="service-button"
+            onclick="contactAvalian()">
+            QUIERO INFORMACIÓN →
+          </button>
+
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
+  <!-- =========================
+       PROPUESTA
+  ========================= -->
 
-<!-- =====================================================
-     FORMULARIO
-===================================================== -->
+  <section class="proposal-section">
 
-<section class="proposal-section">
+    <div class="section-container">
 
-    <div class="proposal-box">
+      <div class="proposal-box">
 
+        <div class="proposal-text">
 
-        <div class="proposal-info">
+          <div class="eyebrow" style="color:var(--accent);font-size:11px;font-weight:900;letter-spacing:2px;">
+            COTIZACIÓN PERSONALIZADA
+          </div>
 
-            <h2>
-                Recibí tu propuesta personalizada
-            </h2>
+          <h2>
+            Recibí tu propuesta personalizada
+          </h2>
 
-
-            <p>
-
-                Dejanos los datos y un asesor te contactará
-                para ayudarte a contratar.
-
-            </p>
-
-
-            <div class="proposal-security">
-
-                <span>
-                    ♙
-                </span>
-
-                Tus datos serán utilizados únicamente
-                para esta consulta.
-
-            </div>
+          <p>
+            Completá tus datos y contanos qué servicio estás buscando.
+            Un asesor se va a contactar con vos para ayudarte.
+          </p>
 
         </div>
 
 
         <form
-            class="proposal-form"
-            onsubmit="sendProposal(event)"
-        >
+          class="proposal-form"
+          onsubmit="sendProposal(event)">
 
+          <input
+            id="formName"
+            type="text"
+            placeholder="Nombre y apellido"
+            required>
 
-            <input
-                type="text"
-                id="formName"
-                placeholder="Nombre y apellido"
-                required
-            >
+          <input
+            id="formWhatsapp"
+            type="tel"
+            placeholder="WhatsApp"
+            required>
 
+          <input
+            id="formLocation"
+            type="text"
+            placeholder="Localidad / Provincia"
+            required>
 
-            <input
-                type="tel"
-                id="formWhatsapp"
-                placeholder="Número de WhatsApp"
-                required
-            >
+          <select id="formService" required>
 
+            <option value="">
+              Seleccioná un servicio
+            </option>
 
-            <input
-                type="text"
-                id="formLocation"
-                placeholder="Localidad y provincia"
-                required
-            >
+            <option value="ADT Alarmas">
+              ADT Alarmas
+            </option>
 
+            <option value="DirecTV">
+              DirecTV
+            </option>
 
-            <select
-                id="formService"
-                required
-            >
+            <option value="Avalian Medicina Prepaga">
+              Avalian Medicina Prepaga
+            </option>
 
-                <option value="">
-                    Elegí tu servicio
-                </option>
+          </select>
 
-                <option value="ADT Alarmas">
-                    ADT Alarmas
-                </option>
-
-                <option value="DirecTV">
-                    DirecTV
-                </option>
-
-                <option value="Avalian Medicina Prepaga">
-                    Avalian Medicina Prepaga
-                </option>
-
-            </select>
-
-
-            <button type="submit">
-
-                QUIERO QUE ME CONTACTEN
-                →
-
-            </button>
-
+          <button
+            class="proposal-submit"
+            type="submit">
+            QUIERO RECIBIR MI PROPUESTA →
+          </button>
 
         </form>
 
+      </div>
+
     </div>
 
-</section>
+  </section>
 
 
+  <!-- =========================
+       POR QUÉ ELEGIRNOS
+  ========================= -->
 
-<!-- =====================================================
-     POR QUÉ ELEGIRNOS
-===================================================== -->
-
-<section id="por-que-elegirnos">
+  <section id="por-que-elegirnos">
 
     <div class="section-container">
 
-        <div class="why-box">
+      <div class="why-box">
 
-            <h2>
-                ¿POR QUÉ ELEGIRNOS?
-            </h2>
+        <h2>
+          ¿POR QUÉ <span>ELEGIRNOS?</span>
+        </h2>
 
-            <p>
+        <p>
+          No buscamos solamente concretar una venta. Queremos que tengas
+          acompañamiento durante todo el proceso: desde la elección del
+          servicio hasta la instalación y activación. Y también estamos
+          disponibles después, para ayudarte cuando lo necesites.
+        </p>
 
-                Asesorándote y contratando con nosotros,
-                además del servicio, tenés una agencia
-                que se ocupa de vos.
-
-                <br><br>
-
-                Te ofrecemos la tranquilidad de tener
-                a alguien que se ocupe de vos luego
-                de finalizar la venta y tener el
-                servicio activo.
-
-            </p>
-
-        </div>
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
+  <!-- =========================
+       ADT
+  ========================= -->
 
-<!-- =====================================================
-     ADT
-===================================================== -->
-
-<section id="adt">
+  <section id="adt">
 
     <div class="section-container">
 
-        <div class="section-title">
+      <div class="section-title">
 
-            <small>
-                ADT ALARMAS
-            </small>
-
-            <h2>
-                Elegí tu ubicación
-            </h2>
-
-            <p>
-
-                Los kits disponibles pueden variar según
-                tu ubicación. Seleccioná dónde te encontrás
-                para visualizar las opciones disponibles.
-
-            </p>
-
+        <div class="eyebrow">
+          ADT ALARMAS
         </div>
 
+        <h2>
+          Elegí tu solución de seguridad
+        </h2>
 
-        <div class="location-box">
+        <p>
+          Seleccioná tu ubicación para conocer los equipos disponibles
+          y las soluciones que podemos ofrecerte.
+        </p>
 
-            <div class="location-buttons">
+      </div>
 
 
-                <button
-                    class="location-button"
-                    onclick="showADTCordoba()"
-                >
+      <div class="adt-location-title">
 
-                    CÓRDOBA
+        <h3>
+          ¿Dónde querés instalar tu alarma?
+        </h3>
 
-                    <span>
-                        Ver kits disponibles
-                    </span>
+      </div>
 
-                </button>
 
-
-                <button
-                    class="location-button"
-                    onclick="showADTResto()"
-                >
-
-                    RESTO DEL PAÍS
-
-                    <span>
-                        Ver kits disponibles
-                    </span>
-
-                </button>
-
-
-            </div>
-
-        </div>
-
-
-        <div
-            id="adt-products"
-            class="products-grid"
-        ></div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DIRECTV
-===================================================== -->
-
-<section id="directv">
-
-    <div class="section-container">
-
-
-        <div class="section-title">
-
-            <small>
-                DIRECTV
-            </small>
-
-            <h2>
-                Promociones disponibles
-            </h2>
-
-            <p>
-
-                Aprovechá nuestras promociones vigentes
-                y consultá directamente por WhatsApp.
-
-            </p>
-
-        </div>
-
-
-        <div class="products-grid">
-
-
-            <!-- ORO HD -->
-
-            <div class="product-card">
-
-                <div
-                    class="product-image"
-                    onclick="openProduct('oro')"
-                >
-
-                    <img
-                        src="oro%20hd.png"
-                        alt="DirecTV Oro HD"
-                    >
-
-                </div>
-
-
-                <div class="product-info">
-
-                    <h3
-                        class="product-title"
-                        onclick="openProduct('oro')"
-                    >
-
-                        ORO HD + DISNEY+ + PRIME VIDEO GRATIS
-
-                    </h3>
-
-
-                    <p>
-
-                        Instalación gratis, 233 canales en HD,
-                        3 cuentas de DGO, 3 cuentas de DISNEY+
-                        y 3 cuentas de Prime Video por tan solo
-                        $29.900. Promoción limitada.
-
-                    </p>
-
-
-                    <div class="product-actions">
-
-                        <a
-                            href="#"
-                            class="btn btn-primary"
-                            onclick="buyDirectvOro(); return false;"
-                        >
-
-                            LO QUIERO COMPRAR
-
-                        </a>
-
-
-                        <a
-                            href="#"
-                            class="btn btn-secondary"
-                            onclick="infoDirectvOro(); return false;"
-                        >
-
-                            MÁS INFO
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- SMART TV -->
-
-            <div class="product-card">
-
-                <div
-                    class="product-image"
-                    onclick="openProduct('smart')"
-                >
-
-                    <img
-                        src="smartv%20dtv.png"
-                        alt='Smart TV 50 pulgadas 4K DirecTV'
-                    >
-
-                </div>
-
-
-                <div class="product-info">
-
-                    <h3
-                        class="product-title"
-                        onclick="openProduct('smart')"
-                    >
-
-                        SMART TV 50" 4K + SERVICIO DE TELEVISIÓN
-
-                    </h3>
-
-
-                    <p>
-
-                        Smart TV 50 pulgadas Ultra HD 4K
-                        con Google TV, pantalla D-LED,
-                        audio Dolby Vision, 230 canales,
-                        decodificador extra HD,
-                        instalación sin costo y envío incluido.
-
-                    </p>
-
-
-                    <div class="product-actions">
-
-                        <a
-                            href="#"
-                            class="btn btn-primary"
-                            onclick="buyDirectvSmart(); return false;"
-                        >
-
-                            LO QUIERO COMPRAR
-
-                        </a>
-
-
-                        <a
-                            href="#"
-                            class="btn btn-secondary"
-                            onclick="infoDirectvSmart(); return false;"
-                        >
-
-                            MÁS INFO
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    <img
-        src="logo%20rc.png"
-        alt="RC Red de Servicios"
-    >
-
-    <p>
-
-        © 2026 RC Red de Servicios —
-        Todos los derechos reservados.
-
-    </p>
-
-</footer>
-
-
-
-<!-- =====================================================
-     BOTONES FLOTANTES
-===================================================== -->
-
-<div class="floating-socials">
-
-
-    <!-- WHATSAPP -->
-
-    <a
-        class="floating-social whatsapp-float"
-        target="_blank"
-        href="https://wa.me/5493585042057?text=Hola%2C%20quiero%20hacer%20una%20consulta."
-        aria-label="WhatsApp"
-    >
-
-        <svg
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982 1-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.887 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.93 11.93 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.478-8.413"/>
-
-        </svg>
-
-    </a>
-
-
-    <!-- INSTAGRAM -->
-
-    <a
-        class="floating-social instagram-float"
-        target="_blank"
-        href="https://www.instagram.com/rcreddeservicios/"
-        aria-label="Instagram"
-    >
-
-        <svg
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.415.499.183.927.428 1.354.855.427.427.672.855.855 1.354.166.422.361 1.057.415 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.249 1.805-.415 2.227a3.69 3.69 0 01-.855 1.354 3.69 3.69 0 01-1.354.855c-.422.166-1.057.361-2.227.415-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.805-.249-2.227-.415a3.69 3.69 0 01-1.354-.855 3.69 3.69 0 01-.855-1.354c-.166-.422-.361-1.057-.415-2.227-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.054-1.17.249-1.805.415-2.227a3.69 3.69 0 01.855-1.354 3.69 3.69 0 011.354-.855c.422-.166 1.057-.361 2.227-.415 1.266-.058 1.646-.07 4.85-.07M12 0C8.741 0 8.332.014 7.053.072 5.777.13 4.905.333 4.14.63a5.97 5.97 0 00-2.163 1.407A5.97 5.97 0 00.57 4.2c-.297.765-.5 1.637-.558 2.913C-.046 8.392-.06 8.801-.06 12s.014 3.608.072 4.887c.058 1.276.261 2.148.558 2.913a5.97 5.97 0 001.407 2.163 5.97 5.97 0 002.163 1.407c.765.297 1.637.5 2.913.558C8.392 23.986 8.801 24 12 24s3.608-.014 4.887-.072c1.276-.058 2.148-.261 2.913-.558a5.97 5.97 0 002.163-1.407 5.97 5.97 0 001.407-2.163c.297-.765.5-1.637.558-2.913C23.986 15.608 24 15.199 24 12s-.014-3.608-.072-4.887c-.058-1.276-.261-2.148-.558-2.913a5.97 5.97 0 00-1.407-2.163A5.97 5.97 0 0019.8.57c-.765-.297-1.637-.5-2.913-.558C15.608-.046 15.199-.06 12-.06zm0 5.838A6.162 6.162 0 105.838 12 6.162 6.162 0 0012 5.838zm0 10.162A4 4 0 1116 12a4 4 0 01-4 4zm6.406-11.845a1.44 1.44 0 11-1.44 1.44 1.44 1.44 0 011.44-1.44z"/>
-
-        </svg>
-
-    </a>
-
-
-</div>
-
-
-
-<!-- =====================================================
-     MODAL PRODUCTO
-===================================================== -->
-
-<div
-    class="modal"
-    id="productModal"
-    onclick="closeModalOutside(event)"
->
-
-    <div
-        class="modal-content"
-        onclick="event.stopPropagation()"
-    >
-
+      <div class="adt-location-buttons">
 
         <button
-            class="modal-close"
-            onclick="closeProductModal()"
-        >
-
-            ×
-
+          class="adt-location-button"
+          onclick="showADTCordoba()">
+          CÓRDOBA
         </button>
 
+        <button
+          class="adt-location-button"
+          onclick="showADTResto()">
+          RESTO DEL PAÍS
+        </button>
 
-        <div class="modal-body">
-
-
-            <div
-                class="modal-image-container"
-                onclick="openLightbox()"
-            >
-
-                <img
-                    id="modalImage"
-                    src=""
-                    alt=""
-                >
-
-            </div>
+      </div>
 
 
-            <div class="modal-info">
+      <!-- PRODUCTOS ADT -->
+
+      <div id="adt-products"></div>
 
 
-                <div
-                    class="modal-category"
-                    id="modalCategory"
-                ></div>
+      <!-- =========================
+           FAQ ADT
+      ========================= -->
 
+      <div class="adt-faq">
 
-                <h2
-                    id="modalTitle"
-                ></h2>
+        <div class="adt-faq-header">
 
+          <div class="adt-faq-label">
+            INFORMACIÓN ADT
+          </div>
 
-                <p
-                    class="modal-description"
-                    id="modalDescription"
-                ></p>
+          <h2>
+            Resolvé tus dudas antes de contratar tu alarma ADT
+          </h2>
 
-
-                <div class="includes-title">
-
-                    EL KIT INCLUYE
-
-                </div>
-
-
-                <ul
-                    class="includes-list"
-                    id="modalIncludes"
-                ></ul>
-
-
-                <div class="modal-actions">
-
-
-                    <a
-                        href="#"
-                        id="modalBuy"
-                        class="modal-buy"
-                        target="_blank"
-                    >
-
-                        LO QUIERO COMPRAR
-
-                    </a>
-
-
-                    <a
-                        href="#"
-                        id="modalInfo"
-                        class="modal-info-btn"
-                        target="_blank"
-                    >
-
-                        MÁS INFORMACIÓN
-
-                    </a>
-
-
-                </div>
-
-
-            </div>
+          <p>
+            Todo lo que necesitás saber sobre los sistemas de seguridad ADT
+            en Argentina, desde cómo funciona el monitoreo hasta los packs
+            disponibles para tu hogar o comercio.
+          </p>
 
         </div>
 
+
+        <div class="faq-list">
+
+
+          <!-- FAQ 1 -->
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)">
+
+              <span>
+                ¿Qué pasa con mi alarma ADT si me mudo?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                <p>
+                  El sistema ADT es relocalizable: podés solicitar el traslado
+                  e instalación del equipo en tu nuevo domicilio. El servicio
+                  de mudanza lo coordina directamente el equipo de ADT y tiene
+                  un costo que se informa al momento de la solicitud. Si el
+                  nuevo domicilio requiere equipamiento adicional por tener más
+                  accesos o mayor superficie, un asesor te arma una propuesta
+                  actualizada.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FAQ 2 -->
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)">
+
+              <span>
+                ¿ADT ofrece financiación o cuotas?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                <p>
+                  Sí, contamos con opciones de financiación para la contratación
+                  de tu sistema de seguridad ADT. Las condiciones de cuotas y
+                  medios de pago se informan al momento de la cotización
+                  personalizada, ya que pueden variar según las promociones
+                  vigentes. Te recomendamos cotizar online para conocer las
+                  opciones disponibles actualmente para tu zona.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FAQ 3 -->
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)">
+
+              <span>
+                ¿Cómo es el proceso de instalación de ADT?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                <p>
+                  La instalación la realiza un técnico certificado de ADT
+                  directamente en tu domicilio o comercio, en toda Argentina.
+                  El proceso incluye la colocación del panel de control,
+                  los sensores de movimiento, los contactos magnéticos en
+                  puertas y ventanas, y las cámaras si las incluiste en tu pack.
+                  Una vez instalado, el técnico te explica el funcionamiento
+                  del sistema y te ayuda a configurar la app en tu celular.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FAQ 4 -->
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)">
+
+              <span>
+                ¿Cuánto cuesta una alarma ADT en Argentina?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                <p>
+                  El precio de una alarma ADT en Argentina depende del tipo de
+                  propiedad, la cantidad de sensores, las cámaras incluidas y
+                  el plan de monitoreo elegido. Los planes de monitoreo arrancan
+                  desde valores accesibles por día, y frecuentemente contamos
+                  con promociones con meses de monitoreo bonificado. La forma
+                  más rápida de conocer el precio exacto para tu caso es
+                  completar la cotización online: recibís una propuesta
+                  personalizada en minutos, sin compromiso.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FAQ 5 -->
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)">
+
+              <span>
+                ¿La alarma incluye cámaras?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                <p>
+                  Los packs ADT te permiten incluir cámaras de seguridad como
+                  parte del sistema o agregarlas como complemento. Las cámaras
+                  inteligentes ADT detectan automáticamente personas desconocidas,
+                  te alertan en tiempo real y graban las 24 horas con
+                  almacenamiento en nube y memoria interna. Al cotizar, un
+                  asesor te arma el pack más conveniente según la cantidad de
+                  ambientes y accesos de tu propiedad.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FAQ 6 -->
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)">
+
+              <span>
+                ¿Funciona mi alarma si se corta la luz?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                <p>
+                  Sí, el sistema de alarma ADT incluye una batería interna
+                  de respaldo que mantiene la protección activa hasta 12 horas
+                  ante un corte de energía eléctrica. Durante ese tiempo,
+                  el monitoreo continúa sin interrupciones y recibís una
+                  notificación en tu celular avisándote del corte. Cuando la
+                  electricidad se restablece, el sistema vuelve a operar con
+                  alimentación de red de forma automática.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FAQ 7 -->
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)">
+
+              <span>
+                ¿Puedo activar o desactivar mi alarma remotamente?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                <p>
+                  Sí, con la app oficial de ADT podés activar y desactivar
+                  tu alarma desde cualquier lugar del mundo, en cualquier
+                  momento. También podés consultar el estado del sistema,
+                  recibir alertas en tiempo real y controlar las cámaras sin
+                  necesidad de estar en casa. La app es compatible con Android
+                  e iOS y se conecta directamente con el panel de control
+                  instalado en tu propiedad.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FAQ 8 -->
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)">
+
+              <span>
+                ¿Las cámaras ADT tienen detección de personas?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                <p>
+                  Sí, las cámaras inteligentes ADT incorporan detección
+                  automática de personas. Cuando el sistema identifica un
+                  desconocido en tu propiedad, lanza una sirena de advertencia
+                  y te envía una notificación instantánea al celular. Además,
+                  todo queda grabado simultáneamente en la nube y en la memoria
+                  interna de cada cámara, lo que te permite revisar el historial
+                  de eventos en cualquier momento desde la app ADT.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FAQ 9 -->
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)">
+
+              <span>
+                ¿Puedo agregar más de una cámara?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                <p>
+                  Sí, podés incorporar la cantidad de cámaras que necesités
+                  según el tamaño de tu casa, departamento o comercio. El
+                  sistema ADT está diseñado para escalar: empezás con una
+                  cámara y ampliás el kit en cualquier momento sin cambiar
+                  el panel de control ni la app. Nuestros asesores te
+                  recomiendan la distribución óptima según los accesos y
+                  puntos ciegos de tu propiedad.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FAQ 10 -->
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)">
+
+              <span>
+                ¿Puedo contratar solo cámaras ADT?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                <p>
+                  Sí, contamos con Kits de Cámaras ADT que podés contratar
+                  de forma independiente, sin necesidad de incluir una alarma.
+                  Las cámaras te permiten acceder en vivo a las imágenes tanto
+                  de espacios interiores como exteriores directamente desde
+                  tu celular, las 24 horas del día. Todos los modelos incluyen
+                  reconocimiento de personas, audio de doble vía, almacenamiento
+                  en memoria interna y calidad HD. Es ideal para hogares y
+                  comercios en toda Argentina que buscan vigilancia sin la
+                  complejidad de un sistema completo.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             NUEVOS EQUIPOS
+        ========================= -->
+
+        <div class="new-equipment">
+
+          <div class="new-equipment-label">
+            NUEVOS EQUIPOS
+          </div>
+
+          <h3>
+            Ahora te instalamos equipos inalámbricos de última generación
+          </h3>
+
+          <div class="new-equipment-highlight">
+            Protección inteligente para tu hogar o comercio.
+          </div>
+
+          <p>
+            Sensores de movimiento, sensores de apertura, botones antipánico
+            y cámaras HD de última tecnología para que tengas protección
+            de verdad.
+          </p>
+
+          <div class="equipment-tags">
+
+            <span class="equipment-tag">
+              Sensores de movimiento
+            </span>
+
+            <span class="equipment-tag">
+              Sensores de apertura
+            </span>
+
+            <span class="equipment-tag">
+              Botones antipánico
+            </span>
+
+            <span class="equipment-tag">
+              Cámaras HD
+            </span>
+
+            <span class="equipment-tag">
+              Equipamiento inalámbrico
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-</div>
+  </section>
 
 
+  <!-- =========================
+       DIRECTV
+  ========================= -->
 
-<!-- =====================================================
-     LIGHTBOX
-===================================================== -->
+  <section id="directv">
 
-<div
-    class="lightbox"
-    id="lightbox"
-    onclick="closeLightbox()"
->
+    <div class="section-container">
+
+      <div class="section-title">
+
+        <div class="eyebrow">
+          DIRECTV
+        </div>
+
+        <h2>
+          Promociones disponibles
+        </h2>
+
+        <p>
+          Conocé nuestras opciones de entretenimiento y promociones vigentes.
+        </p>
+
+      </div>
 
 
-    <button
-        class="lightbox-close"
-        onclick="closeLightbox()"
-    >
+      <div class="directv-grid">
 
+
+        <!-- ORO HD -->
+
+        <div class="product-card">
+
+          <div
+            class="product-image"
+            onclick="openProduct('oro')">
+
+            <img
+              src="oro%20hd.png"
+              alt="DirecTV Oro HD">
+
+          </div>
+
+          <div class="product-content">
+
+            <h3>
+              ORO HD + DISNEY+ + PRIME VIDEO GRATIS
+            </h3>
+
+            <p>
+              Instalación gratis, 233 canales en HD, 3 cuentas de DGO,
+              3 cuentas de DISNEY+ y 3 cuentas de Prime Video por tan solo
+              $29.900. Promoción limitada.
+            </p>
+
+            <div class="product-actions">
+
+              <button
+                class="product-action primary"
+                onclick="buyDirectvOro()">
+                QUIERO CONTRATAR
+              </button>
+
+              <button
+                class="product-action secondary"
+                onclick="infoDirectvOro()">
+                MÁS INFORMACIÓN
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- SMART TV -->
+
+        <div class="product-card">
+
+          <div
+            class="product-image"
+            onclick="openProduct('smart')">
+
+            <img
+              src="smartv%20dtv.png"
+              alt="Smart TV 50 DirecTV">
+
+          </div>
+
+          <div class="product-content">
+
+            <h3>
+              SMART TV 50" 4K + SERVICIO DE TELEVISIÓN
+            </h3>
+
+            <p>
+              Smart TV 50" 4K con Google TV, D-LED y Dolby Vision.
+              Incluye servicio de televisión con 230 canales, decodificador
+              HD adicional, instalación sin costo y envío incluido.
+            </p>
+
+            <div class="product-actions">
+
+              <button
+                class="product-action primary"
+                onclick="buyDirectvSmart()">
+                QUIERO CONTRATAR
+              </button>
+
+              <button
+                class="product-action secondary"
+                onclick="infoDirectvSmart()">
+                MÁS INFORMACIÓN
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-container">
+
+      <div class="footer-logo">
+
+        <img
+          src="logo%20rc.png"
+          alt="RC Red de Servicios">
+
+      </div>
+
+      <div class="footer-copy">
+
+        © 2026 RC Red de Servicios — Todos los derechos reservados.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       FLOATING SOCIALS
+  ========================= -->
+
+  <div class="floating-socials">
+
+    <a
+      class="social-button whatsapp"
+      href="https://wa.me/5493585042057?text=Hola%20RC%20Red%20de%20Servicios,%20quiero%20recibir%20informaci%C3%B3n."
+      target="_blank"
+      aria-label="WhatsApp">
+
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <path d="M20.52 3.48A11.83 11.83 0 0 0 12.06 0C5.51 0 .18 5.33.18 11.89c0 2.1.55 4.15 1.6 5.96L.11 24l6.3-1.65a11.87 11.87 0 0 0 5.65 1.44h.01c6.55 0 11.88-5.33 11.88-11.89a11.82 11.82 0 0 0-3.43-8.42ZM12.07 21.75h-.01a9.85 9.85 0 0 1-5.02-1.37l-.36-.21-3.74.98 1-3.65-.23-.37a9.84 9.84 0 0 1-1.51-5.24C2.2 6.44 6.62 2.02 12.07 2.02c2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 7c0 5.45-4.43 9.88-9.88 9.88Zm5.42-7.4c-.3-.15-1.78-.88-2.05-.98-.27-.1-.47-.15-.67.15-.2.3-.77.98-.95 1.18-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.74-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.78-.73 2.03-1.44.25-.71.25-1.32.17-1.44-.07-.12-.27-.2-.57-.35Z"/>
+
+      </svg>
+
+    </a>
+
+
+    <a
+      class="social-button instagram"
+      href="https://www.instagram.com/rcreddeservicios/"
+      target="_blank"
+      aria-label="Instagram">
+
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+
+      </svg>
+
+    </a>
+
+  </div>
+
+
+  <!-- =========================
+       PRODUCT MODAL
+  ========================= -->
+
+  <div
+    id="productModal"
+    class="modal-overlay"
+    onclick="closeModalOutside(event)">
+
+    <div class="modal">
+
+      <button
+        class="modal-close"
+        onclick="closeProductModal()">
         ×
+      </button>
 
-    </button>
 
+      <div class="modal-image">
+
+        <img
+          id="modalImage"
+          src=""
+          alt=""
+          onclick="openLightbox(this.src)">
+
+      </div>
+
+
+      <div class="modal-content">
+
+        <div
+          id="modalCategory"
+          class="modal-category">
+        </div>
+
+        <h2 id="modalTitle"></h2>
+
+        <p
+          id="modalDescription"
+          class="modal-description">
+        </p>
+
+        <ul
+          id="modalIncludes"
+          class="modal-includes">
+        </ul>
+
+        <div class="modal-actions">
+
+          <a
+            id="modalBuy"
+            class="modal-buy"
+            href="#"
+            target="_blank">
+            QUIERO CONTRATAR
+          </a>
+
+          <a
+            id="modalInfo"
+            class="modal-info"
+            href="#"
+            target="_blank">
+            QUIERO MÁS INFORMACIÓN
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       LIGHTBOX
+  ========================= -->
+
+  <div
+    id="lightbox"
+    class="lightbox"
+    onclick="closeLightbox()">
+
+    <span class="lightbox-close">
+      ×
+    </span>
 
     <img
-        id="lightboxImage"
-        src=""
-        alt=""
-    >
+      id="lightboxImage"
+      src=""
+      alt="Imagen ampliada">
+
+  </div>
 
 
-</div>
+  <script>
+
+    /* =========================
+       CONFIGURACIÓN
+    ========================= */
+
+    const WHATSAPP = "5493585042057";
 
 
+    /* =========================
+       WHATSAPP
+    ========================= */
 
-<script>
+    function whatsapp(message) {
 
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-const WHATSAPP =
-    "5493585042057";
-
-
-function whatsapp(message) {
-
-    const url =
+      const url =
         "https://wa.me/" +
         WHATSAPP +
         "?text=" +
         encodeURIComponent(message);
 
-    window.open(
-        url,
-        "_blank"
-    );
+      window.open(url, "_blank");
 
-}
-
-
-/* =====================================================
-   FORMULARIO
-===================================================== */
-
-function sendProposal(event) {
-
-    event.preventDefault();
-
-
-    const name =
-        document
-        .getElementById("formName")
-        .value
-        .trim();
-
-
-    const whatsappNumber =
-        document
-        .getElementById("formWhatsapp")
-        .value
-        .trim();
-
-
-    const location =
-        document
-        .getElementById("formLocation")
-        .value
-        .trim();
-
-
-    const service =
-        document
-        .getElementById("formService")
-        .value;
-
-
-    if (
-        !name ||
-        !whatsappNumber ||
-        !location ||
-        !service
-    ) {
-
-        alert(
-            "Por favor completá todos los campos."
-        );
-
-        return;
     }
 
 
-    const message =
+    /* =========================
+       FORMULARIO
+    ========================= */
 
-        "Hola, quiero recibir una propuesta personalizada.%0A%0A" +
+    function sendProposal(event) {
 
-        "👤 Nombre y apellido: " +
-        name +
+      event.preventDefault();
 
-        "%0A📱 Número de WhatsApp: " +
-        whatsappNumber +
+      const name =
+        document.getElementById("formName").value.trim();
 
-        "%0A📍 Localidad y provincia: " +
-        location +
+      const phone =
+        document.getElementById("formWhatsapp").value.trim();
 
-        "%0A⭐ Servicio de interés: " +
-        service;
+      const location =
+        document.getElementById("formLocation").value.trim();
+
+      const service =
+        document.getElementById("formService").value;
+
+      const message =
+        `Hola RC Red de Servicios 👋
+
+Quiero recibir una propuesta personalizada.
+
+Nombre: ${name}
+WhatsApp: ${phone}
+Localidad / Provincia: ${location}
+Servicio de interés: ${service}`;
+
+      whatsapp(message);
+
+    }
 
 
-    window.open(
+    /* =========================
+       NAVEGACIÓN
+    ========================= */
+
+    function goHome() {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    function showSection(id) {
+
+      const sections =
+        document.querySelectorAll("section");
+
+      sections.forEach(section => {
+
+        if (section.id === "adt") {
+
+          section.style.display = "none";
+
+        }
+
+      });
+
+      const target =
+        document.getElementById(id);
+
+      if (target) {
+
+        target.style.display = "block";
+
+        setTimeout(() => {
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }, 50);
+
+      }
+
+    }
+
+
+    /* =========================
+       ADT PRODUCTOS
+    ========================= */
+
+    const adtProducts = {
+
+      cordoba: [
+
+        {
+          id: "qolsys11",
+
+          title: "Kit Qolsys 1.1",
+
+          image: "assets/adt/Qolsys%201.1.png",
+
+          description:
+            "Sistema de seguridad ADT ideal para comenzar a proteger tu hogar o comercio.",
+
+          includes: [
+            "Panel Qolsys",
+            "1 contacto magnético",
+            "1 detector de movimiento"
+          ]
+
+        },
+
+        {
+          id: "qolsys22",
+
+          title: "Kit Qolsys 2.2",
+
+          image: "assets/adt/Qolsys%202.2.png",
+
+          description:
+            "Una solución ampliada para propiedades que necesitan mayor cobertura.",
+
+          includes: [
+            "Panel Qolsys",
+            "2 contactos magnéticos",
+            "2 detectores de movimiento"
+          ]
+
+        },
+
+        {
+          id: "qolsysviewexterior",
+
+          title: "Kit Qolsys View 2.2 + Cámara Exterior",
+
+          image:
+            "assets/adt/Qolsys%202.2%20view%20exterior.png",
+
+          description:
+            "Sistema de seguridad con cámaras para sumar protección y visualización.",
+
+          includes: [
+            "Panel Qolsys",
+            "2 contactos magnéticos",
+            "2 detectores de movimiento",
+            "1 cámara exterior"
+          ]
+
+        },
+
+        {
+          id: "qolsysviewinterior",
+
+          title: "Kit Qolsys View 2.2 + Cámara Interior",
+
+          image:
+            "assets/adt/Qolsys%202.2%20view%20interior.png",
+
+          description:
+            "Protección integral con cámara interior y sistema de alarma.",
+
+          includes: [
+            "Panel Qolsys",
+            "2 contactos magnéticos",
+            "2 detectores de movimiento",
+            "1 cámara interior"
+          ]
+
+        },
+
+        {
+          id: "galpon22cordoba",
+
+          title: "Kit Galpón CX 2.2",
+
+          image:
+            "assets/adt/GALP%C3%93N%20CX%202.2.png",
+
+          description:
+            "Solución especialmente pensada para galpones, comercios y espacios amplios.",
+
+          includes: [
+            "Panel CX",
+            "2 contactos magnéticos interiores con terminal",
+            "1 contacto magnético blindado",
+            "2 detectores PIR interior dual-tech",
+            "1 teclado CX",
+            "1 sirena exterior"
+          ]
+
+        }
+
+      ],
+
+
+      resto: [
+
+        {
+          id: "cx11",
+
+          title: "Kit CX 1.1",
+
+          image: "assets/adt/cx%201.1.png",
+
+          description:
+            "Sistema de seguridad ADT para comenzar a proteger tu propiedad.",
+
+          includes: [
+            "Panel CX",
+            "1 contacto magnético interior con terminal",
+            "1 detector PIR interior",
+            "1 teclado CX"
+          ]
+
+        },
+
+        {
+          id: "cx22",
+
+          title: "Kit CX 2.2",
+
+          image: "assets/adt/cx%202.2.png",
+
+          description:
+            "Sistema ampliado para cubrir más accesos y ambientes.",
+
+          includes: [
+            "Panel CX",
+            "2 contactos magnéticos interiores con terminal",
+            "2 detectores PIR interiores",
+            "1 teclado CX"
+          ]
+
+        },
+
+        {
+          id: "galpon22resto",
+
+          title: "Kit Galpón CX 2.2",
+
+          image:
+            "assets/adt/GALP%C3%93N%20CX%202.2.png",
+
+          description:
+            "Solución especialmente pensada para galpones, comercios y espacios amplios.",
+
+          includes: [
+            "Panel CX",
+            "2 contactos magnéticos interiores con terminal",
+            "1 contacto magnético blindado",
+            "2 detectores PIR interior dual-tech",
+            "1 teclado CX",
+            "1 sirena exterior"
+          ]
+
+        }
+
+      ]
+
+    };
+
+
+    /* =========================
+       MOSTRAR ADT
+    ========================= */
+
+    function showADT() {
+
+      const adt =
+        document.getElementById("adt");
+
+      adt.style.display = "block";
+
+      document.getElementById("adt-products").innerHTML = "";
+
+      setTimeout(() => {
+
+        adt.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }, 50);
+
+    }
+
+
+    function showADTCordoba() {
+
+      renderADT("cordoba");
+
+    }
+
+
+    function showADTResto() {
+
+      renderADT("resto");
+
+    }
+
+
+    function renderADT(location) {
+
+      const container =
+        document.getElementById("adt-products");
+
+      const products =
+        adtProducts[location];
+
+      container.innerHTML = `
+
+        <div class="products-grid">
+
+          ${products.map(product => `
+
+            <div class="product-card">
+
+              <div
+                class="product-image"
+                onclick="openADTProduct('${product.id}')">
+
+                <img
+                  src="${product.image}"
+                  alt="${product.title}">
+
+              </div>
+
+              <div class="product-content">
+
+                <h3>
+                  ${product.title}
+                </h3>
+
+                <p>
+                  ${product.description}
+                </p>
+
+                <ul class="product-includes">
+
+                  ${product.includes.map(item => `
+                    <li>${item}</li>
+                  `).join("")}
+
+                </ul>
+
+                <div class="product-actions">
+
+                  <button
+                    class="product-action primary"
+                    onclick="buyADTById('${product.id}')">
+                    QUIERO CONTRATAR
+                  </button>
+
+                  <button
+                    class="product-action secondary"
+                    onclick="infoADTById('${product.id}')">
+                    MÁS INFORMACIÓN
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          `).join("")}
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================
+       BUSCAR PRODUCTO ADT
+    ========================= */
+
+    function findADTProduct(id) {
+
+      const allProducts = [
+        ...adtProducts.cordoba,
+        ...adtProducts.resto
+      ];
+
+      return allProducts.find(
+        product => product.id === id
+      );
+
+    }
+
+
+    function openADTProduct(id) {
+
+      const product =
+        findADTProduct(id);
+
+      if (!product) return;
+
+      openModal(
+        "ADT ALARMAS",
+        product.title,
+        product.image,
+        product.description,
+        product.includes
+      );
+
+    }
+
+
+    function buyADTById(id) {
+
+      const product =
+        findADTProduct(id);
+
+      if (!product) return;
+
+      buyADT(product);
+
+    }
+
+
+    function infoADTById(id) {
+
+      const product =
+        findADTProduct(id);
+
+      if (!product) return;
+
+      infoADT(product);
+
+    }
+
+
+    function buyADT(product) {
+
+      const message =
+        `Hola RC Red de Servicios 👋
+
+Estoy interesado/a en contratar:
+
+${product.title}
+
+Quiero conocer el precio, financiación y condiciones disponibles para mi zona.`;
+
+      whatsapp(message);
+
+    }
+
+
+    function infoADT(product) {
+
+      const message =
+        `Hola RC Red de Servicios 👋
+
+Quiero recibir más información sobre:
+
+${product.title}
+
+Me gustaría conocer precio, instalación, monitoreo y promociones disponibles.`;
+
+      whatsapp(message);
+
+    }
+
+
+    /* =========================
+       DIRECTV
+    ========================= */
+
+    const directvProducts = {
+
+      oro: {
+
+        category: "DIRECTV",
+
+        title:
+          "ORO HD + DISNEY+ + PRIME VIDEO GRATIS",
+
+        image:
+          "oro%20hd.png",
+
+        description:
+          "Instalación gratis, 233 canales en HD, 3 cuentas de DGO, 3 cuentas de DISNEY+ y 3 cuentas de Prime Video por tan solo $29.900. Promoción limitada.",
+
+        includes: [
+          "Instalación gratis",
+          "233 canales en HD",
+          "3 cuentas de DGO",
+          "3 cuentas de Disney+",
+          "3 cuentas de Prime Video"
+        ]
+
+      },
+
+
+      smart: {
+
+        category: "DIRECTV",
+
+        title:
+          'SMART TV 50" 4K + SERVICIO DE TELEVISIÓN',
+
+        image:
+          "smartv%20dtv.png",
+
+        description:
+          'Smart TV 50" 4K con Google TV, D-LED y Dolby Vision. Incluye servicio de televisión con 230 canales, decodificador HD adicional, instalación sin costo y envío incluido.',
+
+        includes: [
+          'Smart TV 50" 4K',
+          "Google TV",
+          "D-LED",
+          "Dolby Vision",
+          "230 canales",
+          "Decodificador HD adicional",
+          "Instalación sin costo",
+          "Envío incluido"
+        ]
+
+      }
+
+    };
+
+
+    function openProduct(id) {
+
+      const product =
+        directvProducts[id];
+
+      if (!product) return;
+
+      openModal(
+        product.category,
+        product.title,
+        product.image,
+        product.description,
+        product.includes
+      );
+
+    }
+
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    function openModal(
+      category,
+      title,
+      image,
+      description,
+      includes
+    ) {
+
+      document.getElementById("modalCategory")
+        .textContent = category;
+
+      document.getElementById("modalTitle")
+        .textContent = title;
+
+      document.getElementById("modalImage")
+        .src = image;
+
+      document.getElementById("modalImage")
+        .alt = title;
+
+      document.getElementById("modalDescription")
+        .textContent = description;
+
+
+      const includesContainer =
+        document.getElementById("modalIncludes");
+
+      includesContainer.innerHTML =
+        includes
+          .map(item => `<li>${item}</li>`)
+          .join("");
+
+
+      const buy =
+        document.getElementById("modalBuy");
+
+      const info =
+        document.getElementById("modalInfo");
+
+
+      let messageBuy = "";
+      let messageInfo = "";
+
+
+      if (category === "ADT ALARMAS") {
+
+        messageBuy =
+          `Hola RC Red de Servicios 👋
+
+Quiero contratar el producto:
+
+${title}
+
+Quiero conocer precio y disponibilidad.`;
+
+        messageInfo =
+          `Hola RC Red de Servicios 👋
+
+Quiero recibir más información sobre:
+
+${title}`;
+
+      } else {
+
+        messageBuy =
+          `Hola RC Red de Servicios 👋
+
+Estoy interesado/a en contratar:
+
+${title}`;
+
+        messageInfo =
+          `Hola RC Red de Servicios 👋
+
+Quiero recibir más información sobre:
+
+${title}`;
+
+      }
+
+
+      buy.href =
         "https://wa.me/" +
         WHATSAPP +
         "?text=" +
-        message,
-        "_blank"
-    );
+        encodeURIComponent(messageBuy);
 
-}
 
+      info.href =
+        "https://wa.me/" +
+        WHATSAPP +
+        "?text=" +
+        encodeURIComponent(messageInfo);
 
-/* =====================================================
-   NAVEGACIÓN
-===================================================== */
 
-function goHome() {
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-function showSection(id) {
-
-    const section =
-        document.getElementById(id);
-
-    if (!section) return;
-
-    section.scrollIntoView({
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =====================================================
-   ADT - BASE DE DATOS
-===================================================== */
-
-const adtProducts = {
-
-    cordoba: [
-
-        {
-            id: "qolsys11",
-
-            title:
-                "Kit Qolsys 1.1",
-
-            image:
-                "assets/adt/Qolsys%201.1.png",
-
-            description:
-                "Sistema de seguridad profesional con panel inteligente Qolsys en formato tablet.",
-
-            includes: [
-
-                "Panel inteligente Qolsys en forma de tablet",
-
-                "1 sensor magnético inalámbrico",
-
-                "1 detector de movimiento"
-
-            ]
-
-        },
-
-
-        {
-            id: "qolsys22",
-
-            title:
-                "Kit Qolsys 2.2",
-
-            image:
-                "assets/adt/Qolsys%202.2.png",
-
-            description:
-                "Sistema de seguridad profesional con panel inteligente Qolsys y mayor cobertura para tu hogar.",
-
-            includes: [
-
-                "Panel inteligente Qolsys",
-
-                "2 sensores magnéticos inalámbricos",
-
-                "2 detectores de movimiento"
-
-            ]
-
-        },
-
-
-        {
-            id: "qolsysviewexterior",
-
-            title:
-                "Kit Qolsys View 2.2 + Cámara Exterior",
-
-            image:
-                "assets/adt/Qolsys%202.2%20view%20exterior.png",
-
-            description:
-                "Sistema de seguridad profesional Qolsys con cámaras para ampliar la protección del exterior.",
-
-            includes: [
-
-                "Panel inteligente Qolsys",
-
-                "2 sensores magnéticos inalámbricos",
-
-                "2 detectores de movimiento",
-
-                "1 cámara exterior"
-
-            ]
-
-        },
-
-
-        {
-            id: "qolsysviewinterior",
-
-            title:
-                "Kit Qolsys View 2.2 + Cámara Interior",
-
-            image:
-                "assets/adt/Qolsys%202.2%20view%20interior.png",
-
-            description:
-                "Sistema de seguridad profesional Qolsys con cámara interior para complementar la protección.",
-
-            includes: [
-
-                "Panel inteligente Qolsys",
-
-                "2 sensores magnéticos inalámbricos",
-
-                "2 detectores de movimiento",
-
-                "1 cámara interior"
-
-            ]
-
-        },
-
-
-        {
-            id: "galpon22cordoba",
-
-            title:
-                "Kit Galpón CX 2.2",
-
-            image:
-                "assets/adt/GALP%C3%93N%20CX%202.2.png",
-
-            description:
-                "Sistema de seguridad profesional especialmente equipado para espacios amplios y galpones.",
-
-            includes: [
-
-                "Panel interactivo CX",
-
-                "2 magnéticos interiores con bornera",
-
-                "1 magnético blindado",
-
-                "2 detectores PIR doble tecnología interiores",
-
-                "1 teclado CX",
-
-                "1 sirena exterior"
-
-            ]
-
-        }
-
-    ],
-
-
-    resto: [
-
-        {
-            id: "cx11",
-
-            title:
-                "Kit CX 1.1",
-
-            image:
-                "assets/adt/cx%201.1.png",
-
-            description:
-                "Sistema de seguridad profesional con tecnología CX para proteger tu hogar o negocio.",
-
-            includes: [
-
-                "Panel interactivo CX",
-
-                "1 magnético interior con bornera",
-
-                "1 detector PIR interior",
-
-                "1 teclado CX"
-
-            ]
-
-        },
-
-
-        {
-            id: "cx22",
-
-            title:
-                "Kit CX 2.2",
-
-            image:
-                "assets/adt/cx%202.2.png",
-
-            description:
-                "Sistema de seguridad profesional CX con mayor cantidad de sensores para ampliar la cobertura.",
-
-            includes: [
-
-                "Panel interactivo CX",
-
-                "2 magnéticos interiores con bornera",
-
-                "2 detectores PIR interiores",
-
-                "1 teclado CX"
-
-            ]
-
-        },
-
-
-        {
-            id: "galpon22resto",
-
-            title:
-                "Kit Galpón CX 2.2",
-
-            image:
-                "assets/adt/GALP%C3%93N%20CX%202.2.png",
-
-            description:
-                "Sistema de seguridad profesional especialmente equipado para espacios amplios y galpones.",
-
-            includes: [
-
-                "Panel interactivo CX",
-
-                "2 magnéticos interiores con bornera",
-
-                "1 magnético blindado",
-
-                "2 detectores PIR doble tecnología interiores",
-
-                "1 teclado CX",
-
-                "1 sirena exterior"
-
-            ]
-
-        }
-
-    ]
-
-};
-
-
-/* =====================================================
-   MOSTRAR ADT
-===================================================== */
-
-function showADT() {
-
-    const section =
-        document.getElementById("adt");
-
-
-    section.style.display =
-        "block";
-
-
-    section.scrollIntoView({
-        behavior: "smooth"
-    });
-
-
-    document
-        .getElementById("adt-products")
-        .innerHTML = "";
-
-}
-
-
-/* =====================================================
-   UBICACIONES ADT
-===================================================== */
-
-function showADTCordoba() {
-
-    renderADT("cordoba");
-
-}
-
-
-function showADTResto() {
-
-    renderADT("resto");
-
-}
-
-
-/* =====================================================
-   RENDER ADT
-===================================================== */
-
-function renderADT(location) {
-
-    const container =
-        document.getElementById(
-            "adt-products"
-        );
-
-
-    container.innerHTML = "";
-
-
-    adtProducts[location]
-        .forEach(product => {
-
-
-            const card =
-                document.createElement("div");
-
-
-            card.className =
-                "product-card";
-
-
-            card.innerHTML = `
-
-                <div
-                    class="product-image"
-                    onclick="openADTProduct('${product.id}')"
-                >
-
-                    <img
-                        src="${product.image}"
-                        alt="${product.title}"
-                    >
-
-                </div>
-
-
-                <div class="product-info">
-
-                    <h3
-                        class="product-title"
-                        onclick="openADTProduct('${product.id}')"
-                    >
-
-                        ${product.title}
-
-                    </h3>
-
-
-                    <p>
-
-                        ${product.description}
-
-                    </p>
-
-
-                    <div class="product-actions">
-
-                        <a
-                            href="#"
-                            class="btn btn-primary"
-                            onclick="buyADT('${product.title}'); return false;"
-                        >
-
-                            LO QUIERO COMPRAR
-
-                        </a>
-
-
-                        <a
-                            href="#"
-                            class="btn btn-secondary"
-                            onclick="infoADT('${product.title}'); return false;"
-                        >
-
-                            MÁS INFO
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            `;
-
-
-            container.appendChild(card);
-
-        });
-
-}
-
-
-/* =====================================================
-   BUSCAR PRODUCTO ADT
-===================================================== */
-
-function findADTProduct(id) {
-
-    const all =
-        [
-            ...adtProducts.cordoba,
-            ...adtProducts.resto
-        ];
-
-
-    return all.find(
-        product =>
-            product.id === id
-    );
-
-}
-
-
-/* =====================================================
-   ABRIR PRODUCTO ADT
-===================================================== */
-
-function openADTProduct(id) {
-
-    const product =
-        findADTProduct(id);
-
-
-    if (!product) return;
-
-
-    openModal(
-
-        "ADT ALARMAS",
-
-        product.title,
-
-        product.image,
-
-        product.description,
-
-        product.includes
-
-    );
-
-}
-
-
-/* =====================================================
-   WHATSAPP ADT
-===================================================== */
-
-function buyADT(product) {
-
-    whatsapp(
-        "Hola, quiero adquirir el servicio de ADT. " +
-        "Me interesó el " +
-        product +
-        "."
-    );
-
-}
-
-
-function infoADT(product) {
-
-    whatsapp(
-        "Hola, quiero más información sobre ADT. " +
-        "Me interesa el " +
-        product +
-        "."
-    );
-
-}
-
-
-/* =====================================================
-   DIRECTV
-===================================================== */
-
-const directvProducts = {
-
-
-    oro: {
-
-        title:
-            "ORO HD + DISNEY+ + PRIME VIDEO GRATIS",
-
-        image:
-            "oro%20hd.png",
-
-        description:
-            "Instalación gratis, 233 canales en HD, 3 cuentas de DGO, 3 cuentas de DISNEY+ y 3 cuentas de Prime Video por tan solo $29.900. Promoción limitada.",
-
-        includes: [
-
-            "Instalación gratis",
-
-            "233 canales en HD",
-
-            "3 cuentas de DGO",
-
-            "3 cuentas de DISNEY+",
-
-            "3 cuentas de Prime Video",
-
-            "Precio promocional: $29.900",
-
-            "Promoción limitada"
-
-        ]
-
-    },
-
-
-    smart: {
-
-        title:
-            'SMART TV 50" 4K + SERVICIO DE TELEVISIÓN',
-
-        image:
-            "smartv%20dtv.png",
-
-        description:
-            'Smart TV 50 pulgadas Ultra HD 4K con Google TV, pantalla D-LED, audio Dolby Vision, 230 canales, decodificador extra HD, instalación sin costo y envío incluido. Promoción limitada.',
-
-        includes: [
-
-            'Smart TV 50 pulgadas Ultra HD 4K',
-
-            "Google TV",
-
-            "Pantalla D-LED",
-
-            "Audio Dolby Vision",
-
-            "230 canales",
-
-            "Decodificador extra HD",
-
-            "Instalación sin costo",
-
-            "Envío incluido",
-
-            "Promoción limitada"
-
-        ]
-
-    }
-
-};
-
-
-/* =====================================================
-   ABRIR DIRECTV
-===================================================== */
-
-function openProduct(id) {
-
-    const product =
-        directvProducts[id];
-
-
-    if (!product) return;
-
-
-    openModal(
-
-        "DIRECTV",
-
-        product.title,
-
-        product.image,
-
-        product.description,
-
-        product.includes
-
-    );
-
-}
-
-
-/* =====================================================
-   MODAL
-===================================================== */
-
-let currentModalImage = "";
-
-
-function openModal(
-    category,
-    title,
-    image,
-    description,
-    includes
-) {
-
-    currentModalImage = image;
-
-
-    document
-        .getElementById("modalCategory")
-        .textContent =
-        category;
-
-
-    document
-        .getElementById("modalTitle")
-        .textContent =
-        title;
-
-
-    document
-        .getElementById("modalDescription")
-        .textContent =
-        description;
-
-
-    const imageElement =
-        document.getElementById(
-            "modalImage"
-        );
-
-
-    imageElement.src =
-        image;
-
-
-    imageElement.alt =
-        title;
-
-
-    const list =
-        document.getElementById(
-            "modalIncludes"
-        );
-
-
-    list.innerHTML = "";
-
-
-    includes.forEach(item => {
-
-        const li =
-            document.createElement("li");
-
-        li.textContent =
-            item;
-
-        list.appendChild(li);
-
-    });
-
-
-    const buyButton =
-        document.getElementById(
-            "modalBuy"
-        );
-
-
-    const infoButton =
-        document.getElementById(
-            "modalInfo"
-        );
-
-
-    const isADT =
-        category ===
-        "ADT ALARMAS";
-
-
-    if (isADT) {
-
-
-        buyButton.href =
-
-            "https://wa.me/" +
-            WHATSAPP +
-            "?text=" +
-            encodeURIComponent(
-
-                "Hola, quiero adquirir el servicio de ADT. " +
-                "Me interesó el " +
-                title +
-                "."
-
-            );
-
-
-        infoButton.href =
-
-            "https://wa.me/" +
-            WHATSAPP +
-            "?text=" +
-            encodeURIComponent(
-
-                "Hola, quiero más información sobre ADT. " +
-                "Me interesa el " +
-                title +
-                "."
-
-            );
-
-    }
-
-    else {
-
-
-        buyButton.href =
-
-            "https://wa.me/" +
-            WHATSAPP +
-            "?text=" +
-            encodeURIComponent(
-
-                "Hola, quiero adquirir el servicio de DirecTV. " +
-                "Me interesó la promoción " +
-                title +
-                "."
-
-            );
-
-
-        infoButton.href =
-
-            "https://wa.me/" +
-            WHATSAPP +
-            "?text=" +
-            encodeURIComponent(
-
-                "Hola, quiero más información sobre DirecTV. " +
-                "Me interesa la promoción " +
-                title +
-                "."
-
-            );
-
-    }
-
-
-    document
+      document
         .getElementById("productModal")
         .classList.add("active");
 
+      document.body.style.overflow = "hidden";
 
-    document.body
-        .classList.add("modal-open");
-
-}
+    }
 
 
-function closeProductModal() {
+    function closeProductModal() {
 
-    document
+      document
         .getElementById("productModal")
         .classList.remove("active");
 
+      document.body.style.overflow = "";
 
-    document.body
-        .classList.remove("modal-open");
-
-}
+    }
 
 
-function closeModalOutside(event) {
+    function closeModalOutside(event) {
 
-    if (
-        event.target.id ===
-        "productModal"
-    ) {
+      if (
+        event.target ===
+        document.getElementById("productModal")
+      ) {
 
         closeProductModal();
 
+      }
+
     }
 
-}
 
+    /* =========================
+       LIGHTBOX
+    ========================= */
 
-/* =====================================================
-   LIGHTBOX
-===================================================== */
+    function openLightbox(src) {
 
-function openLightbox() {
-
-    if (!currentModalImage)
-        return;
-
-
-    document
+      document
         .getElementById("lightboxImage")
-        .src =
-        currentModalImage;
+        .src = src;
 
-
-    document
+      document
         .getElementById("lightbox")
         .classList.add("active");
 
-}
+    }
 
 
-function closeLightbox() {
+    function closeLightbox() {
 
-    document
+      document
         .getElementById("lightbox")
         .classList.remove("active");
 
-}
+    }
 
 
-/* =====================================================
-   DIRECTV WHATSAPP
-===================================================== */
+    /* =========================
+       DIRECTV WHATSAPP
+    ========================= */
 
-function buyDirectvOro() {
+    function buyDirectvOro() {
 
-    whatsapp(
+      whatsapp(
+        `Hola RC Red de Servicios 👋
 
-        "Hola, quiero adquirir el servicio de DirecTV. " +
-        "Me interesó la promoción ORO HD + DISNEY+ + PRIME VIDEO GRATIS."
+Quiero contratar la promoción:
 
-    );
+ORO HD + DISNEY+ + PRIME VIDEO GRATIS
 
-}
-
-
-function infoDirectvOro() {
-
-    whatsapp(
-
-        "Hola, quiero más información sobre la promoción de DirecTV ORO HD + DISNEY+ + PRIME VIDEO GRATIS."
-
-    );
-
-}
-
-
-function buyDirectvSmart() {
-
-    whatsapp(
-
-        'Hola, quiero adquirir la promoción de DirecTV SMART TV 50" 4K + SERVICIO DE TELEVISIÓN.'
-
-    );
-
-}
-
-
-function infoDirectvSmart() {
-
-    whatsapp(
-
-        'Hola, quiero más información sobre la promoción de DirecTV SMART TV 50" 4K + SERVICIO DE TELEVISIÓN.'
-
-    );
-
-}
-
-
-/* =====================================================
-   AVALIAN
-===================================================== */
-
-function contactAvalian() {
-
-    whatsapp(
-
-        "Hola, quiero hacer una consulta sobre los planes de medicina prepaga Avalian."
-
-    );
-
-}
-
-
-/* =====================================================
-   ESC
-===================================================== */
-
-document.addEventListener(
-
-    "keydown",
-
-    function(event) {
-
-        if (
-            event.key ===
-            "Escape"
-        ) {
-
-            closeProductModal();
-
-            closeLightbox();
-
-        }
+Quiero conocer disponibilidad y condiciones actuales.`
+      );
 
     }
 
-);
 
-</script>
+    function infoDirectvOro() {
 
+      whatsapp(
+        `Hola RC Red de Servicios 👋
+
+Quiero recibir más información sobre:
+
+ORO HD + DISNEY+ + PRIME VIDEO GRATIS`
+      );
+
+    }
+
+
+    function buyDirectvSmart() {
+
+      whatsapp(
+        `Hola RC Red de Servicios 👋
+
+Estoy interesado/a en la promoción:
+
+SMART TV 50" 4K + SERVICIO DE TELEVISIÓN
+
+Quiero conocer disponibilidad y condiciones actuales.`
+      );
+
+    }
+
+
+    function infoDirectvSmart() {
+
+      whatsapp(
+        `Hola RC Red de Servicios 👋
+
+Quiero recibir más información sobre:
+
+SMART TV 50" 4K + SERVICIO DE TELEVISIÓN`
+      );
+
+    }
+
+
+    /* =========================
+       AVALIAN
+    ========================= */
+
+    function contactAvalian() {
+
+      whatsapp(
+        `Hola RC Red de Servicios 👋
+
+Quiero recibir información sobre Avalian Medicina Prepaga.
+
+Me gustaría conocer las opciones disponibles y recibir una cotización.`
+      );
+
+    }
+
+
+    /* =========================
+       FAQ ACCORDION
+    ========================= */
+
+    function toggleFAQ(button) {
+
+      const item =
+        button.closest(".faq-item");
+
+      const allItems =
+        document.querySelectorAll(".faq-item");
+
+      allItems.forEach(otherItem => {
+
+        if (otherItem !== item) {
+
+          otherItem.classList.remove("active");
+
+        }
+
+      });
+
+      item.classList.toggle("active");
+
+    }
+
+
+    /* =========================
+       TECLA ESC
+    ========================= */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          closeProductModal();
+
+          closeLightbox();
+
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
