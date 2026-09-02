@@ -11,7 +11,6 @@ const WHATSAPP_NUMBER = "5493585042057";
 
 const KITS = {
 
-
     /* ======================================================
        CÓRDOBA
     ====================================================== */
@@ -350,35 +349,42 @@ const locationScreen =
         "location-screen"
     );
 
+
 const kitsScreen =
     document.getElementById(
         "kits-screen"
     );
+
 
 const detailScreen =
     document.getElementById(
         "detail-screen"
     );
 
+
 const kitsGrid =
     document.getElementById(
         "kits-grid"
     );
+
 
 const kitDetail =
     document.getElementById(
         "kit-detail"
     );
 
+
 const locationLabel =
     document.getElementById(
         "location-label"
     );
 
+
 const backLocation =
     document.getElementById(
         "back-location"
     );
+
 
 const backKits =
     document.getElementById(
@@ -479,26 +485,35 @@ function showKits(
 
                 </div>
 
+
                 <div class="kit-card-content">
 
                     <span class="kit-tag">
                         ADT ALARMAS
                     </span>
 
+
                     <h2>
                         ${escapeHTML(kit.name)}
                     </h2>
+
 
                     <p>
                         ${escapeHTML(kit.description)}
                     </p>
 
+
                     <button
                         class="kit-button"
                         data-kit-id="${kit.id}"
                     >
+
                         Más información
-                        <span>→</span>
+
+                        <span>
+                            →
+                        </span>
+
                     </button>
 
                 </div>
@@ -568,7 +583,9 @@ function showDetail(
 
 
     if (!kit) {
+
         return;
+
     }
 
 
@@ -601,9 +618,11 @@ function showDetail(
                 ADT ALARMAS
             </span>
 
+
             <h1>
                 ${escapeHTML(kit.name)}
             </h1>
+
 
             <p class="detail-description">
                 ${escapeHTML(kit.description)}
@@ -616,18 +635,23 @@ function showDetail(
                     ¿Qué incluye?
                 </h2>
 
+
                 <ul>
 
                     ${kit.includes
                         .map(
                             item => `
+
                                 <li>
+
                                     <span class="check">
                                         ✓
                                     </span>
 
                                     ${escapeHTML(item)}
+
                                 </li>
+
                             `
                         )
                         .join("")
@@ -655,11 +679,14 @@ function showDetail(
 
                 </a>
 
+
                 <button
                     class="secondary-button"
-                    onclick="showKits(selectedLocation)"
+                    id="other-kits-button"
                 >
+
                     Ver otros kits
+
                 </button>
 
             </div>
@@ -667,6 +694,22 @@ function showDetail(
         </div>
 
     `;
+
+
+    document
+        .getElementById(
+            "other-kits-button"
+        )
+        .addEventListener(
+            "click",
+            () => {
+
+                showKits(
+                    selectedLocation
+                );
+
+            }
+        );
 
 
     showScreen(
@@ -680,28 +723,36 @@ function showDetail(
    NAVEGACIÓN
 ========================================================== */
 
-backLocation.addEventListener(
-    "click",
-    () => {
+if (backLocation) {
 
-        showScreen(
-            locationScreen
-        );
+    backLocation.addEventListener(
+        "click",
+        () => {
 
-    }
-);
+            showScreen(
+                locationScreen
+            );
+
+        }
+    );
+
+}
 
 
-backKits.addEventListener(
-    "click",
-    () => {
+if (backKits) {
 
-        showScreen(
-            kitsScreen
-        );
+    backKits.addEventListener(
+        "click",
+        () => {
 
-    }
-);
+            showScreen(
+                kitsScreen
+            );
+
+        }
+    );
+
+}
 
 
 /* ==========================================================
@@ -779,9 +830,15 @@ function escapeHTML(
    AÑO
 ========================================================== */
 
-document
-    .getElementById(
+const currentYear =
+    document.getElementById(
         "current-year"
-    )
-    .textContent =
+    );
+
+
+if (currentYear) {
+
+    currentYear.textContent =
         new Date().getFullYear();
+
+}
