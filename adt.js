@@ -29,15 +29,10 @@ const KITS = {
                 "assets/adt/cordoba/qolsys-11.jpg",
 
             includes: [
-
                 "Panel inteligente Qolsys",
-
                 "1 sensor magnético inalámbrico",
-
                 "1 detector de movimiento"
-
             ]
-
         },
 
 
@@ -53,15 +48,10 @@ const KITS = {
                 "assets/adt/cordoba/qolsys-22.jpg",
 
             includes: [
-
                 "Panel inteligente Qolsys",
-
                 "2 sensores magnéticos",
-
                 "2 detectores de movimiento"
-
             ]
-
         },
 
 
@@ -78,17 +68,11 @@ const KITS = {
                 "assets/adt/cordoba/qolsys-view-22-interior.jpg",
 
             includes: [
-
                 "Panel inteligente Qolsys",
-
                 "2 sensores magnéticos",
-
                 "2 detectores de movimiento",
-
                 "1 cámara interior"
-
             ]
-
         },
 
 
@@ -105,17 +89,11 @@ const KITS = {
                 "assets/adt/cordoba/qolsys-view-22-exterior.jpg",
 
             includes: [
-
                 "Panel inteligente Qolsys",
-
                 "2 sensores magnéticos",
-
                 "2 detectores de movimiento",
-
                 "1 cámara exterior"
-
             ]
-
         },
 
 
@@ -132,21 +110,13 @@ const KITS = {
                 "assets/adt/cordoba/galpon-22.jpg",
 
             includes: [
-
                 "Panel interactivo",
-
                 "2 magnéticos interiores con bornera",
-
                 "1 magnético blindado",
-
                 "2 PIR doble tecnología interiores",
-
                 "1 teclado",
-
                 "1 sirena exterior"
-
             ]
-
         },
 
 
@@ -163,23 +133,14 @@ const KITS = {
                 "assets/adt/cordoba/galpon-cx-22-interior.jpg",
 
             includes: [
-
                 "Panel interactivo",
-
                 "2 magnéticos interiores con bornera",
-
                 "1 magnético blindado",
-
                 "2 PIR doble tecnología interiores",
-
                 "1 teclado",
-
                 "1 sirena exterior",
-
                 "1 cámara interior"
-
             ]
-
         },
 
 
@@ -196,23 +157,14 @@ const KITS = {
                 "assets/adt/cordoba/galpon-cx-22-exterior.jpg",
 
             includes: [
-
                 "Panel interactivo",
-
                 "2 magnéticos interiores con bornera",
-
                 "1 magnético blindado",
-
                 "2 PIR doble tecnología interiores",
-
                 "1 teclado",
-
                 "1 sirena exterior",
-
                 "1 cámara exterior"
-
             ]
-
         }
 
     ],
@@ -237,17 +189,11 @@ const KITS = {
                 "assets/adt/resto-pais/cx-11.jpg",
 
             includes: [
-
                 "Panel interactivo CX",
-
                 "1 magnético interior con bornera",
-
                 "1 detector de movimiento PIR interior",
-
                 "1 teclado CX"
-
             ]
-
         },
 
 
@@ -264,17 +210,11 @@ const KITS = {
                 "assets/adt/resto-pais/cx-22.jpg",
 
             includes: [
-
                 "Panel interactivo CX",
-
                 "2 magnéticos interiores con bornera",
-
                 "2 detectores de movimiento PIR interior",
-
                 "1 teclado CX"
-
             ]
-
         },
 
 
@@ -291,19 +231,12 @@ const KITS = {
                 "assets/adt/resto-pais/cx-22-interior.jpg",
 
             includes: [
-
                 "Panel interactivo CX",
-
                 "2 magnéticos interiores con bornera",
-
                 "2 detectores de movimiento PIR interior",
-
                 "1 teclado CX",
-
                 "1 cámara interior"
-
             ]
-
         },
 
 
@@ -320,19 +253,12 @@ const KITS = {
                 "assets/adt/resto-pais/cx-22-exterior.jpg",
 
             includes: [
-
                 "Panel interactivo CX",
-
                 "2 magnéticos interiores con bornera",
-
                 "2 detectores de movimiento PIR interior",
-
                 "1 teclado CX",
-
                 "1 cámara exterior"
-
             ]
-
         }
 
     ]
@@ -349,42 +275,35 @@ const locationScreen =
         "location-screen"
     );
 
-
 const kitsScreen =
     document.getElementById(
         "kits-screen"
     );
-
 
 const detailScreen =
     document.getElementById(
         "detail-screen"
     );
 
-
 const kitsGrid =
     document.getElementById(
         "kits-grid"
     );
-
 
 const kitDetail =
     document.getElementById(
         "kit-detail"
     );
 
-
 const locationLabel =
     document.getElementById(
         "location-label"
     );
 
-
 const backLocation =
     document.getElementById(
         "back-location"
     );
-
 
 const backKits =
     document.getElementById(
@@ -432,9 +351,7 @@ document
    MOSTRAR KITS
 ========================================================== */
 
-function showKits(
-    location
-) {
+function showKits(location) {
 
     const kits =
         KITS[location] || [];
@@ -443,9 +360,7 @@ function showKits(
     kitsGrid.innerHTML = "";
 
 
-    if (
-        location === "cordoba"
-    ) {
+    if (location === "cordoba") {
 
         locationLabel.textContent =
             "ADT ALARMAS · CÓRDOBA";
@@ -565,14 +480,10 @@ function showKits(
    MOSTRAR DETALLE
 ========================================================== */
 
-function showDetail(
-    kitId
-) {
+function showDetail(kitId) {
 
     const kits =
-        KITS[
-            selectedLocation
-        ] || [];
+        KITS[selectedLocation] || [];
 
 
     const kit =
@@ -583,9 +494,7 @@ function showDetail(
 
 
     if (!kit) {
-
         return;
-
     }
 
 
@@ -696,11 +605,15 @@ function showDetail(
     `;
 
 
-    document
-        .getElementById(
+    const otherKitsButton =
+        document.getElementById(
             "other-kits-button"
-        )
-        .addEventListener(
+        );
+
+
+    if (otherKitsButton) {
+
+        otherKitsButton.addEventListener(
             "click",
             () => {
 
@@ -710,6 +623,8 @@ function showDetail(
 
             }
         );
+
+    }
 
 
     showScreen(
@@ -759,9 +674,7 @@ if (backKits) {
    CAMBIAR PANTALLA
 ========================================================== */
 
-function showScreen(
-    screen
-) {
+function showScreen(screen) {
 
     document
         .querySelectorAll(
@@ -795,33 +708,29 @@ function showScreen(
    ESCAPAR HTML
 ========================================================== */
 
-function escapeHTML(
-    value
-) {
+function escapeHTML(value) {
 
-    return String(
-        value
-    )
-    .replace(
-        /&/g,
-        "&amp;"
-    )
-    .replace(
-        /</g,
-        "&lt;"
-    )
-    .replace(
-        />/g,
-        "&gt;"
-    )
-    .replace(
-        /"/g,
-        "&quot;"
-    )
-    .replace(
-        /'/g,
-        "&#039;"
-    );
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
