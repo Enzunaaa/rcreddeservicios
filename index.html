@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -11,2142 +10,140 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-
-    :root {
-      --bg: #071526;
-      --bg-dark: #04101f;
-      --bg-card: #0a2038;
-
-      --text: #f3f4f6;
-      --text-soft: rgba(255,255,255,0.72);
-
-      --accent: #f6b83f;
-      --accent-light: #ffd57b;
-
-      --border: rgba(246,184,63,0.22);
-      --border-hover: rgba(246,184,63,0.65);
-
-      --whatsapp: #25D366;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    select {
-      font-family: inherit;
-    }
-
-
-    /* =========================================================
-       BARRA SUPERIOR
-       ========================================================= */
-
-    .top-marquee {
-      position: fixed;
-      top: 0;
-      left: 0;
-
-      width: 100%;
-      height: 38px;
-
-      z-index: 2000;
-
-      background: rgba(4, 16, 31, 0.78);
-
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-
-      border-bottom: 1px solid rgba(246,184,63,0.25);
-
-      overflow: hidden;
-
-      display: flex;
-      align-items: center;
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-
-      animation: marquee 42s linear infinite;
-
-      will-change: transform;
-    }
-
-    .marquee-content {
-      display: flex;
-      align-items: center;
-
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .marquee-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-
-      padding: 0 26px;
-
-      color: rgba(255,255,255,0.88);
-
-      font-size: 11px;
-      font-weight: 800;
-
-      letter-spacing: 1px;
-
-      text-transform: uppercase;
-    }
-
-    .marquee-item strong {
-      color: var(--accent);
-    }
-
-    .marquee-separator {
-      color: var(--accent);
-
-      font-size: 11px;
-
-      opacity: 0.9;
-    }
-
-    @keyframes marquee {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-
-    /* =========================================================
-       HEADER
-       ========================================================= */
-
-    header {
-      position: fixed;
-
-      top: 38px;
-      left: 0;
-
-      width: 100%;
-      height: 82px;
-
-      z-index: 1000;
-
-      background: rgba(4,16,31,0.76);
-
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .header-inner {
-      width: min(1180px, 92%);
-      height: 100%;
-
-      margin: auto;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo-link {
-      display: flex;
-      align-items: center;
-
-      height: 100%;
-
-      overflow: visible;
-    }
-
-    .logo {
-      width: auto;
-      height: 64px;
-
-      max-width: 190px;
-
-      object-fit: contain;
-
-      transform: scale(1.18);
-      transform-origin: left center;
-
-      transition: 0.25s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.24);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-    }
-
-    nav a {
-      color: rgba(255,255,255,0.82);
-
-      font-size: 13px;
-      font-weight: 700;
-
-      transition: 0.25s ease;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-
-    /* =========================================================
-       HERO
-       ========================================================= */
-
-    .hero {
-      position: relative;
-
-      min-height: 100vh;
-
-      padding-top: 120px;
-
-      display: flex;
-      align-items: flex-start;
-
-      overflow: hidden;
-
-      background-image:
-
-        linear-gradient(
-          90deg,
-          rgba(4,16,31,0.82) 0%,
-          rgba(4,16,31,0.58) 30%,
-          rgba(4,16,31,0.28) 58%,
-          rgba(4,16,31,0.10) 82%,
-          rgba(4,16,31,0.08) 100%
-        ),
-
-        url("hero-fondo.png");
-
-      background-size: cover;
-
-      background-position: center center;
-
-      background-repeat: no-repeat;
-    }
-
-    .hero::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      pointer-events: none;
-
-      background:
-
-        linear-gradient(
-          180deg,
-          rgba(4,16,31,0.08) 0%,
-          transparent 55%,
-          rgba(4,16,31,0.42) 100%
-        );
-    }
-
-    .hero-inner {
-      position: relative;
-
-      z-index: 2;
-
-      width: min(1180px, 92%);
-
-      margin: auto;
-
-      padding-top: 92px;
-      padding-bottom: 75px;
-    }
-
-    .hero-content {
-      max-width: 780px;
-    }
-
-
-    /* =========================================================
-       BADGE
-       ========================================================= */
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-
-      padding: 10px 17px;
-
-      margin-bottom: 24px;
-
-      border-radius: 999px;
-
-      background: rgba(246,184,63,0.13);
-
-      border: 1px solid rgba(246,184,63,0.55);
-
-      color: var(--accent-light);
-
-      font-size: 11px;
-
-      font-weight: 900;
-
-      letter-spacing: 1.35px;
-
-      text-transform: uppercase;
-
-      box-shadow:
-        0 0 25px rgba(246,184,63,0.05);
-    }
-
-
-    /* =========================================================
-       HERO TÍTULO
-       ========================================================= */
-
-    .hero h1 {
-      max-width: 850px;
-
-      margin-bottom: 25px;
-
-      font-size: clamp(38px, 5vw, 70px);
-
-      line-height: 0.98;
-
-      font-weight: 900;
-
-      letter-spacing: -2.5px;
-    }
-
-    .hero h1 span {
-      color: var(--accent);
-    }
-
-    .hero-subtitle {
-      max-width: 680px;
-
-      margin-bottom: 32px;
-
-      color: rgba(255,255,255,0.82);
-
-      font-size: 17px;
-
-      line-height: 1.7;
-    }
-
-    .hero-button {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      gap: 10px;
-
-      padding: 15px 23px;
-
-      border-radius: 10px;
-
-      background: var(--accent);
-
-      color: var(--bg-dark);
-
-      font-size: 12px;
-
-      font-weight: 900;
-
-      letter-spacing: 0.7px;
-
-      box-shadow:
-        0 10px 35px rgba(246,184,63,0.20);
-
-      transition: 0.25s ease;
-    }
-
-    .hero-button:hover {
-      transform: translateY(-3px);
-
-      background: var(--accent-light);
-
-      box-shadow:
-        0 15px 40px rgba(246,184,63,0.30);
-    }
-
-
-    /* =========================================================
-       BLOQUES DE VALOR
-       ========================================================= */
-
-    .hero-features {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 14px;
-
-      /*
-        BAJADOS MÁS ABAJO PARA NO INTERFERIR
-        CON LA IMAGEN PRINCIPAL DE LA PORTADA.
-      */
-
-      margin-top: 165px;
-
-      width: 100%;
-    }
-
-    .feature-box {
-
-      position: relative;
-
-      min-height: 140px;
-
-      padding: 25px 21px;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: center;
-
-      background:
-        rgba(7,21,38,0.62);
-
-      border:
-        1px solid rgba(246,184,63,0.48);
-
-      border-radius: 15px;
-
-      color: var(--text);
-
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-
-      box-shadow:
-        0 12px 35px rgba(0,0,0,0.20);
-
-      transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
-    }
-
-    .feature-box:hover {
-
-      transform: translateY(-7px);
-
-      background:
-        rgba(7,21,38,0.78);
-
-      border-color:
-        rgba(246,184,63,0.82);
-
-      box-shadow:
-        0 18px 45px rgba(0,0,0,0.30),
-        0 0 28px rgba(246,184,63,0.08);
-    }
-
-    .feature-number {
-
-      position: absolute;
-
-      top: 12px;
-      right: 16px;
-
-      color: var(--accent);
-
-      font-size: 10px;
-
-      font-weight: 900;
-
-      opacity: 0.65;
-    }
-
-    .feature-box h3 {
-
-      margin-bottom: 9px;
-
-      color: var(--accent-light);
-
-      font-size: 14px;
-
-      font-weight: 900;
-
-      letter-spacing: 0.2px;
-
-      text-transform: uppercase;
-    }
-
-    .feature-box p {
-
-      color: rgba(255,255,255,0.70);
-
-      font-size: 11px;
-
-      line-height: 1.55;
-
-      font-weight: 600;
-
-      text-transform: uppercase;
-    }
-
-
-    /* =========================================================
-       SECCIONES GENERALES
-       ========================================================= */
-
-    section {
-      padding: 100px 0;
-    }
-
-    .section-inner {
-      width: min(1180px, 92%);
-
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-
-      margin-bottom: 55px;
-    }
-
-    .section-title .eyebrow {
-
-      display: block;
-
-      margin-bottom: 12px;
-
-      color: var(--accent);
-
-      font-size: 11px;
-
-      font-weight: 900;
-
-      letter-spacing: 2px;
-    }
-
-    .section-title h2 {
-
-      font-size: clamp(30px, 4vw, 46px);
-
-      line-height: 1.05;
-
-      font-weight: 900;
-
-      letter-spacing: -1.5px;
-    }
-
-    .section-title p {
-
-      max-width: 650px;
-
-      margin: 18px auto 0;
-
-      color: var(--text-soft);
-
-      font-size: 15px;
-
-      line-height: 1.7;
-    }
-
-
-    /* =========================================================
-       SERVICIOS
-       ========================================================= */
-
-    #servicios {
-      background: var(--bg);
-    }
-
-    .services-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 22px;
-    }
-
-    .service-card {
-
-      padding: 35px;
-
-      text-align: center;
-
-      background: var(--bg-card);
-
-      border: 1px solid var(--border);
-
-      border-radius: 18px;
-
-      transition: 0.25s ease;
-    }
-
-    .service-card:hover {
-
-      transform: translateY(-6px);
-
-      border-color:
-        var(--border-hover);
-
-      box-shadow:
-        0 20px 45px rgba(0,0,0,0.20);
-    }
-
-    .service-card img {
-
-      width: 170px;
-      height: 75px;
-
-      object-fit: contain;
-
-      margin-bottom: 25px;
-    }
-
-    .service-card h3 {
-
-      margin-bottom: 12px;
-
-      font-size: 20px;
-
-      font-weight: 800;
-    }
-
-    .service-card p {
-
-      margin-bottom: 25px;
-
-      color: var(--text-soft);
-
-      font-size: 13px;
-
-      line-height: 1.7;
-    }
-
-    .service-button {
-
-      display: inline-flex;
-
-      padding: 12px 18px;
-
-      border-radius: 8px;
-
-      background: var(--accent);
-
-      color: var(--bg-dark);
-
-      font-size: 11px;
-
-      font-weight: 900;
-
-      transition: 0.25s ease;
-    }
-
-    .service-button:hover {
-
-      background: var(--accent-light);
-
-      transform: translateY(-2px);
-    }
-
-
-    /* =========================================================
-       PROPUESTA
-       ========================================================= */
-
-    .proposal {
-      background: var(--bg-dark);
-    }
-
-    .proposal-box {
-
-      display: grid;
-
-      grid-template-columns: 1fr 1.8fr;
-
-      gap: 45px;
-
-      padding: 45px;
-
-      background: var(--bg-card);
-
-      border: 1px solid var(--border);
-
-      border-radius: 22px;
-    }
-
-    .proposal-info h2 {
-
-      margin-bottom: 18px;
-
-      font-size: 34px;
-
-      line-height: 1.1;
-
-      font-weight: 900;
-    }
-
-    .proposal-info p {
-
-      color: var(--text-soft);
-
-      font-size: 14px;
-
-      line-height: 1.7;
-    }
-
-    .proposal-form {
-
-      display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap: 15px;
-    }
-
-    .proposal-form input,
-    .proposal-form select {
-
-      width: 100%;
-
-      padding: 14px 15px;
-
-      outline: none;
-
-      background:
-        rgba(255,255,255,0.05);
-
-      border:
-        1px solid rgba(255,255,255,0.10);
-
-      border-radius: 9px;
-
-      color: white;
-
-      font-size: 13px;
-    }
-
-    .proposal-form input:focus,
-    .proposal-form select:focus {
-
-      border-color:
-        var(--accent);
-    }
-
-    .proposal-form select option {
-
-      background: var(--bg-dark);
-
-      color: white;
-    }
-
-    .proposal-form button {
-
-      grid-column: 1 / -1;
-
-      padding: 15px;
-
-      border: none;
-
-      border-radius: 9px;
-
-      background: var(--accent);
-
-      color: var(--bg-dark);
-
-      font-size: 12px;
-
-      font-weight: 900;
-
-      cursor: pointer;
-
-      transition: 0.25s ease;
-    }
-
-    .proposal-form button:hover {
-
-      background: var(--accent-light);
-
-      transform: translateY(-2px);
-    }
-
-
-    /* =========================================================
-       NUESTRA DIFERENCIA
-       ========================================================= */
-
-    #por-que-elegirnos {
-      background: var(--bg);
-      padding-top: 105px;
-      padding-bottom: 110px;
-    }
-
-    .difference-box {
-
-      position: relative;
-
-      max-width: 1050px;
-
-      margin: 0 auto;
-
-      padding: 55px 65px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #0a2947 0%,
-          #071d34 55%,
-          #05172b 100%
-        );
-
-      border: 3px solid var(--accent);
-
-      border-radius: 24px;
-
-      box-shadow:
-        0 20px 60px rgba(0,0,0,0.32),
-        0 0 35px rgba(246,184,63,0.10);
-
-      overflow: hidden;
-    }
-
-    .difference-box::before {
-
-      content: "";
-
-      position: absolute;
-
-      top: 0;
-      left: 0;
-
-      width: 100%;
-      height: 5px;
-
-      background: var(--accent);
-    }
-
-    .difference-box::after {
-
-      content: "";
-
-      position: absolute;
-
-      width: 220px;
-      height: 220px;
-
-      right: -100px;
-      bottom: -120px;
-
-      border-radius: 50%;
-
-      background:
-        rgba(246,184,63,0.08);
-
-      pointer-events: none;
-    }
-
-    .difference-header {
-
-      text-align: center;
-
-      margin-bottom: 38px;
-    }
-
-    .difference-eyebrow {
-
-      display: block;
-
-      margin-bottom: 12px;
-
-      color: var(--accent);
-
-      font-size: 13px;
-
-      font-weight: 900;
-
-      letter-spacing: 3px;
-
-      text-transform: uppercase;
-    }
-
-    .difference-header h2 {
-
-      color: var(--accent);
-
-      font-size: clamp(34px, 5vw, 54px);
-
-      line-height: 1;
-
-      font-weight: 900;
-
-      letter-spacing: -2px;
-
-      text-transform: uppercase;
-
-      text-shadow:
-        0 0 22px rgba(246,184,63,0.12);
-    }
-
-    .difference-content {
-
-      max-width: 900px;
-
-      margin: auto;
-
-      text-align: center;
-
-      position: relative;
-
-      z-index: 2;
-    }
-
-    .difference-content p {
-
-      color: rgba(255,255,255,0.84);
-
-      font-size: 16px;
-
-      line-height: 1.9;
-
-      font-weight: 500;
-    }
-
-    .difference-content p + p {
-
-      margin-top: 23px;
-    }
-
-    .difference-content .rc-highlight {
-
-      color: var(--accent);
-
-      font-weight: 900;
-
-      font-size: 1.05em;
-    }
-
-    .difference-content .person-highlight {
-
-      display: block;
-
-      margin-top: 18px;
-
-      color: var(--accent);
-
-      font-size: clamp(20px, 3vw, 29px);
-
-      line-height: 1.25;
-
-      font-weight: 900;
-
-      letter-spacing: -0.4px;
-
-      text-transform: uppercase;
-
-      text-shadow:
-        0 0 25px rgba(246,184,63,0.14);
-    }
-
-    .difference-content .person-highlight::before {
-
-      content: "“";
-
-      font-size: 1.35em;
-
-      vertical-align: -5px;
-
-      margin-right: 4px;
-    }
-
-    .difference-content .person-highlight::after {
-
-      content: "”";
-
-      font-size: 1.35em;
-
-      vertical-align: -5px;
-
-      margin-left: 4px;
-    }
-
-
-    /* =========================================================
-       ADT
-       ========================================================= */
-
-    #adt {
-
-      display: none;
-
-      background: var(--bg-dark);
-    }
-
-    .location-selector {
-
-      display: flex;
-
-      justify-content: center;
-
-      gap: 12px;
-
-      margin-bottom: 40px;
-    }
-
-    .location-button {
-
-      padding: 13px 20px;
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 9px;
-
-      background: var(--bg-card);
-
-      color: white;
-
-      font-size: 12px;
-
-      font-weight: 800;
-
-      cursor: pointer;
-
-      transition: 0.25s ease;
-    }
-
-    .location-button:hover,
-    .location-button.active {
-
-      background: var(--accent);
-
-      color: var(--bg-dark);
-
-      border-color:
-        var(--accent);
-    }
-
-    .adt-products {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 22px;
-    }
-
-    .product-card {
-
-      overflow: hidden;
-
-      background: var(--bg-card);
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 18px;
-
-      transition: 0.25s ease;
-    }
-
-    .product-card:hover {
-
-      transform: translateY(-5px);
-
-      border-color:
-        var(--border-hover);
-    }
-
-    .product-image {
-
-      height: 270px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      background: white;
-
-      cursor: zoom-in;
-    }
-
-    .product-image img {
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: contain;
-    }
-
-    .product-info {
-
-      padding: 27px;
-    }
-
-    .product-info h3 {
-
-      margin-bottom: 10px;
-
-      font-size: 20px;
-
-      font-weight: 900;
-    }
-
-    .product-info p {
-
-      margin-bottom: 18px;
-
-      color: var(--text-soft);
-
-      font-size: 13px;
-
-      line-height: 1.65;
-    }
-
-    .product-buttons {
-
-      display: flex;
-
-      gap: 10px;
-    }
-
-    .product-buttons a {
-
-      flex: 1;
-
-      padding: 12px;
-
-      border-radius: 8px;
-
-      text-align: center;
-
-      font-size: 11px;
-
-      font-weight: 900;
-    }
-
-    .buy-button {
-
-      background: var(--accent);
-
-      color: var(--bg-dark);
-    }
-
-    .info-button {
-
-      border:
-        1px solid var(--border);
-
-      color: white;
-    }
-
-
-    /* =========================================================
-       FAQ
-       ========================================================= */
-
-    #adt-faq {
-
-      display: none;
-
-      margin-top: 75px;
-    }
-
-    .faq-header {
-
-      max-width: 780px;
-
-      margin:
-        0 auto 35px;
-
-      text-align: center;
-    }
-
-    .faq-header h2 {
-
-      margin-bottom: 15px;
-
-      font-size: clamp(27px, 4vw, 40px);
-
-      line-height: 1.1;
-
-      font-weight: 900;
-    }
-
-    .faq-header p {
-
-      color: var(--text-soft);
-
-      font-size: 14px;
-
-      line-height: 1.7;
-    }
-
-    .faq-list {
-
-      max-width: 900px;
-
-      margin: auto;
-
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 10px;
-    }
-
-    .faq-item {
-
-      overflow: hidden;
-
-      background: var(--bg-card);
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 12px;
-    }
-
-    .faq-question {
-
-      width: 100%;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 20px;
-
-      padding: 20px;
-
-      border: none;
-
-      background: transparent;
-
-      color: white;
-
-      text-align: left;
-
-      font-size: 13px;
-
-      font-weight: 800;
-
-      cursor: pointer;
-    }
-
-    .faq-question span {
-
-      color: var(--accent);
-
-      font-size: 20px;
-
-      transition: transform 0.25s ease;
-    }
-
-    .faq-answer {
-
-      display: none;
-
-      padding: 0 20px 20px;
-
-      color: var(--text-soft);
-
-      font-size: 13px;
-
-      line-height: 1.75;
-    }
-
-    .faq-item.open .faq-answer {
-      display: block;
-    }
-
-    .faq-item.open .faq-question span {
-      transform: rotate(45deg);
-    }
-
-
-    /* =========================================================
-       NUEVOS EQUIPOS
-       ========================================================= */
-
-    .new-equipment {
-
-      max-width: 900px;
-
-      margin: 55px auto 0;
-
-      padding: 35px;
-
-      border-radius: 18px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(246,184,63,0.16),
-          rgba(246,184,63,0.04)
-        );
-
-      border:
-        1px solid rgba(246,184,63,0.35);
-
-      text-align: center;
-    }
-
-    .new-equipment h3 {
-
-      margin-bottom: 10px;
-
-      color: var(--accent);
-
-      font-size: 23px;
-
-      font-weight: 900;
-    }
-
-    .new-equipment p {
-
-      color: var(--text-soft);
-
-      font-size: 13px;
-
-      line-height: 1.7;
-    }
-
-
-    /* =========================================================
-       DIRECTV
-       ========================================================= */
-
-    #directv {
-      background: var(--bg);
-    }
-
-    .directv-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 25px;
-    }
-
-    .directv-card {
-
-      overflow: hidden;
-
-      background: var(--bg-card);
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 18px;
-    }
-
-    .directv-image {
-
-      height: 300px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      background: white;
-
-      cursor: zoom-in;
-    }
-
-    .directv-image img {
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: contain;
-    }
-
-    .directv-info {
-
-      padding: 28px;
-    }
-
-    .directv-info h3 {
-
-      margin-bottom: 12px;
-
-      font-size: 19px;
-
-      font-weight: 900;
-    }
-
-    .directv-info p {
-
-      margin-bottom: 20px;
-
-      color: var(--text-soft);
-
-      font-size: 13px;
-
-      line-height: 1.7;
-    }
-
-    .directv-buttons {
-
-      display: flex;
-
-      gap: 10px;
-    }
-
-    .directv-buttons a {
-
-      flex: 1;
-
-      padding: 12px;
-
-      border-radius: 8px;
-
-      text-align: center;
-
-      font-size: 11px;
-
-      font-weight: 900;
-    }
-
-
-    /* =========================================================
-       FOOTER
-       ========================================================= */
-
-    footer {
-
-      padding: 60px 0 45px;
-
-      background: #020b16;
-
-      border-top:
-        1px solid rgba(255,255,255,0.06);
-
-      text-align: center;
-    }
-
-    footer img {
-
-      width: auto;
-
-      height: 70px;
-
-      max-width: 220px;
-
-      object-fit: contain;
-
-      transform: scale(1.15);
-
-      margin-bottom: 22px;
-    }
-
-    footer p {
-
-      color:
-        rgba(255,255,255,0.45);
-
-      font-size: 11px;
-    }
-
-
-    /* =========================================================
-       REDES
-       ========================================================= */
-
-    .socials {
-
-      position: fixed;
-
-      right: 20px;
-      bottom: 20px;
-
-      z-index: 1500;
-
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 10px;
-    }
-
-    .social-button {
-
-      width: 48px;
-      height: 48px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background: var(--bg-card);
-
-      border:
-        1px solid var(--border);
-
-      transition: 0.25s ease;
-    }
-
-    .social-button:hover {
-
-      transform: translateY(-4px);
-
-      border-color:
-        var(--accent);
-    }
-
-    .social-button svg {
-
-      width: 21px;
-      height: 21px;
-
-      fill: white;
-    }
-
-
-    /* =========================================================
-       MODAL
-       ========================================================= */
-
-    .modal-overlay {
-
-      display: none;
-
-      position: fixed;
-
-      inset: 0;
-
-      z-index: 3000;
-
-      align-items: center;
-      justify-content: center;
-
-      padding: 20px;
-
-      background: rgba(0,0,0,0.82);
-
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal {
-
-      position: relative;
-
-      width: min(950px,100%);
-
-      max-height: 90vh;
-
-      overflow-y: auto;
-
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      background: var(--bg-card);
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 20px;
-    }
-
-    .modal-image {
-
-      min-height: 450px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      background: white;
-    }
-
-    .modal-image img {
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: contain;
-    }
-
-    .modal-content {
-
-      padding: 40px;
-    }
-
-    .modal-content .category {
-
-      margin-bottom: 10px;
-
-      color: var(--accent);
-
-      font-size: 10px;
-
-      font-weight: 900;
-
-      letter-spacing: 1.5px;
-    }
-
-    .modal-content h2 {
-
-      margin-bottom: 15px;
-
-      font-size: 30px;
-
-      font-weight: 900;
-    }
-
-    .modal-content p {
-
-      margin-bottom: 20px;
-
-      color: var(--text-soft);
-
-      font-size: 13px;
-
-      line-height: 1.7;
-    }
-
-    .includes-title {
-
-      margin-bottom: 10px;
-
-      font-size: 12px;
-
-      font-weight: 900;
-    }
-
-    .includes-list {
-
-      padding-left: 18px;
-
-      margin-bottom: 25px;
-
-      color: var(--text-soft);
-
-      font-size: 12px;
-
-      line-height: 1.8;
-    }
-
-    .modal-actions {
-
-      display: flex;
-
-      gap: 10px;
-    }
-
-    .modal-actions a {
-
-      flex: 1;
-
-      padding: 13px;
-
-      border-radius: 8px;
-
-      text-align: center;
-
-      font-size: 11px;
-
-      font-weight: 900;
-    }
-
-    .modal-close {
-
-      position: absolute;
-
-      top: 14px;
-      right: 14px;
-
-      width: 35px;
-      height: 35px;
-
-      border-radius: 50%;
-
-      border:
-        1px solid rgba(255,255,255,0.15);
-
-      background:
-        rgba(0,0,0,0.35);
-
-      color: white;
-
-      font-size: 18px;
-
-      cursor: pointer;
-    }
-
-
-    /* =========================================================
-       LIGHTBOX
-       ========================================================= */
-
-    .lightbox {
-
-      display: none;
-
-      position: fixed;
-
-      inset: 0;
-
-      z-index: 4000;
-
-      align-items: center;
-      justify-content: center;
-
-      padding: 30px;
-
-      background: rgba(0,0,0,0.92);
-
-      cursor: zoom-out;
-    }
-
-    .lightbox.active {
-      display: flex;
-    }
-
-    .lightbox img {
-
-      max-width: 95%;
-      max-height: 90vh;
-
-      object-fit: contain;
-    }
-
-
-    /* =========================================================
-       TABLET
-       ========================================================= */
-
-    @media (max-width: 950px) {
-
-      nav {
-        gap: 15px;
-      }
-
-      nav a {
-        font-size: 11px;
-      }
-
-      .hero-features {
-        grid-template-columns:
-          repeat(2,1fr);
-
-        margin-top: 120px;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .proposal-box {
-        grid-template-columns: 1fr;
-      }
-
-      .adt-products,
-      .directv-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .modal {
-        grid-template-columns: 1fr;
-      }
-
-      .modal-image {
-        min-height: 300px;
-      }
-
-      .difference-box {
-        padding: 45px 35px;
-      }
-    }
-
-
-    /* =========================================================
-       CELULAR
-       ========================================================= */
-
-    @media (max-width: 650px) {
-
-      .top-marquee {
-        height: 34px;
-      }
-
-      .marquee-item {
-
-        padding: 0 18px;
-
-        font-size: 9px;
-
-        letter-spacing: 0.7px;
-      }
-
-      header {
-
-        top: 34px;
-
-        height: 70px;
-      }
-
-      .header-inner {
-        width: 90%;
-      }
-
-      .logo {
-
-        height: 52px;
-
-        max-width: 145px;
-
-        transform: scale(1.08);
-      }
-
-      .logo:hover {
-        transform: scale(1.08);
-      }
-
-      nav {
-
-        gap: 11px;
-      }
-
-      nav a {
-
-        font-size: 9px;
-      }
-
-      .hero {
-
-        min-height: auto;
-
-        padding-top: 104px;
-
-        background-image:
-
-          linear-gradient(
-            90deg,
-            rgba(4,16,31,0.84),
-            rgba(4,16,31,0.54)
-          ),
-
-          url("hero-fondo.png");
-
-        background-position:
-          center center;
-      }
-
-      .hero-inner {
-
-        padding-top: 65px;
-
-        padding-bottom: 55px;
-      }
-
-      .hero h1 {
-
-        font-size: 40px;
-
-        letter-spacing: -1.5px;
-      }
-
-      .hero-subtitle {
-
-        font-size: 14px;
-      }
-
-      .hero-features {
-
-        grid-template-columns: 1fr;
-
-        gap: 11px;
-
-        /*
-          TAMBIÉN SE BAJAN EN CELULAR
-          PARA DEJAR LIBRE LA IMAGEN.
-        */
-
-        margin-top: 105px;
-      }
-
-      .feature-box {
-
-        min-height: 115px;
-
-        padding: 20px;
-      }
-
-      section {
-
-        padding: 75px 0;
-      }
-
-      .proposal-box {
-
-        padding: 25px 20px;
-      }
-
-      .proposal-form {
-
-        grid-template-columns: 1fr;
-      }
-
-      .proposal-form button {
-
-        grid-column: auto;
-      }
-
-      .location-selector {
-
-        flex-direction: column;
-      }
-
-      .location-button {
-
-        width: 100%;
-      }
-
-      .product-buttons,
-      .directv-buttons,
-      .modal-actions {
-
-        flex-direction: column;
-      }
-
-      .difference-box {
-
-        padding: 40px 22px;
-
-        border-width: 2px;
-
-        border-radius: 18px;
-      }
-
-      .difference-header {
-
-        margin-bottom: 30px;
-      }
-
-      .difference-header h2 {
-
-        font-size: 36px;
-
-        letter-spacing: -1.5px;
-      }
-
-      .difference-content p {
-
-        font-size: 14px;
-
-        line-height: 1.8;
-      }
-
-      .difference-content .person-highlight {
-
-        font-size: 20px;
-
-        line-height: 1.3;
-      }
-
-      footer img {
-
-        height: 60px;
-
-        transform: scale(1.08);
-      }
-
-      .socials {
-
-        right: 12px;
-
-        bottom: 12px;
-      }
-
-      .social-button {
-
-        width: 43px;
-        height: 43px;
-      }
-
-    }
-
-  </style>
-
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS EXTERNO -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <!-- =========================================================
-       BARRA SUPERIOR EN MOVIMIENTO
+       BARRA SUPERIOR
        ========================================================= -->
 
   <div class="top-marquee">
 
-```
-<div class="marquee-track">
+    <div class="marquee-track">
 
-  <div class="marquee-content">
+      <div class="marquee-content">
 
-    <div class="marquee-item">
-      INSTALACIÓN RÁPIDA Y EN TODO EL PAÍS
-      <span class="marquee-separator">◆</span>
-    </div>
+        <div class="marquee-item">
+          INSTALACIÓN RÁPIDA Y EN TODO EL PAÍS
+          <span class="marquee-separator">◆</span>
+        </div>
 
-    <div class="marquee-item">
-      POSVENTA ASEGURADA
-      <span class="marquee-separator">◆</span>
-    </div>
+        <div class="marquee-item">
+          POSVENTA ASEGURADA
+          <span class="marquee-separator">◆</span>
+        </div>
 
-    <div class="marquee-item">
-      ÚLTIMOS DÍAS CON DESCUENTO APLICADO
-      <span class="marquee-separator">◆</span>
-    </div>
+        <div class="marquee-item">
+          ÚLTIMOS DÍAS CON DESCUENTO APLICADO
+          <span class="marquee-separator">◆</span>
+        </div>
 
-    <div class="marquee-item">
-      TODOS LOS SERVICIOS QUE TU FAMILIA NECESITA, LOS TIENE RC
-      <span class="marquee-separator">◆</span>
-    </div>
+        <div class="marquee-item">
+          TODOS LOS SERVICIOS QUE TU FAMILIA NECESITA, LOS TIENE RC
+          <span class="marquee-separator">◆</span>
+        </div>
 
-    <div class="marquee-item">
-      ATENCIÓN PERSONALIZADA DE PRINCIPIO A FIN
-      <span class="marquee-separator">◆</span>
-    </div>
+        <div class="marquee-item">
+          ATENCIÓN PERSONALIZADA DE PRINCIPIO A FIN
+          <span class="marquee-separator">◆</span>
+        </div>
 
-    <div class="marquee-item">
-      UN SOLO EQUIPO PARA RESOLVER TODO
-      <span class="marquee-separator">◆</span>
-    </div>
+        <div class="marquee-item">
+          UN SOLO EQUIPO PARA RESOLVER TODO
+          <span class="marquee-separator">◆</span>
+        </div>
 
-    <div class="marquee-item">
-      TE ACOMPAÑAMOS ANTES, DURANTE Y DESPUÉS
-      <span class="marquee-separator">◆</span>
-    </div>
+        <div class="marquee-item">
+          TE ACOMPAÑAMOS ANTES, DURANTE Y DESPUÉS
+          <span class="marquee-separator">◆</span>
+        </div>
 
-    <div class="marquee-item">
-      MARCAS LÍDERES Y ASESORAMIENTO REAL
-      <span class="marquee-separator">◆</span>
-    </div>
+        <div class="marquee-item">
+          MARCAS LÍDERES Y ASESORAMIENTO REAL
+          <span class="marquee-separator">◆</span>
+        </div>
 
-    <div class="marquee-item">
-      GESTIONAMOS TU CONTRATACIÓN DE PRINCIPIO A FIN
-      <span class="marquee-separator">◆</span>
-    </div>
+        <div class="marquee-item">
+          GESTIONAMOS TU CONTRATACIÓN DE PRINCIPIO A FIN
+          <span class="marquee-separator">◆</span>
+        </div>
 
-    <div class="marquee-item">
-      NO SOLO VENDEMOS: TE ACOMPAÑAMOS
-      <span class="marquee-separator">◆</span>
+        <div class="marquee-item">
+          NO SOLO VENDEMOS: TE ACOMPAÑAMOS
+          <span class="marquee-separator">◆</span>
+        </div>
+
+      </div>
+
+
+      <!-- COPIA PARA EL LOOP -->
+
+      <div class="marquee-content">
+
+        <div class="marquee-item">
+          INSTALACIÓN RÁPIDA Y EN TODO EL PAÍS
+          <span class="marquee-separator">◆</span>
+        </div>
+
+        <div class="marquee-item">
+          POSVENTA ASEGURADA
+          <span class="marquee-separator">◆</span>
+        </div>
+
+        <div class="marquee-item">
+          ÚLTIMOS DÍAS CON DESCUENTO APLICADO
+          <span class="marquee-separator">◆</span>
+        </div>
+
+        <div class="marquee-item">
+          TODOS LOS SERVICIOS QUE TU FAMILIA NECESITA, LOS TIENE RC
+          <span class="marquee-separator">◆</span>
+        </div>
+
+        <div class="marquee-item">
+          ATENCIÓN PERSONALIZADA DE PRINCIPIO A FIN
+          <span class="marquee-separator">◆</span>
+        </div>
+
+        <div class="marquee-item">
+          UN SOLO EQUIPO PARA RESOLVER TODO
+          <span class="marquee-separator">◆</span>
+        </div>
+
+        <div class="marquee-item">
+          TE ACOMPAÑAMOS ANTES, DURANTE Y DESPUÉS
+          <span class="marquee-separator">◆</span>
+        </div>
+
+        <div class="marquee-item">
+          MARCAS LÍDERES Y ASESORAMIENTO REAL
+          <span class="marquee-separator">◆</span>
+        </div>
+
+        <div class="marquee-item">
+          GESTIONAMOS TU CONTRATACIÓN DE PRINCIPIO A FIN
+          <span class="marquee-separator">◆</span>
+        </div>
+
+        <div class="marquee-item">
+          NO SOLO VENDEMOS: TE ACOMPAÑAMOS
+          <span class="marquee-separator">◆</span>
+        </div>
+
+      </div>
+
     </div>
 
   </div>
 
-
-  <div class="marquee-content">
-
-    <div class="marquee-item">
-      INSTALACIÓN RÁPIDA Y EN TODO EL PAÍS
-      <span class="marquee-separator">◆</span>
-    </div>
-
-    <div class="marquee-item">
-      POSVENTA ASEGURADA
-      <span class="marquee-separator">◆</span>
-    </div>
-
-    <div class="marquee-item">
-      ÚLTIMOS DÍAS CON DESCUENTO APLICADO
-      <span class="marquee-separator">◆</span>
-    </div>
-
-    <div class="marquee-item">
-      TODOS LOS SERVICIOS QUE TU FAMILIA NECESITA, LOS TIENE RC
-      <span class="marquee-separator">◆</span>
-    </div>
-
-    <div class="marquee-item">
-      ATENCIÓN PERSONALIZADA DE PRINCIPIO A FIN
-      <span class="marquee-separator">◆</span>
-    </div>
-
-    <div class="marquee-item">
-      UN SOLO EQUIPO PARA RESOLVER TODO
-      <span class="marquee-separator">◆</span>
-    </div>
-
-    <div class="marquee-item">
-      TE ACOMPAÑAMOS ANTES, DURANTE Y DESPUÉS
-      <span class="marquee-separator">◆</span>
-    </div>
-
-    <div class="marquee-item">
-      MARCAS LÍDERES Y ASESORAMIENTO REAL
-      <span class="marquee-separator">◆</span>
-    </div>
-
-    <div class="marquee-item">
-      GESTIONAMOS TU CONTRATACIÓN DE PRINCIPIO A FIN
-      <span class="marquee-separator">◆</span>
-    </div>
-
-    <div class="marquee-item">
-      NO SOLO VENDEMOS: TE ACOMPAÑAMOS
-      <span class="marquee-separator">◆</span>
-    </div>
-
-  </div>
-
-</div>
-```
-
-  </div>
 
   <!-- =========================================================
        HEADER
@@ -2154,44 +151,43 @@
 
   <header>
 
-```
-<div class="header-inner">
+    <div class="header-inner">
 
-  <a
-    href="#inicio"
-    onclick="goHome()"
-    class="logo-link"
-  >
+      <a
+        href="#inicio"
+        onclick="goHome()"
+        class="logo-link"
+      >
 
-    <img
-      src="logo%20rc.png"
-      class="logo"
-      alt="RC Red de Servicios"
-    >
+        <img
+          src="logo%20rc.png"
+          class="logo"
+          alt="RC Red de Servicios"
+        >
 
-  </a>
+      </a>
 
 
-  <nav>
+      <nav>
 
-    <a href="#inicio">
-      INICIO
-    </a>
+        <a href="#inicio">
+          INICIO
+        </a>
 
-    <a href="#servicios">
-      SERVICIOS
-    </a>
+        <a href="#servicios">
+          SERVICIOS
+        </a>
 
-    <a href="#por-que-elegirnos">
-      ¿POR QUÉ ELEGIRNOS?
-    </a>
+        <a href="#por-que-elegirnos">
+          ¿POR QUÉ ELEGIRNOS?
+        </a>
 
-  </nav>
+      </nav>
 
-</div>
-```
+    </div>
 
   </header>
+
 
   <!-- =========================================================
        HERO
@@ -2202,125 +198,122 @@
     id="inicio"
   >
 
-```
-<div class="hero-inner">
+    <div class="hero-inner">
 
-  <div class="hero-content">
+      <div class="hero-content">
 
-    <div class="hero-badge">
-      AGENTES OFICIALES DE MARCAS LÍDERES
+        <div class="hero-badge">
+          AGENTES OFICIALES DE MARCAS LÍDERES
+        </div>
+
+
+        <h1>
+
+          CONECTAMOS TUS NECESIDADES CON
+
+          <span>
+            LAS MARCAS LÍDERES.
+          </span>
+
+        </h1>
+
+
+        <p class="hero-subtitle">
+
+          SERVICIOS DE SEGURIDAD, ENTRETENIMIENTO Y SALUD CON ATENCIÓN PERSONALIZADA PARA QUE ENCUENTRES LA MEJOR OPCIÓN PARA VOS Y TU FAMILIA.
+
+        </p>
+
+
+        <a
+          href="#servicios"
+          class="hero-button"
+        >
+          QUIERO MÁS INFORMACIÓN →
+        </a>
+
+      </div>
+
+
+      <!-- =====================================================
+           BLOQUES DE VALOR
+           ===================================================== -->
+
+      <div class="hero-features">
+
+        <div class="feature-box">
+
+          <span class="feature-number">
+            01
+          </span>
+
+          <h3>
+            ATENCIÓN PERSONALIZADA
+          </h3>
+
+          <p>
+            ASESORES EXPERTOS A TU DISPOSICIÓN PARA ENCONTRAR LA OPCIÓN IDEAL.
+          </p>
+
+        </div>
+
+
+        <div class="feature-box">
+
+          <span class="feature-number">
+            02
+          </span>
+
+          <h3>
+            GESTIÓN SIMPLE Y RÁPIDA
+          </h3>
+
+          <p>
+            NOS ENCARGAMOS DE TODO EL PROCESO PARA QUE VOS NO TENGAS QUE HACERLO.
+          </p>
+
+        </div>
+
+
+        <div class="feature-box">
+
+          <span class="feature-number">
+            03
+          </span>
+
+          <h3>
+            ACOMPAÑAMIENTO REAL
+          </h3>
+
+          <p>
+            ESTAMOS PRESENTES ANTES, DURANTE Y DESPUÉS DE TU CONTRATACIÓN.
+          </p>
+
+        </div>
+
+
+        <div class="feature-box">
+
+          <span class="feature-number">
+            04
+          </span>
+
+          <h3>
+            RESPALDO Y CONFIANZA
+          </h3>
+
+          <p>
+            TRABAJAMOS CON MARCAS LÍDERES Y TE BRINDAMOS POSVENTA REAL.
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
-
-
-    <h1>
-
-      CONECTAMOS TUS NECESIDADES CON
-
-      <span>
-        LAS MARCAS LÍDERES.
-      </span>
-
-    </h1>
-
-
-    <p class="hero-subtitle">
-
-      SERVICIOS DE SEGURIDAD, ENTRETENIMIENTO Y SALUD CON ATENCIÓN PERSONALIZADA PARA QUE ENCUENTRES LA MEJOR OPCIÓN PARA VOS Y TU FAMILIA.
-
-    </p>
-
-
-    <a
-      href="#servicios"
-      class="hero-button"
-    >
-
-      QUIERO MÁS INFORMACIÓN →
-
-    </a>
-
-  </div>
-
-
-  <!-- =====================================================
-       BLOQUES DE VALOR
-       ===================================================== -->
-
-  <div class="hero-features">
-
-    <div class="feature-box">
-
-      <span class="feature-number">
-        01
-      </span>
-
-      <h3>
-        ATENCIÓN PERSONALIZADA
-      </h3>
-
-      <p>
-        ASESORES EXPERTOS A TU DISPOSICIÓN PARA ENCONTRAR LA OPCIÓN IDEAL.
-      </p>
-
-    </div>
-
-
-    <div class="feature-box">
-
-      <span class="feature-number">
-        02
-      </span>
-
-      <h3>
-        GESTIÓN SIMPLE Y RÁPIDA
-      </h3>
-
-      <p>
-        NOS ENCARGAMOS DE TODO EL PROCESO PARA QUE VOS NO TENGAS QUE HACERLO.
-      </p>
-
-    </div>
-
-
-    <div class="feature-box">
-
-      <span class="feature-number">
-        03
-      </span>
-
-      <h3>
-        ACOMPAÑAMIENTO REAL
-      </h3>
-
-      <p>
-        ESTAMOS PRESENTES ANTES, DURANTE Y DESPUÉS DE TU CONTRATACIÓN.
-      </p>
-
-    </div>
-
-
-    <div class="feature-box">
-
-      <span class="feature-number">
-        04
-      </span>
-
-      <h3>
-        RESPALDO Y CONFIANZA
-      </h3>
-
-      <p>
-        TRABAJAMOS CON MARCAS LÍDERES Y TE BRINDAMOS POSVENTA REAL.
-      </p>
-
-    </div>
-
-  </div>
-
-</div>
-```
 
   </section>
+
 
   <!-- =========================================================
        SERVICIOS
@@ -2328,113 +321,118 @@
 
   <section id="servicios">
 
-```
-<div class="section-inner">
+    <div class="section-inner">
 
-  <div class="section-title">
+      <div class="section-title">
 
-    <span class="eyebrow">
-      NUESTROS SERVICIOS
-    </span>
+        <span class="eyebrow">
+          NUESTROS SERVICIOS
+        </span>
 
-    <h2>
-      TODO LO QUE NECESITÁS,
-      <br>
-      EN UN SOLO LUGAR.
-    </h2>
+        <h2>
+          TODO LO QUE NECESITÁS,
+          <br>
+          EN UN SOLO LUGAR.
+        </h2>
 
-    <p>
-      ELEGIMOS MARCAS LÍDERES PARA OFRECERTE SOLUCIONES CONFIABLES Y ACOMPAÑARTE DURANTE TODO EL PROCESO.
-    </p>
+        <p>
+          ELEGIMOS MARCAS LÍDERES PARA OFRECERTE SOLUCIONES CONFIABLES Y ACOMPAÑARTE DURANTE TODO EL PROCESO.
+        </p>
 
-  </div>
+      </div>
 
 
-  <div class="services-grid">
+      <div class="services-grid">
 
-    <div class="service-card">
+        <!-- ADT -->
 
-      <img
-        src="logo%20adt.png"
-        alt="ADT Alarmas"
-      >
+        <div class="service-card">
 
-      <h3>
-        ADT ALARMAS
-      </h3>
+          <img
+            src="logo%20adt.png"
+            alt="ADT Alarmas"
+          >
 
-      <p>
-        SEGURIDAD MONITOREADA PARA PROTEGER TU HOGAR, COMERCIO Y FAMILIA CON TECNOLOGÍA DE ÚLTIMA GENERACIÓN.
-      </p>
+          <h3>
+            ADT ALARMAS
+          </h3>
 
-      <a
-        href="javascript:void(0)"
-        class="service-button"
-        onclick="showADT()"
-      >
-        VER SOLUCIONES →
-      </a>
+          <p>
+            SEGURIDAD MONITOREADA PARA PROTEGER TU HOGAR, COMERCIO Y FAMILIA CON TECNOLOGÍA DE ÚLTIMA GENERACIÓN.
+          </p>
+
+          <a
+            href="javascript:void(0)"
+            class="service-button"
+            onclick="showADT()"
+          >
+            VER SOLUCIONES →
+          </a>
+
+        </div>
+
+
+        <!-- DIRECTV -->
+
+        <div class="service-card">
+
+          <img
+            src="logo%20directv.png"
+            alt="DIRECTV"
+          >
+
+          <h3>
+            DIRECTV
+          </h3>
+
+          <p>
+            TELEVISIÓN, ENTRETENIMIENTO Y PROMOCIONES ESPECIALES PARA DISFRUTAR DE TUS CONTENIDOS FAVORITOS.
+          </p>
+
+          <a
+            href="javascript:void(0)"
+            class="service-button"
+            onclick="showSection('directv')"
+          >
+            VER PROMOCIONES →
+          </a>
+
+        </div>
+
+
+        <!-- AVALIAN -->
+
+        <div class="service-card">
+
+          <img
+            src="logo%20avalian.png"
+            alt="Avalian"
+          >
+
+          <h3>
+            AVALIAN
+          </h3>
+
+          <p>
+            MEDICINA PREPAGA Y ALTERNATIVAS DE COBERTURA PARA CUIDAR LO QUE MÁS IMPORTA.
+          </p>
+
+          <a
+            href="javascript:void(0)"
+            class="service-button"
+            onclick="contactAvalian()"
+          >
+            QUIERO INFORMACIÓN →
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
-
-
-    <div class="service-card">
-
-      <img
-        src="logo%20directv.png"
-        alt="DIRECTV"
-      >
-
-      <h3>
-        DIRECTV
-      </h3>
-
-      <p>
-        TELEVISIÓN, ENTRETENIMIENTO Y PROMOCIONES ESPECIALES PARA DISFRUTAR DE TUS CONTENIDOS FAVORITOS.
-      </p>
-
-      <a
-        href="javascript:void(0)"
-        class="service-button"
-        onclick="showSection('directv')"
-      >
-        VER PROMOCIONES →
-      </a>
-
-    </div>
-
-
-    <div class="service-card">
-
-      <img
-        src="logo%20avalian.png"
-        alt="Avalian"
-      >
-
-      <h3>
-        AVALIAN
-      </h3>
-
-      <p>
-        MEDICINA PREPAGA Y ALTERNATIVAS DE COBERTURA PARA CUIDAR LO QUE MÁS IMPORTA.
-      </p>
-
-      <a
-        href="javascript:void(0)"
-        class="service-button"
-        onclick="contactAvalian()"
-      >
-        QUIERO INFORMACIÓN →
-      </a>
-
-    </div>
-
-  </div>
-
-</div>
-```
 
   </section>
+
 
   <!-- =========================================================
        PROPUESTA
@@ -2442,98 +440,99 @@
 
   <section class="proposal">
 
-```
-<div class="section-inner">
+    <div class="section-inner">
 
-  <div class="proposal-box">
+      <div class="proposal-box">
 
-    <div class="proposal-info">
+        <div class="proposal-info">
 
-      <h2>
-        RECIBÍ TU PROPUESTA PERSONALIZADA
-      </h2>
+          <h2>
+            RECIBÍ TU PROPUESTA PERSONALIZADA
+          </h2>
 
-      <p>
-        CONTANOS QUÉ NECESITÁS Y UNO DE NUESTROS ASESORES SE VA A COMUNICAR CON VOS PARA AYUDARTE A ENCONTRAR LA MEJOR ALTERNATIVA.
-      </p>
+          <p>
+            CONTANOS QUÉ NECESITÁS Y UNO DE NUESTROS ASESORES SE VA A COMUNICAR CON VOS PARA AYUDARTE A ENCONTRAR LA MEJOR ALTERNATIVA.
+          </p>
 
-      <br>
+          <br>
 
-      <p>
-        <strong>
-          NO SOMOS SOLO UN CANAL DE VENTA.
-        </strong>
+          <p>
 
-        <br>
+            <strong>
+              NO SOMOS SOLO UN CANAL DE VENTA.
+            </strong>
 
-        TE ACOMPAÑAMOS EN TODO EL PROCESO.
-      </p>
+            <br>
+
+            TE ACOMPAÑAMOS EN TODO EL PROCESO.
+
+          </p>
+
+        </div>
+
+
+        <form
+          class="proposal-form"
+          onsubmit="sendProposal(event)"
+        >
+
+          <input
+            type="text"
+            id="formName"
+            placeholder="NOMBRE Y APELLIDO"
+            required
+          >
+
+          <input
+            type="tel"
+            id="formWhatsapp"
+            placeholder="WHATSAPP"
+            required
+          >
+
+          <input
+            type="text"
+            id="formLocation"
+            placeholder="LOCALIDAD"
+            required
+          >
+
+          <select
+            id="formService"
+            required
+          >
+
+            <option value="">
+              ¿QUÉ SERVICIO TE INTERESA?
+            </option>
+
+            <option value="ADT Alarmas">
+              ADT ALARMAS
+            </option>
+
+            <option value="DirecTV">
+              DIRECTV
+            </option>
+
+            <option value="Avalian Medicina Prepaga">
+              AVALIAN MEDICINA PREPAGA
+            </option>
+
+          </select>
+
+
+          <button type="submit">
+            QUIERO MI PROPUESTA →
+          </button>
+
+        </form>
+
+      </div>
 
     </div>
 
-
-    <form
-      class="proposal-form"
-      onsubmit="sendProposal(event)"
-    >
-
-      <input
-        type="text"
-        id="formName"
-        placeholder="NOMBRE Y APELLIDO"
-        required
-      >
-
-      <input
-        type="tel"
-        id="formWhatsapp"
-        placeholder="WHATSAPP"
-        required
-      >
-
-      <input
-        type="text"
-        id="formLocation"
-        placeholder="LOCALIDAD"
-        required
-      >
-
-      <select
-        id="formService"
-        required
-      >
-
-        <option value="">
-          ¿QUÉ SERVICIO TE INTERESA?
-        </option>
-
-        <option value="ADT Alarmas">
-          ADT ALARMAS
-        </option>
-
-        <option value="DirecTV">
-          DIRECTV
-        </option>
-
-        <option value="Avalian Medicina Prepaga">
-          AVALIAN MEDICINA PREPAGA
-        </option>
-
-      </select>
-
-
-      <button type="submit">
-        QUIERO MI PROPUESTA →
-      </button>
-
-    </form>
-
-  </div>
-
-</div>
-```
-
   </section>
+
 
   <!-- =========================================================
        NUESTRA DIFERENCIA
@@ -2541,59 +540,66 @@
 
   <section id="por-que-elegirnos">
 
-```
-<div class="section-inner">
+    <div class="section-inner">
 
-  <div class="difference-box">
+      <div class="difference-box">
 
-    <div class="difference-header">
+        <div class="difference-header">
 
-      <span class="difference-eyebrow">
-        NUESTRA DIFERENCIA
-      </span>
+          <span class="difference-eyebrow">
+            NUESTRA DIFERENCIA
+          </span>
 
-      <h2>
-        ¿POR QUÉ ELEGIRNOS?
-      </h2>
+          <h2>
+            ¿POR QUÉ ELEGIRNOS?
+          </h2>
+
+        </div>
+
+
+        <div class="difference-content">
+
+          <p>
+
+            PORQUE EN
+            <span class="rc-highlight">RC</span>
+            NO BUSCAMOS SOLAMENTE CONCRETAR UNA VENTA.
+            BUSCAMOS QUE ENCUENTRES UNA SOLUCIÓN QUE REALMENTE SE ADAPTE A VOS.
+
+          </p>
+
+
+          <p>
+
+            TE ASESORAMOS, GESTIONAMOS LA CONTRATACIÓN,
+            COORDINAMOS LA INSTALACIÓN Y SEGUIMOS ESTANDO
+            DISPONIBLES DESPUÉS DE LA ACTIVACIÓN.
+
+          </p>
+
+
+          <p>
+
+            TRABAJAMOS CON MARCAS LÍDERES PARA OFRECERTE RESPALDO,
+            PERO NUESTRA VERDADERA DIFERENCIA ESTÁ EN EL ACOMPAÑAMIENTO:
+
+          </p>
+
+
+          <strong class="person-highlight">
+
+            UNA PERSONA REAL PARA AYUDARTE CUANDO LA NECESITÁS.
+
+          </strong>
+
+        </div>
+
+      </div>
 
     </div>
-
-
-    <div class="difference-content">
-
-      <p>
-        PORQUE EN
-        <span class="rc-highlight">RC</span>
-        NO BUSCAMOS SOLAMENTE CONCRETAR UNA VENTA.
-        BUSCAMOS QUE ENCUENTRES UNA SOLUCIÓN QUE REALMENTE SE ADAPTE A VOS.
-      </p>
-
-
-      <p>
-        TE ASESORAMOS, GESTIONAMOS LA CONTRATACIÓN,
-        COORDINAMOS LA INSTALACIÓN Y SEGUIMOS ESTANDO
-        DISPONIBLES DESPUÉS DE LA ACTIVACIÓN.
-      </p>
-
-
-      <p>
-        TRABAJAMOS CON MARCAS LÍDERES PARA OFRECERTE RESPALDO,
-        PERO NUESTRA VERDADERA DIFERENCIA ESTÁ EN EL ACOMPAÑAMIENTO:
-      </p>
-
-
-      <strong class="person-highlight">
-        UNA PERSONA REAL PARA AYUDARTE CUANDO LA NECESITÁS.
-      </strong>
-
-    </div>
-
-  </div>
-
-</div>
-```
 
   </section>
+
 
   <!-- =========================================================
        ADT
@@ -2601,314 +607,317 @@
 
   <section id="adt">
 
-```
-<div class="section-inner">
+    <div class="section-inner">
 
-  <div class="section-title">
+      <div class="section-title">
 
-    <span class="eyebrow">
-      ADT ALARMAS
-    </span>
+        <span class="eyebrow">
+          ADT ALARMAS
+        </span>
 
-    <h2>
-      SOLUCIONES DE SEGURIDAD
-    </h2>
+        <h2>
+          SOLUCIONES DE SEGURIDAD
+        </h2>
 
-    <p>
-      ELEGÍ TU UBICACIÓN PARA CONOCER LOS EQUIPOS DISPONIBLES.
-    </p>
+        <p>
+          ELEGÍ TU UBICACIÓN PARA CONOCER LOS EQUIPOS DISPONIBLES.
+        </p>
 
-  </div>
-
-
-  <div class="location-selector">
-
-    <button
-      class="location-button"
-      onclick="showADTCordoba()"
-    >
-      CÓRDOBA
-    </button>
-
-    <button
-      class="location-button"
-      onclick="showADTResto()"
-    >
-      RESTO DEL PAÍS
-    </button>
-
-  </div>
+      </div>
 
 
-  <div
-    id="adt-products"
-    class="adt-products"
-  ></div>
+      <div class="location-selector">
+
+        <button
+          class="location-button"
+          onclick="showADTCordoba()"
+        >
+          CÓRDOBA
+        </button>
+
+        <button
+          class="location-button"
+          onclick="showADTResto()"
+        >
+          RESTO DEL PAÍS
+        </button>
+
+      </div>
 
 
-  <div id="adt-faq">
+      <div
+        id="adt-products"
+        class="adt-products"
+      ></div>
 
-    <div class="faq-header">
 
-      <h2>
-        RESOLVÉ TUS DUDAS ANTES DE CONTRATAR TU ALARMA ADT
-      </h2>
+      <!-- =====================================================
+           FAQ
+           ===================================================== -->
 
-      <p>
-        TODO LO QUE NECESITÁS SABER SOBRE LOS SISTEMAS DE SEGURIDAD ADT EN ARGENTINA, DESDE CÓMO FUNCIONA EL MONITOREO HASTA LOS PACKS DISPONIBLES PARA TU HOGAR O COMERCIO.
-      </p>
+      <div id="adt-faq">
+
+        <div class="faq-header">
+
+          <h2>
+            RESOLVÉ TUS DUDAS ANTES DE CONTRATAR TU ALARMA ADT
+          </h2>
+
+          <p>
+            TODO LO QUE NECESITÁS SABER SOBRE LOS SISTEMAS DE SEGURIDAD ADT EN ARGENTINA, DESDE CÓMO FUNCIONA EL MONITOREO HASTA LOS PACKS DISPONIBLES PARA TU HOGAR O COMERCIO.
+          </p>
+
+        </div>
+
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)"
+            >
+
+              ¿QUÉ PASA CON MI ALARMA ADT SI ME MUDO?
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              EL SISTEMA ADT ES RELOCALIZABLE: PODÉS SOLICITAR EL TRASLADO E INSTALACIÓN DEL EQUIPO EN TU NUEVO DOMICILIO. EL SERVICIO DE MUDANZA LO COORDINA DIRECTAMENTE EL EQUIPO DE ADT Y TIENE UN COSTO QUE SE INFORMA AL MOMENTO DE LA SOLICITUD.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)"
+            >
+
+              ¿ADT OFRECE FINANCIACIÓN O CUOTAS?
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              SÍ, CONTAMOS CON OPCIONES DE FINANCIACIÓN PARA LA CONTRATACIÓN DE TU SISTEMA DE SEGURIDAD ADT. LAS CONDICIONES DE CUOTAS Y MEDIOS DE PAGO SE INFORMAN AL MOMENTO DE LA COTIZACIÓN PERSONALIZADA.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)"
+            >
+
+              ¿CÓMO ES EL PROCESO DE INSTALACIÓN DE ADT?
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              LA INSTALACIÓN LA REALIZA UN TÉCNICO CERTIFICADO DE ADT DIRECTAMENTE EN TU DOMICILIO O COMERCIO. EL PROCESO INCLUYE LA COLOCACIÓN DEL PANEL DE CONTROL, SENSORES DE MOVIMIENTO, CONTACTOS MAGNÉTICOS Y CÁMARAS SI LAS INCLUISTE EN TU PACK.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)"
+            >
+
+              ¿CUÁNTO CUESTA UNA ALARMA ADT EN ARGENTINA?
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              EL PRECIO DEPENDE DEL TIPO DE PROPIEDAD, LA CANTIDAD DE SENSORES, LAS CÁMARAS INCLUIDAS Y EL PLAN DE MONITOREO ELEGIDO. LA FORMA MÁS RÁPIDA DE CONOCER EL PRECIO EXACTO PARA TU CASO ES COMPLETAR LA COTIZACIÓN ONLINE.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)"
+            >
+
+              ¿LA ALARMA INCLUYE CÁMARAS?
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              LOS PACKS ADT TE PERMITEN INCLUIR CÁMARAS DE SEGURIDAD COMO PARTE DEL SISTEMA O AGREGARLAS COMO COMPLEMENTO.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)"
+            >
+
+              ¿FUNCIONA MI ALARMA SI SE CORTA LA LUZ?
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              SÍ. EL SISTEMA DE ALARMA ADT INCLUYE UNA BATERÍA INTERNA DE RESPALDO QUE MANTIENE LA PROTECCIÓN ACTIVA ANTE UN CORTE DE ENERGÍA ELÉCTRICA.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)"
+            >
+
+              ¿PUEDO ACTIVAR O DESACTIVAR MI ALARMA REMOTAMENTE?
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              SÍ. CON LA APP OFICIAL DE ADT PODÉS ACTIVAR Y DESACTIVAR TU ALARMA DESDE CUALQUIER LUGAR Y RECIBIR ALERTAS EN TIEMPO REAL.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)"
+            >
+
+              ¿LAS CÁMARAS ADT TIENEN DETECCIÓN DE PERSONAS?
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              SÍ. LAS CÁMARAS INTELIGENTES ADT INCORPORAN DETECCIÓN AUTOMÁTICA DE PERSONAS Y PERMITEN RECIBIR NOTIFICACIONES EN EL CELULAR.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)"
+            >
+
+              ¿PUEDO AGREGAR MÁS DE UNA CÁMARA?
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              SÍ. PODÉS INCORPORAR LA CANTIDAD DE CÁMARAS QUE NECESITÉS SEGÚN EL TAMAÑO DE TU CASA, DEPARTAMENTO O COMERCIO.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button
+              class="faq-question"
+              onclick="toggleFAQ(this)"
+            >
+
+              ¿PUEDO CONTRATAR SOLO CÁMARAS ADT?
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              SÍ. CONTAMOS CON KITS DE CÁMARAS ADT QUE PODÉS CONTRATAR DE FORMA INDEPENDIENTE, SIN NECESIDAD DE INCLUIR UNA ALARMA.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="new-equipment">
+
+          <h3>
+            NUEVOS EQUIPOS
+          </h3>
+
+          <p>
+            AHORA TE INSTALAMOS EQUIPOS INALÁMBRICOS DE ÚLTIMA GENERACIÓN.
+          </p>
+
+          <br>
+
+          <p>
+            SENSORES DE MOVIMIENTO, SENSORES DE APERTURA, BOTONES ANTIPÁNICO Y CÁMARAS HD DE ÚLTIMA TECNOLOGÍA PARA QUE TENGAS PROTECCIÓN DE VERDAD.
+          </p>
+
+        </div>
+
+      </div>
 
     </div>
-
-
-    <div class="faq-list">
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          onclick="toggleFAQ(this)"
-        >
-
-          ¿QUÉ PASA CON MI ALARMA ADT SI ME MUDO?
-
-          <span>+</span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          EL SISTEMA ADT ES RELOCALIZABLE: PODÉS SOLICITAR EL TRASLADO E INSTALACIÓN DEL EQUIPO EN TU NUEVO DOMICILIO. EL SERVICIO DE MUDANZA LO COORDINA DIRECTAMENTE EL EQUIPO DE ADT Y TIENE UN COSTO QUE SE INFORMA AL MOMENTO DE LA SOLICITUD.
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          onclick="toggleFAQ(this)"
-        >
-
-          ¿ADT OFRECE FINANCIACIÓN O CUOTAS?
-
-          <span>+</span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          SÍ, CONTAMOS CON OPCIONES DE FINANCIACIÓN PARA LA CONTRATACIÓN DE TU SISTEMA DE SEGURIDAD ADT. LAS CONDICIONES DE CUOTAS Y MEDIOS DE PAGO SE INFORMAN AL MOMENTO DE LA COTIZACIÓN PERSONALIZADA.
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          onclick="toggleFAQ(this)"
-        >
-
-          ¿CÓMO ES EL PROCESO DE INSTALACIÓN DE ADT?
-
-          <span>+</span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          LA INSTALACIÓN LA REALIZA UN TÉCNICO CERTIFICADO DE ADT DIRECTAMENTE EN TU DOMICILIO O COMERCIO. EL PROCESO INCLUYE LA COLOCACIÓN DEL PANEL DE CONTROL, SENSORES DE MOVIMIENTO, CONTACTOS MAGNÉTICOS Y CÁMARAS SI LAS INCLUISTE EN TU PACK.
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          onclick="toggleFAQ(this)"
-        >
-
-          ¿CUÁNTO CUESTA UNA ALARMA ADT EN ARGENTINA?
-
-          <span>+</span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          EL PRECIO DEPENDE DEL TIPO DE PROPIEDAD, LA CANTIDAD DE SENSORES, LAS CÁMARAS INCLUIDAS Y EL PLAN DE MONITOREO ELEGIDO. LA FORMA MÁS RÁPIDA DE CONOCER EL PRECIO EXACTO PARA TU CASO ES COMPLETAR LA COTIZACIÓN ONLINE.
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          onclick="toggleFAQ(this)"
-        >
-
-          ¿LA ALARMA INCLUYE CÁMARAS?
-
-          <span>+</span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          LOS PACKS ADT TE PERMITEN INCLUIR CÁMARAS DE SEGURIDAD COMO PARTE DEL SISTEMA O AGREGARLAS COMO COMPLEMENTO.
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          onclick="toggleFAQ(this)"
-        >
-
-          ¿FUNCIONA MI ALARMA SI SE CORTA LA LUZ?
-
-          <span>+</span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          SÍ. EL SISTEMA DE ALARMA ADT INCLUYE UNA BATERÍA INTERNA DE RESPALDO QUE MANTIENE LA PROTECCIÓN ACTIVA ANTE UN CORTE DE ENERGÍA ELÉCTRICA.
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          onclick="toggleFAQ(this)"
-        >
-
-          ¿PUEDO ACTIVAR O DESACTIVAR MI ALARMA REMOTAMENTE?
-
-          <span>+</span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          SÍ. CON LA APP OFICIAL DE ADT PODÉS ACTIVAR Y DESACTIVAR TU ALARMA DESDE CUALQUIER LUGAR Y RECIBIR ALERTAS EN TIEMPO REAL.
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          onclick="toggleFAQ(this)"
-        >
-
-          ¿LAS CÁMARAS ADT TIENEN DETECCIÓN DE PERSONAS?
-
-          <span>+</span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          SÍ. LAS CÁMARAS INTELIGENTES ADT INCORPORAN DETECCIÓN AUTOMÁTICA DE PERSONAS Y PERMITEN RECIBIR NOTIFICACIONES EN EL CELULAR.
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          onclick="toggleFAQ(this)"
-        >
-
-          ¿PUEDO AGREGAR MÁS DE UNA CÁMARA?
-
-          <span>+</span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          SÍ. PODÉS INCORPORAR LA CANTIDAD DE CÁMARAS QUE NECESITÉS SEGÚN EL TAMAÑO DE TU CASA, DEPARTAMENTO O COMERCIO.
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          onclick="toggleFAQ(this)"
-        >
-
-          ¿PUEDO CONTRATAR SOLO CÁMARAS ADT?
-
-          <span>+</span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          SÍ. CONTAMOS CON KITS DE CÁMARAS ADT QUE PODÉS CONTRATAR DE FORMA INDEPENDIENTE, SIN NECESIDAD DE INCLUIR UNA ALARMA.
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="new-equipment">
-
-      <h3>
-        NUEVOS EQUIPOS
-      </h3>
-
-      <p>
-        AHORA TE INSTALAMOS EQUIPOS INALÁMBRICOS DE ÚLTIMA GENERACIÓN.
-      </p>
-
-      <br>
-
-      <p>
-        SENSORES DE MOVIMIENTO, SENSORES DE APERTURA, BOTONES ANTIPÁNICO Y CÁMARAS HD DE ÚLTIMA TECNOLOGÍA PARA QUE TENGAS PROTECCIÓN DE VERDAD.
-      </p>
-
-    </div>
-
-  </div>
-
-</div>
-```
 
   </section>
+
 
   <!-- =========================================================
        DIRECTV
@@ -2916,131 +925,135 @@
 
   <section id="directv">
 
-```
-<div class="section-inner">
+    <div class="section-inner">
 
-  <div class="section-title">
+      <div class="section-title">
 
-    <span class="eyebrow">
-      DIRECTV
-    </span>
+        <span class="eyebrow">
+          DIRECTV
+        </span>
 
-    <h2>
-      PROMOCIONES DISPONIBLES
-    </h2>
-
-  </div>
-
-
-  <div class="directv-grid">
-
-    <div class="directv-card">
-
-      <div
-        class="directv-image"
-        onclick="openLightbox('oro%20hd.png')"
-      >
-
-        <img
-          src="oro%20hd.png"
-          alt="DIRECTV Oro HD"
-        >
+        <h2>
+          PROMOCIONES DISPONIBLES
+        </h2>
 
       </div>
 
 
-      <div class="directv-info">
-
-        <h3>
-          ORO HD + DISNEY+ + PRIME VIDEO GRATIS
-        </h3>
-
-        <p>
-          INSTALACIÓN GRATIS, 233 CANALES EN HD, 3 CUENTAS DE DGO, 3 CUENTAS DE DISNEY+ Y 3 CUENTAS DE PRIME VIDEO POR TAN SOLO $29.900. PROMOCIÓN LIMITADA.
-        </p>
+      <div class="directv-grid">
 
 
-        <div class="directv-buttons">
+        <!-- PROMOCIÓN ORO -->
 
-          <a
-            href="javascript:void(0)"
-            class="buy-button"
-            onclick="buyDirectvOro()"
+        <div class="directv-card">
+
+          <div
+            class="directv-image"
+            onclick="openLightbox('oro%20hd.png')"
           >
-            QUIERO CONTRATAR
-          </a>
 
-          <a
-            href="javascript:void(0)"
-            class="info-button"
-            onclick="infoDirectvOro()"
+            <img
+              src="oro%20hd.png"
+              alt="DIRECTV Oro HD"
+            >
+
+          </div>
+
+
+          <div class="directv-info">
+
+            <h3>
+              ORO HD + DISNEY+ + PRIME VIDEO GRATIS
+            </h3>
+
+            <p>
+              INSTALACIÓN GRATIS, 233 CANALES EN HD, 3 CUENTAS DE DGO, 3 CUENTAS DE DISNEY+ Y 3 CUENTAS DE PRIME VIDEO POR TAN SOLO $29.900. PROMOCIÓN LIMITADA.
+            </p>
+
+
+            <div class="directv-buttons">
+
+              <a
+                href="javascript:void(0)"
+                class="buy-button"
+                onclick="buyDirectvOro()"
+              >
+                QUIERO CONTRATAR
+              </a>
+
+              <a
+                href="javascript:void(0)"
+                class="info-button"
+                onclick="infoDirectvOro()"
+              >
+                MÁS INFORMACIÓN
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PROMOCIÓN SMART TV -->
+
+        <div class="directv-card">
+
+          <div
+            class="directv-image"
+            onclick="openLightbox('smartv%20dtv.png')"
           >
-            MÁS INFORMACIÓN
-          </a>
+
+            <img
+              src="smartv%20dtv.png"
+              alt="SMART TV DIRECTV"
+            >
+
+          </div>
+
+
+          <div class="directv-info">
+
+            <h3>
+              SMART TV 50" 4K + SERVICIO DE TELEVISIÓN
+            </h3>
+
+            <p>
+              GOOGLE TV, D-LED, DOLBY VISION, 230 CANALES, DECODIFICADOR HD ADICIONAL, INSTALACIÓN SIN COSTO Y ENVÍO INCLUIDO.
+            </p>
+
+
+            <div class="directv-buttons">
+
+              <a
+                href="javascript:void(0)"
+                class="buy-button"
+                onclick="buyDirectvSmart()"
+              >
+                QUIERO CONTRATAR
+              </a>
+
+              <a
+                href="javascript:void(0)"
+                class="info-button"
+                onclick="infoDirectvSmart()"
+              >
+                MÁS INFORMACIÓN
+              </a>
+
+            </div>
+
+          </div>
 
         </div>
 
       </div>
 
     </div>
-
-
-    <div class="directv-card">
-
-      <div
-        class="directv-image"
-        onclick="openLightbox('smartv%20dtv.png')"
-      >
-
-        <img
-          src="smartv%20dtv.png"
-          alt="SMART TV DIRECTV"
-        >
-
-      </div>
-
-
-      <div class="directv-info">
-
-        <h3>
-          SMART TV 50" 4K + SERVICIO DE TELEVISIÓN
-        </h3>
-
-        <p>
-          GOOGLE TV, D-LED, DOLBY VISION, 230 CANALES, DECODIFICADOR HD ADICIONAL, INSTALACIÓN SIN COSTO Y ENVÍO INCLUIDO.
-        </p>
-
-
-        <div class="directv-buttons">
-
-          <a
-            href="javascript:void(0)"
-            class="buy-button"
-            onclick="buyDirectvSmart()"
-          >
-            QUIERO CONTRATAR
-          </a>
-
-          <a
-            href="javascript:void(0)"
-            class="info-button"
-            onclick="infoDirectvSmart()"
-          >
-            MÁS INFORMACIÓN
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-```
 
   </section>
+
 
   <!-- =========================================================
        FOOTER
@@ -3048,18 +1061,17 @@
 
   <footer>
 
-```
-<img
-  src="logo%20rc.png"
-  alt="RC Red de Servicios"
->
+    <img
+      src="logo%20rc.png"
+      alt="RC Red de Servicios"
+    >
 
-<p>
-  © 2026 RC RED DE SERVICIOS — TODOS LOS DERECHOS RESERVADOS.
-</p>
-```
+    <p>
+      © 2026 RC RED DE SERVICIOS — TODOS LOS DERECHOS RESERVADOS.
+    </p>
 
   </footer>
+
 
   <!-- =========================================================
        REDES SOCIALES
@@ -3067,40 +1079,39 @@
 
   <div class="socials">
 
-```
-<a
-  class="social-button"
-  href="https://wa.me/5493585042057"
-  target="_blank"
-  aria-label="WhatsApp"
->
+    <a
+      class="social-button"
+      href="https://wa.me/5493585042057"
+      target="_blank"
+      aria-label="WhatsApp"
+    >
 
-  <svg viewBox="0 0 24 24">
+      <svg viewBox="0 0 24 24">
 
-    <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.3-6.1-3.5-8.3zM12.1 21.5c-1.7 0-3.4-.5-4.8-1.4l-.3-.2-3.8 1 1-3.7-.2-.3a9.7 9.7 0 1 1 8.1 4.6zm5.3-7.3c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.3-.3-.5.3-.4.8-1.4.1-.2.1-.4 0-.6-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.8 5.1.8.3 1.5.5 2 .6.8.1 1.6.1 2.2-.1.7-.2 1.7-.7 1.9-1.4.2-.7.2-1.3.1-1.4-.1-.1-.3-.2-.6-.3z"/>
+        <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.3-6.1-3.5-8.3zM12.1 21.5c-1.7 0-3.4-.5-4.8-1.4l-.3-.2-3.8 1 1-3.7-.2-.3a9.7 9.7 0 1 1 8.1 4.6zm5.3-7.3c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.3-.3-.5.3-.4.8-1.4.1-.2.1-.4 0-.6-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.8 5.1.8.3 1.5.5 2 .6.8.1 1.6.1 2.2-.1.7-.2 1.7-.7 1.9-1.4.2-.7.2-1.3.1-1.4-.1-.1-.3-.2-.6-.3z"/>
 
-  </svg>
+      </svg>
 
-</a>
+    </a>
 
 
-<a
-  class="social-button"
-  href="https://www.instagram.com/rcreddeservicios/"
-  target="_blank"
-  aria-label="Instagram"
->
+    <a
+      class="social-button"
+      href="https://www.instagram.com/rcreddeservicios/"
+      target="_blank"
+      aria-label="Instagram"
+    >
 
-  <svg viewBox="0 0 24 24">
+      <svg viewBox="0 0 24 24">
 
-    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6.5a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
+        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6.5a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
 
-  </svg>
+      </svg>
 
-</a>
-```
+    </a>
 
   </div>
+
 
   <!-- =========================================================
        MODAL
@@ -3111,78 +1122,77 @@
     id="productModal"
   >
 
-```
-<div class="modal">
+    <div class="modal">
 
-  <button
-    class="modal-close"
-    onclick="closeProductModal()"
-  >
-    ×
-  </button>
-
-
-  <div class="modal-image">
-
-    <img
-      id="modalImage"
-      src=""
-      alt=""
-    >
-
-  </div>
+      <button
+        class="modal-close"
+        onclick="closeProductModal()"
+      >
+        ×
+      </button>
 
 
-  <div class="modal-content">
+      <div class="modal-image">
 
-    <div
-      class="category"
-      id="modalCategory"
-    ></div>
+        <img
+          id="modalImage"
+          src=""
+          alt=""
+        >
 
-    <h2 id="modalTitle"></h2>
-
-    <p id="modalDescription"></p>
+      </div>
 
 
-    <div class="includes-title">
-      INCLUYE:
+      <div class="modal-content">
+
+        <div
+          class="category"
+          id="modalCategory"
+        ></div>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription"></p>
+
+
+        <div class="includes-title">
+          INCLUYE:
+        </div>
+
+        <ul
+          id="modalIncludes"
+          class="includes-list"
+        ></ul>
+
+
+        <div class="modal-actions">
+
+          <a
+            href="#"
+            id="modalBuy"
+            class="buy-button"
+            target="_blank"
+          >
+            QUIERO CONTRATAR
+          </a>
+
+          <a
+            href="#"
+            id="modalInfo"
+            class="info-button"
+            target="_blank"
+          >
+            MÁS INFORMACIÓN
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <ul
-      id="modalIncludes"
-      class="includes-list"
-    ></ul>
-
-
-    <div class="modal-actions">
-
-      <a
-        href="#"
-        id="modalBuy"
-        class="buy-button"
-        target="_blank"
-      >
-        QUIERO CONTRATAR
-      </a>
-
-      <a
-        href="#"
-        id="modalInfo"
-        class="info-button"
-        target="_blank"
-      >
-        MÁS INFORMACIÓN
-      </a>
-
-    </div>
-
   </div>
 
-</div>
-```
-
-  </div>
 
   <!-- =========================================================
        LIGHTBOX
@@ -3194,15 +1204,14 @@
     onclick="closeLightbox()"
   >
 
-```
-<img
-  id="lightboxImage"
-  src=""
-  alt=""
->
-```
+    <img
+      id="lightboxImage"
+      src=""
+      alt=""
+    >
 
   </div>
+
 
   <!-- =========================================================
        JAVASCRIPT
@@ -3210,8 +1219,7 @@
 
   <script>
 
-    const WHATSAPP =
-      "5493585042057";
+    const WHATSAPP = "5493585042057";
 
 
     /* =========================================================
